@@ -1,0 +1,20 @@
+PODS:
+  - SIOAuth2Client (0.1.0):
+    - SIURLSessionBlocks
+  - SIURLSessionBlocks (0.1.0)
+
+DEPENDENCIES:
+  - SIOAuth2Client (from `../`)
+  - SIURLSessionBlocks (from `../../SIURLSessionBlocks`)
+
+EXTERNAL SOURCES:
+  SIOAuth2Client:
+    :path: ../
+  SIURLSessionBlocks:
+    :path: ../../SIURLSessionBlocks
+
+SPEC CHECKSUMS:
+  SIOAuth2Client: 4c5bbffce3f6e3a59cb5ef5f2b5e9aaab38e7d74
+  SIURLSessionBlocks: 0a43129639db7b5789e730e27b892d0a6b5a9027
+
+COCOAPODS: 0.28.0
