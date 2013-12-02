@@ -13,8 +13,10 @@ typedef void (^SIOAuth2ClientRequestCompleteBlock)(NSDictionary * responseObject
 @property(nonatomic,copy,readonly) NSString * redirectURI;
 @property(nonatomic,copy,readonly) NSString * authorizationPath;
 @property(nonatomic,copy,readonly) NSString * tokenPath;
-@property(nonatomic,copy,readonly) SIOAuth2ClientAuthenticationCompleteBlock authenticationCompletionBlock;
 @property(nonatomic,copy) SIOAccessCredential * accessCredential;
+
+@property(nonatomic,copy,readonly) SIOAuth2ClientAuthenticationCompleteBlock authenticationCompletionBlock;
+
 
 #pragma mark - Initializer
 +(instancetype)fetchOAuth2ClientWithURLBaseURL:(NSString *)theBaseUrl;

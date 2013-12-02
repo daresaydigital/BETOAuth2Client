@@ -61,8 +61,6 @@
 @property(nonatomic,copy) NSString *tokenType;
 @property(nonatomic,copy) NSString *refreshToken;
 @property(nonatomic,copy) NSDate   * expiresInDate;
-@property(nonatomic,assign) BOOL isExpired;
-
 @end
 
 
@@ -72,8 +70,7 @@
 @property(nonatomic,copy)   NSString     * secretKey;
 @property(nonatomic,copy)   NSArray      * scopes;
 @property(nonatomic,copy)   NSString     * redirectURI;
-@property(nonatomic,strong) NSURLSession * sessionAuthentication;
-@property(nonatomic,strong) NSURLSession * sessionRequests;
+@property(nonatomic,strong) NSURLSession * session;
 @property(nonatomic,copy) NSString * authorizationPath;
 @property(nonatomic,copy) NSString * tokenPath;
 @property(nonatomic,copy) NSString * nonceState;
@@ -119,10 +116,10 @@
 
 -(void)setAccessCredential:(SIOAccessCredential *)accessCredential; {
   _accessCredential = accessCredential;
-  NSURLSessionConfiguration * sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-  sessionConfiguration.HTTPAdditionalHeaders = @{@"Authorization" : [NSString stringWithFormat:@"Bearer %@", accessCredential.accessToken]};
-  self.sessionRequests = [NSURLSession SI_buildSessionWithName:accessCredential.accessToken withBaseURLString:self.baseURLString andSessionConfiguration:sessionConfiguration andRequestSerializer:[SIURLSessionRequestSerializerFormURLEncoding serializerWithOptions:nil] andResponseSerializer:nil operationQueue:nil];
-  [self resetSessionAuthentication];
+  if(accessCredential) [self.session SI_setValue:[NSString stringWithFormat:@"Bearer %@", accessCredential.accessToken] forHTTPHeaderField:@"Authorization"];
+  else [self.session SI_setValue:nil forHTTPHeaderField:@"Authorization"];
+    
+
 
   
 }
@@ -135,7 +132,7 @@
   sessionConfiguration.URLCache = nil;
   sessionConfiguration.URLCredentialStorage = nil;
   
-  self.sessionAuthentication = [NSURLSession SI_fetchSessionWithName:self.baseURLString] ? :
+  self.session = [NSURLSession SI_fetchSessionWithName:self.baseURLString] ? :
   [NSURLSession SI_buildSessionWithName:self.baseURLString withBaseURLString:self.baseURLString andSessionConfiguration:sessionConfiguration andRequestSerializer:[SIURLSessionRequestSerializerFormURLEncoding serializerWithOptions:nil] andResponseSerializer:nil operationQueue:nil];
 
 }
@@ -147,21 +144,24 @@
   NSParameterAssert(theTokenPath);
   self.authorizationPath = theAuthorizationPath;
   self.tokenPath = theTokenPath;
+  CFUUIDRef uuid = CFUUIDCreate(NULL);
+  CFStringRef nonce = CFUUIDCreateString(NULL, uuid);
+  CFRelease(uuid);
 
-  self.nonceState = @([NSDate timeIntervalSinceReferenceDate]).stringValue;
+  self.nonceState = (NSString *)CFBridgingRelease(nonce);
   NSParameterAssert(self.nonceState);
   
   
   
   NSMutableDictionary * params = @{@"response_type" : @"code",
-                            @"client_id" : self.clientId,
-                            @"redirect_uri" : self.redirectURI,
-                            @"state" : self.nonceState
-                            }.mutableCopy;
+                                   @"client_id" : self.clientId,
+                                   @"redirect_uri" : self.redirectURI,
+                                   @"state" : self.nonceState
+                                   }.mutableCopy;
   
   if(self.scopes && self.scopes.count > 0) [params addEntriesFromDictionary:@{@"scope" : [self.scopes componentsJoinedByString:@" "]}];
   
-  NSURL * requestUrl =[self.sessionAuthentication SI_taskGETResource:theAuthorizationPath withParams:params.copy completeBlock:nil].currentRequest.URL;
+  NSURL * requestUrl =[self.session SI_taskGETResource:theAuthorizationPath withParams:params.copy completeBlock:nil].currentRequest.URL;
   self.authenticationCompletionBlock = theBlock;
   [[UIApplication sharedApplication] openURL:requestUrl];
 
@@ -187,7 +187,7 @@
   }];
   
   
-  if ([params[@"state"] isEqualToString:[self.sessionAuthentication.SI_serializerForRequest escapedQueryValueFromString:self.nonceState]] == NO) {
+  if ([params[@"state"] isEqualToString:[self.session.SI_serializerForRequest escapedQueryValueFromString:self.nonceState]] == NO) {
     NSDictionary * userInfo = @{
                                 NSLocalizedDescriptionKey:
                                   NSLocalizedStringFromTable(@"state_error", @"SIURLSessionBlocks", nil),
@@ -224,7 +224,7 @@
     
     
     __weak typeof(self) weakSelf = self;
-    [[self.sessionAuthentication SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+    [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
       SIOAccessCredential * credential =  SIOAccessCredential.new;
       credential.accessToken = responseObject[@"access_token"];
       NSNumber * number = responseObject[@"expires_in"];
@@ -245,8 +245,8 @@
 -(void)refreshWithTokenPath:(NSString *)theTokenPath
                  onComplete:(SIOAuth2ClientAuthenticationCompleteBlock)theBlock; {
   NSParameterAssert(self.accessCredential);
-  NSParameterAssert(self.accessCredential.isValid);
-  NSParameterAssert(self.sessionAuthentication);
+
+  NSParameterAssert(self.session);
 
   NSDictionary * postData = @{@"grant_type" : @"refresh_token",
                               @"refresh_token" : self.accessCredential.refreshToken,
@@ -256,7 +256,7 @@
   
   
   __weak typeof(self) weakSelf = self;
-  [[self.sessionAuthentication SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+  [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
     SIOAccessCredential * credential =  SIOAccessCredential.new;
     credential.accessToken = responseObject[@"access_token"];
     NSNumber * number = responseObject[@"expires_in"];
@@ -278,12 +278,10 @@
   NSParameterAssert(theHTTPMethod);
   NSParameterAssert(theResourcePath);
   NSParameterAssert(theBlock);
-  NSParameterAssert(self.sessionRequests);
+  NSParameterAssert(self.session);
   
-  [[self.sessionRequests SI_taskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-    
-    theBlock(responseObject, error);
-    
+  [[self.session SI_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+        theBlock(responseObject, error);
   }] resume];
   
   
