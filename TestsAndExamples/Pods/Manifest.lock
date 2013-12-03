@@ -1,20 +1,20 @@
 PODS:
+  - SIHTTPCore (0.1.0)
   - SIOAuth2Client (0.1.0):
-    - SIURLSessionBlocks
-  - SIURLSessionBlocks (0.1.0)
+    - SIHTTPCore
 
 DEPENDENCIES:
+  - SIHTTPCore (from `../../SIHTTPCore`)
   - SIOAuth2Client (from `../`)
-  - SIURLSessionBlocks (from `../../SIURLSessionBlocks`)
 
 EXTERNAL SOURCES:
+  SIHTTPCore:
+    :path: ../../SIHTTPCore
   SIOAuth2Client:
     :path: ../
-  SIURLSessionBlocks:
-    :path: ../../SIURLSessionBlocks
 
 SPEC CHECKSUMS:
-  SIOAuth2Client: 4c5bbffce3f6e3a59cb5ef5f2b5e9aaab38e7d74
-  SIURLSessionBlocks: 0a43129639db7b5789e730e27b892d0a6b5a9027
+  SIHTTPCore: 80193798604ae9fba769ba8e2118a7d8658a01fc
+  SIOAuth2Client: 74c4946582c6025fcde4c35ef54056ce50ca9bc0
 
 COCOAPODS: 0.28.0

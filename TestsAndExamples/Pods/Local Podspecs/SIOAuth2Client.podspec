@@ -28,8 +28,11 @@ Pod::Spec.new do |s|
   s.source       = { :git => git_url, :tag => version}
   
 
-  s.platform  = :ios, "7.0"
-  s.dependency 'SIURLSessionBlocks'
+  
+  s.ios.deployment_target = '7.0'
+  s.osx.deployment_target = '10.9'
+
+  s.dependency 'SIHTTPCore'
 
   s.source_files = source_files
   s.resources    = "#{name}/**/*.{implementation,private}"

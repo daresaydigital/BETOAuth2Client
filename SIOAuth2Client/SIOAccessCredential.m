@@ -4,18 +4,28 @@
 @property(nonatomic,copy) NSString *accessToken;
 @property(nonatomic,copy) NSString *tokenType;
 @property(nonatomic,copy) NSString *refreshToken;
-@property(nonatomic,copy) NSDate   * expiresInDate;
-
+@property(nonatomic,copy) NSDate   * expiresAtDate;
++(instancetype)accessCredentialWithDictionary:(NSDictionary *)theDictionary;
 @end
 
 
 @implementation SIOAccessCredential
 
-#warning Should probably not be hardcoded to NO
++(instancetype)accessCredentialWithDictionary:(NSDictionary *)theDictionary; {
+  SIOAccessCredential * credential = [[[self class] alloc] init];
+  credential.accessToken = theDictionary[@"access_token"];
+  NSNumber * number = theDictionary[@"expires_in"];
+  credential.expiresAtDate = [NSDate dateWithTimeIntervalSinceNow:number.integerValue];
+  credential.tokenType = theDictionary[@"token_type"];
+  credential.refreshToken = theDictionary[@"refresh_token"];
+  if(credential.refreshToken && credential.accessToken && credential.tokenType && credential.expiresAtDate)
+    return credential;
+  else
+    return nil;
 
--(BOOL)isValid; {
-  return !!(self.accessToken && self.tokenType && self.refreshToken && self.expiresInDate);
 }
+
+#warning Do not hardcode later.
 
 -(BOOL)isExpired; {
   return NO;
@@ -27,7 +37,7 @@
     credential.accessToken   = self.accessToken;
     credential.tokenType     = self.tokenType;
     credential.refreshToken  = self.refreshToken;
-    credential.expiresInDate = self.expiresInDate;
+    credential.expiresAtDate = self.expiresAtDate;
   }
   NSParameterAssert(credential);
   return credential;
@@ -37,7 +47,7 @@
   [aCoder encodeObject:self.accessToken forKey:@"accessToken"];
   [aCoder encodeObject:self.tokenType forKey:@"tokenType"];
   [aCoder encodeObject:self.refreshToken forKey:@"refreshToken"];
-  [aCoder encodeObject:self.expiresInDate forKey:@"expiresInDate"];
+  [aCoder encodeObject:self.expiresAtDate forKey:@"expiresInDate"];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder; {
@@ -46,7 +56,7 @@
     self.accessToken = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"accessToken"];
     self.tokenType = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"tokenType"];
     self.refreshToken = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"refreshToken"];
-    self.expiresInDate = [aDecoder decodeObjectOfClass:[NSDate class] forKey:@"expiresInDate"];
+    self.expiresAtDate = [aDecoder decodeObjectOfClass:[NSDate class] forKey:@"expiresAtDate"];
   }
   NSParameterAssert(self);
   return self;
@@ -60,7 +70,7 @@
           self.accessToken,
           self.tokenType,
           self.refreshToken,
-          self.expiresInDate,
+          self.expiresAtDate,
           self.isExpired ? @"YES" : @"NO"
           ];
 }

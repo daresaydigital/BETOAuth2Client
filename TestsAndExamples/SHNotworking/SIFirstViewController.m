@@ -8,7 +8,7 @@
 
 #import "SIFirstViewController.h"
 #import <SIOAuth2Client.h>
-#import <SIURLSessionBlocks.h>
+#import <SIHTTPCore.h>
 
 #define CLIENT_ID  @"7y7gp0495bt7acqbqdaw7y7gp0495bt7"
 #define APP_SECRET @"ckm6ssv30cwz1zg7xu2pckm6ssv30cwz1zg7xu2p"

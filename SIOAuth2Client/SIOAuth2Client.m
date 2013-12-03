@@ -1,6 +1,6 @@
 
 #import "SIOAuth2Client.h"
-#import <SIURLSessionBlocks.h>
+#import <SIHTTPCore.h>
 
 
 @interface SIOAuth2ClientManager : NSObject
@@ -57,10 +57,7 @@
 
 
 @interface SIOAccessCredential ()
-@property(nonatomic,copy) NSString *accessToken;
-@property(nonatomic,copy) NSString *tokenType;
-@property(nonatomic,copy) NSString *refreshToken;
-@property(nonatomic,copy) NSDate   * expiresInDate;
++(instancetype)accessCredentialWithDictionary:(NSDictionary *)theDictionary;
 @end
 
 
@@ -75,7 +72,7 @@
 @property(nonatomic,copy) NSString * tokenPath;
 @property(nonatomic,copy) NSString * nonceState;
 @property(nonatomic,copy) SIOAuth2ClientAuthenticationCompleteBlock authenticationCompletionBlock;
--(void)resetSessionAuthentication;
+
 @end
 
 @implementation SIOAuth2Client : NSObject
@@ -106,7 +103,20 @@
   client.clientId = theClientId;
   client.secretKey = theSecretKey;
   client.redirectURI = theRedirectURI;
-  [client resetSessionAuthentication];
+  NSURLSessionConfiguration * sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+  sessionConfiguration.HTTPCookieAcceptPolicy = NSHTTPCookieAcceptPolicyNever;
+  sessionConfiguration.HTTPShouldSetCookies = NO;
+  sessionConfiguration.HTTPShouldUsePipelining = NO;
+  sessionConfiguration.HTTPCookieStorage = nil;
+  sessionConfiguration.URLCache = nil;
+  sessionConfiguration.URLCredentialStorage = nil;
+  
+  client.session = [NSURLSession SI_fetchSessionWithName:client.baseURLString] ? :
+  [NSURLSession SI_buildSessionWithName:client.baseURLString
+                      withBaseURLString:client.baseURLString
+                andSessionConfiguration:sessionConfiguration
+                   andRequestSerializer:[SIURLSessionRequestSerializerFormURLEncoding serializerWithOptions:nil]
+                  andResponseSerializer:nil operationQueue:nil];
 
   [[SIOAuth2ClientManager sharedManager].clientMap setObject:client forKey:client.baseURLString];
   
@@ -122,19 +132,6 @@
 
 
   
-}
--(void)resetSessionAuthentication; {
-  NSURLSessionConfiguration * sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-  sessionConfiguration.HTTPCookieAcceptPolicy = NSHTTPCookieAcceptPolicyNever;
-  sessionConfiguration.HTTPShouldSetCookies = NO;
-  sessionConfiguration.HTTPShouldUsePipelining = NO;
-  sessionConfiguration.HTTPCookieStorage = nil;
-  sessionConfiguration.URLCache = nil;
-  sessionConfiguration.URLCredentialStorage = nil;
-  
-  self.session = [NSURLSession SI_fetchSessionWithName:self.baseURLString] ? :
-  [NSURLSession SI_buildSessionWithName:self.baseURLString withBaseURLString:self.baseURLString andSessionConfiguration:sessionConfiguration andRequestSerializer:[SIURLSessionRequestSerializerFormURLEncoding serializerWithOptions:nil] andResponseSerializer:nil operationQueue:nil];
-
 }
 
 -(void)authenticateWithAuthorizationPath:(NSString *)theAuthorizationPath andTokenPath:(NSString *)theTokenPath
@@ -225,13 +222,7 @@
     
     __weak typeof(self) weakSelf = self;
     [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-      SIOAccessCredential * credential =  SIOAccessCredential.new;
-      credential.accessToken = responseObject[@"access_token"];
-      NSNumber * number = responseObject[@"expires_in"];
-      credential.expiresInDate = [NSDate dateWithTimeIntervalSinceNow:number.integerValue];
-      credential.tokenType = responseObject[@"token_type"];
-      credential.refreshToken = responseObject[@"refresh_token"];
-      weakSelf.accessCredential = credential;
+      weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:responseObject];
       weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
     }] resume];
     
@@ -257,13 +248,7 @@
   
   __weak typeof(self) weakSelf = self;
   [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-    SIOAccessCredential * credential =  SIOAccessCredential.new;
-    credential.accessToken = responseObject[@"access_token"];
-    NSNumber * number = responseObject[@"expires_in"];
-    credential.expiresInDate = [NSDate dateWithTimeIntervalSinceNow:number.integerValue];
-    credential.tokenType = responseObject[@"token_type"];
-    credential.refreshToken = responseObject[@"refresh_token"];
-    weakSelf.accessCredential = credential;
+    weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:responseObject];
     theBlock(weakSelf.accessCredential, error);
   }] resume];
 
@@ -277,11 +262,10 @@
   
   NSParameterAssert(theHTTPMethod);
   NSParameterAssert(theResourcePath);
-  NSParameterAssert(theBlock);
   NSParameterAssert(self.session);
   
   [[self.session SI_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-        theBlock(responseObject, error);
+        if(theBlock) theBlock(responseObject, error);
   }] resume];
   
   

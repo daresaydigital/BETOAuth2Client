@@ -9,14 +9,9 @@ typedef void (^SIOAuth2ClientRequestCompleteBlock)(NSDictionary * responseObject
 @interface SIOAuth2Client : NSObject
 #pragma mark Properties
 @property(nonatomic,copy,readonly) NSArray * scopes;
-@property(nonatomic,copy,readonly) NSString * baseURLString;
 @property(nonatomic,copy,readonly) NSString * redirectURI;
-@property(nonatomic,copy,readonly) NSString * authorizationPath;
-@property(nonatomic,copy,readonly) NSString * tokenPath;
-@property(nonatomic,copy) SIOAccessCredential * accessCredential;
-
+@property(nonatomic,strong) SIOAccessCredential * accessCredential;
 @property(nonatomic,copy,readonly) SIOAuth2ClientAuthenticationCompleteBlock authenticationCompletionBlock;
-
 
 #pragma mark - Initializer
 +(instancetype)fetchOAuth2ClientWithURLBaseURL:(NSString *)theBaseUrl;
