@@ -32,11 +32,7 @@ pod 'SIOAuth2Client'
 
 
 ## API
-
-This is currently a very early alpha version, 
-look at ```SIOAuth2Client.h``` & ```SIOCredential.h``` to figure out how to use it. 
-API changes are expected.
-
+[Documentation for now](https://github.com/screeninteraction/SIOAuth2Client/blob/master/SIOAuth2Client/SIOAuth2Client.h)
 
 
 Contact
