@@ -1,6 +1,8 @@
 
 #import "SIOAuth2Client.h"
 #import <SIHTTPCore.h>
+#import "SIURLSessionRequestSerializerFormURLEncoding.h"
+#import "SIURLSessionRequestSerializerJSON.h"
 
 
 @interface SIOAuth2ClientManager : NSObject
@@ -87,12 +89,14 @@
 }
 
 #pragma mark - Initializer
+
+
 +(instancetype)OAuth2ClientWithURLBaseURL:(NSString *)theBaseUrl
                                  clientId:(NSString *)theClientId
                                 secretKey:(NSString *)theSecretKey
                               redirectURI:(NSString *)theRedirectURI
-                               withScopes:(NSArray *)theScopes; {
-  
+                               withScopes:(NSArray *)theScopes
+                              requestType:(SIORequestEncodingType)requestType; {
   NSParameterAssert(theBaseUrl);
   NSParameterAssert(theClientId);
   NSParameterAssert(theSecretKey);
@@ -110,17 +114,34 @@
   sessionConfiguration.HTTPCookieStorage = nil;
   sessionConfiguration.URLCache = nil;
   sessionConfiguration.URLCredentialStorage = nil;
+  SIURLSessionRequestSerializer * request = nil;
+  switch (requestType) {
+  case SIORequestEncodingTypeJSON:
+      request = [SIURLSessionRequestSerializerJSON new];
+    break;
+  case SIORequestEncodingTypeFormURLEncoding:
+      request = [SIURLSessionRequestSerializerFormURLEncoding new];
+  default:
+    break;
+}
+  NSString * sessionIdentifier = [NSString stringWithFormat:@"%@_%@_%d",
+                                  client.baseURLString,
+                                  theClientId,
+                                  requestType
+                                  ];
   
-  client.session = [NSURLSession SI_fetchSessionWithName:client.baseURLString] ? :
-  [NSURLSession SI_buildSessionWithName:client.baseURLString
-                      withBaseURLString:client.baseURLString
-                andSessionConfiguration:sessionConfiguration
-                   andRequestSerializer:[SIURLSessionRequestSerializerFormURLEncoding serializerWithOptions:nil]
-                  andResponseSerializer:nil operationQueue:nil];
-
+  client.session = [NSURLSession SI_fetchSessionWithName:sessionIdentifier];
+  if(client.session == nil) client.session = [NSURLSession SI_sessionWithName:sessionIdentifier
+                                                            withBaseURLString:client.baseURLString
+                                                      andSessionConfiguration:sessionConfiguration
+                                                         andRequestSerializer:request
+                                                        andResponseSerializer:nil operationQueue:nil];
+  
+  
   [[SIOAuth2ClientManager sharedManager].clientMap setObject:client forKey:client.baseURLString];
   
   return client;
+
 }
 
 
@@ -128,8 +149,41 @@
   _accessCredential = accessCredential;
   if(accessCredential) [self.session SI_setValue:[NSString stringWithFormat:@"Bearer %@", accessCredential.accessToken] forHTTPHeaderField:@"Authorization"];
   else [self.session SI_setValue:nil forHTTPHeaderField:@"Authorization"];
-    
+  
+  
+}
 
+
+-(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
+                        andTokenPath:(NSString *)theTokenPath
+                          onComplete:(SIOAuth2ClientAuthenticationCompleteBlock)theBlock; {
+  NSParameterAssert(theBlock);
+  NSParameterAssert(theTokenPath);
+  NSParameterAssert(theUsername);
+  NSParameterAssert(thePassword);
+  self.tokenPath = theTokenPath;
+  NSMutableDictionary *     params = @{@"grant_type" : @"password",
+                                       @"client_id" : self.clientId,
+                                       @"client_secret" : self.secretKey,
+                                       @"username" : theUsername,
+                                       @"password" : thePassword
+                                       }.mutableCopy;
+
+  if([theUsername isEqualToString:self.clientId]) params[@"grant_type"] = @"client_credentials";
+  
+
+  __weak typeof(self) weakSelf = self;
+  self.authenticationCompletionBlock = theBlock;
+  [[self.session SI_taskPOSTResource:theTokenPath withParams:params completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+    
+    
+    weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
+    weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
+
+  }] resume];
+  
+
+  
 
   
 }
@@ -163,6 +217,7 @@
   [[UIApplication sharedApplication] openURL:requestUrl];
 
 }
+
 
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
           onlyMatchingUrlPrefix:(NSString *)thePrefix
@@ -221,8 +276,8 @@
     
     
     __weak typeof(self) weakSelf = self;
-    [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-      weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:responseObject];
+    [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+      weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
       weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
     }] resume];
     
@@ -247,8 +302,8 @@
   
   
   __weak typeof(self) weakSelf = self;
-  [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-    weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:responseObject];
+  [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+    weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
     theBlock(weakSelf.accessCredential, error);
   }] resume];
 
@@ -264,8 +319,8 @@
   NSParameterAssert(theResourcePath);
   NSParameterAssert(self.session);
   
-  [[self.session SI_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-        if(theBlock) theBlock(responseObject, error);
+  [[self.session SI_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+        if(theBlock) theBlock((NSDictionary *)responseObject, error);
   }] resume];
   
   
