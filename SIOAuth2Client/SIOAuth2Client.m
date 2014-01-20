@@ -124,7 +124,7 @@
   default:
     break;
 }
-  NSString * sessionIdentifier = [NSString stringWithFormat:@"%@_%@_%d",
+  NSString * sessionIdentifier = [NSString stringWithFormat:@"%@_%@_%ld",
                                   client.baseURLString,
                                   theClientId,
                                   requestType
