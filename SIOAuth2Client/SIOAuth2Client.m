@@ -3,6 +3,7 @@
 #import <SIHTTPCore.h>
 #import "SIURLSessionRequestSerializerFormURLEncoding.h"
 #import "SIURLSessionRequestSerializerJSON.h"
+#import "SIURLSessionResponseSerializerJSON.h"
 
 
 @interface SIOAuth2ClientManager : NSObject
@@ -124,7 +125,7 @@
   default:
     break;
 }
-  NSString * sessionIdentifier = [NSString stringWithFormat:@"%@_%@_%ld",
+  NSString * sessionIdentifier = [NSString stringWithFormat:@"%@_%@_%d",
                                   client.baseURLString,
                                   theClientId,
                                   requestType
@@ -135,7 +136,7 @@
                                                             withBaseURLString:client.baseURLString
                                                       andSessionConfiguration:sessionConfiguration
                                                          andRequestSerializer:request
-                                                        andResponseSerializer:nil operationQueue:nil];
+                                                        andResponseSerializer:[SIURLSessionResponseSerializerJSON serializerWithJSONReadingOptions:NSJSONWritingPrettyPrinted withoutNull:YES] operationQueue:nil];
   
   
   [[SIOAuth2ClientManager sharedManager].clientMap setObject:client forKey:client.baseURLString];
