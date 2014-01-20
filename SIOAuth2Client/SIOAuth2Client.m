@@ -117,18 +117,18 @@
   sessionConfiguration.URLCredentialStorage = nil;
   SIURLSessionRequestSerializer * request = nil;
   switch (requestType) {
-  case SIORequestEncodingTypeJSON:
+    case SIORequestEncodingTypeJSON:
       request = [SIURLSessionRequestSerializerJSON new];
-    break;
-  case SIORequestEncodingTypeFormURLEncoding:
+      break;
+    case SIORequestEncodingTypeFormURLEncoding:
       request = [SIURLSessionRequestSerializerFormURLEncoding new];
-  default:
-    break;
-}
-  NSString * sessionIdentifier = [NSString stringWithFormat:@"%@_%@_%d",
+    default:
+      break;
+  }
+  NSString * sessionIdentifier = [NSString stringWithFormat:@"%@_%@_%@",
                                   client.baseURLString,
                                   theClientId,
-                                  requestType
+                                  @(requestType)
                                   ];
   
   client.session = [NSURLSession SI_fetchSessionWithName:sessionIdentifier];
@@ -136,13 +136,14 @@
                                                             withBaseURLString:client.baseURLString
                                                       andSessionConfiguration:sessionConfiguration
                                                          andRequestSerializer:request
-                                                        andResponseSerializer:[SIURLSessionResponseSerializerJSON serializerWithJSONReadingOptions:NSJSONWritingPrettyPrinted withoutNull:YES] operationQueue:nil];
+                                                        andResponseSerializer:
+                                              [SIURLSessionResponseSerializerJSON serializerWithJSONReadingOptions:NSJSONWritingPrettyPrinted withoutNull:YES] operationQueue:nil];
   
   
-  [[SIOAuth2ClientManager sharedManager].clientMap setObject:client forKey:client.baseURLString];
+  [[SIOAuth2ClientManager sharedManager].clientMap setObject:client forKey:sessionIdentifier];
   
   return client;
-
+  
 }
 
 
@@ -169,10 +170,10 @@
                                        @"username" : theUsername,
                                        @"password" : thePassword
                                        }.mutableCopy;
-
+  
   if([theUsername isEqualToString:self.clientId]) params[@"grant_type"] = @"client_credentials";
   
-
+  
   __weak typeof(self) weakSelf = self;
   self.authenticationCompletionBlock = theBlock;
   [[self.session SI_taskPOSTResource:theTokenPath withParams:params completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
@@ -180,12 +181,12 @@
     
     weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
     weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
-
+    
   }] resume];
   
-
   
-
+  
+  
   
 }
 
@@ -199,7 +200,7 @@
   CFUUIDRef uuid = CFUUIDCreate(NULL);
   CFStringRef nonce = CFUUIDCreateString(NULL, uuid);
   CFRelease(uuid);
-
+  
   self.nonceState = (NSString *)CFBridgingRelease(nonce);
   NSParameterAssert(self.nonceState);
   
@@ -216,14 +217,14 @@
   NSURL * requestUrl =[self.session SI_taskGETResource:theAuthorizationPath withParams:params.copy completeBlock:nil].currentRequest.URL;
   self.authenticationCompletionBlock = theBlock;
   [[UIApplication sharedApplication] openURL:requestUrl];
-
+  
 }
 
 
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
           onlyMatchingUrlPrefix:(NSString *)thePrefix
     withSourceApplicationString:(__unused NSString *)theSourceApplicationString; {
-
+  
   NSParameterAssert(theUrl);
   NSParameterAssert(thePrefix);
   NSParameterAssert(theSourceApplicationString);
@@ -244,7 +245,7 @@
     NSDictionary * userInfo = @{
                                 NSLocalizedDescriptionKey:
                                   NSLocalizedStringFromTable(@"state_error", @"SIURLSessionBlocks", nil),
-
+                                
                                 NSLocalizedFailureReasonErrorKey:
                                   NSLocalizedStringFromTable(@"The state code does not validate against CRSF protection", @"SIURLSessionBlocks", nil),
                                 
@@ -253,7 +254,7 @@
     
     NSError * error = [[NSError alloc] initWithDomain:NSURLErrorDomain code:NSURLErrorUserCancelledAuthentication userInfo:userInfo];
     self.authenticationCompletionBlock(nil, error);
-   }
+  }
   
   else if(params[@"error"]) {
     NSDictionary * userInfo = @{
@@ -284,7 +285,7 @@
     
   }
   
-
+  
   return YES;
 }
 
@@ -292,9 +293,9 @@
 -(void)refreshWithTokenPath:(NSString *)theTokenPath
                  onComplete:(SIOAuth2ClientAuthenticationCompleteBlock)theBlock; {
   NSParameterAssert(self.accessCredential);
-
+  
   NSParameterAssert(self.session);
-
+  
   NSDictionary * postData = @{@"grant_type" : @"refresh_token",
                               @"refresh_token" : self.accessCredential.refreshToken,
                               @"client_secret" : self.secretKey,
@@ -307,7 +308,7 @@
     weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
     theBlock(weakSelf.accessCredential, error);
   }] resume];
-
+  
   
 }
 
@@ -321,7 +322,7 @@
   NSParameterAssert(self.session);
   
   [[self.session SI_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-        if(theBlock) theBlock((NSDictionary *)responseObject, error);
+    if(theBlock) theBlock((NSDictionary *)responseObject, error);
   }] resume];
   
   
