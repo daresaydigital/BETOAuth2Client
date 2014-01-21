@@ -109,12 +109,12 @@
   client.secretKey = theSecretKey;
   client.redirectURI = theRedirectURI;
   NSURLSessionConfiguration * sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-  sessionConfiguration.HTTPCookieAcceptPolicy = NSHTTPCookieAcceptPolicyNever;
-  sessionConfiguration.HTTPShouldSetCookies = NO;
-  sessionConfiguration.HTTPShouldUsePipelining = NO;
-  sessionConfiguration.HTTPCookieStorage = nil;
-  sessionConfiguration.URLCache = nil;
-  sessionConfiguration.URLCredentialStorage = nil;
+//  sessionConfiguration.HTTPCookieAcceptPolicy = NSHTTPCookieAcceptPolicyNever;
+//  sessionConfiguration.HTTPShouldSetCookies = NO;
+//  sessionConfiguration.HTTPShouldUsePipelining = NO;
+//  sessionConfiguration.HTTPCookieStorage = nil;
+//  sessionConfiguration.URLCache = nil;
+//  sessionConfiguration.URLCredentialStorage = nil;
   SIURLSessionRequestSerializer * request = nil;
   switch (requestType) {
     case SIORequestEncodingTypeJSON:
