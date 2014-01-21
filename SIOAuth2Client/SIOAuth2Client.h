@@ -4,7 +4,7 @@
 
 
 typedef void (^SIOAuth2ClientAuthenticationCompleteBlock)(SIOAccessCredential * credential, NSError * error);
-typedef void (^SIOAuth2ClientRequestCompleteBlock)(NSDictionary * responseObject, NSError * error);
+typedef void (^SIOAuth2ClientRequestCompleteBlock)(NSDictionary * responseObject, NSError * error, NSHTTPURLResponse * URLResponse);
 
 typedef NS_ENUM(NSInteger, SIORequestEncodingType) {
   SIORequestEncodingTypeFormURLEncoding,

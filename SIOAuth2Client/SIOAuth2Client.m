@@ -321,8 +321,8 @@
   NSParameterAssert(theResourcePath);
   NSParameterAssert(self.session);
   
-  [[self.session SI_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-    if(theBlock) theBlock((NSDictionary *)responseObject, error);
+  [[self.session SI_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse * HTTPURLResponse, NSURLSessionTask *task) {
+    if(theBlock) theBlock((NSDictionary *)responseObject, error, HTTPURLResponse);
   }] resume];
   
   
