@@ -81,9 +81,9 @@
 @implementation SIOAuth2Client : NSObject
 
 #pragma mark - Fetcher
-+(instancetype)fetchOAuth2ClientWithURLBaseURL:(NSString *)theBaseUrl; {
-  NSParameterAssert(theBaseUrl);
-  SIOAuth2Client * client = [[SIOAuth2ClientManager sharedManager].clientMap objectForKey:theBaseUrl];
++(instancetype)existingOAuth2ClientWithIdentifier:(NSString *)theIdentifier; {
+  NSParameterAssert(theIdentifier);
+  SIOAuth2Client * client = [[SIOAuth2ClientManager sharedManager].clientMap objectForKey:theIdentifier];
   NSParameterAssert(client);
   return client;
   
@@ -92,12 +92,14 @@
 #pragma mark - Initializer
 
 
-+(instancetype)OAuth2ClientWithURLBaseURL:(NSString *)theBaseUrl
++(instancetype)OAuth2ClientWithIdentifier:(NSString *)theIdentifier
+                               baseURL:(NSString *)theBaseUrl
                                  clientId:(NSString *)theClientId
                                 secretKey:(NSString *)theSecretKey
                               redirectURI:(NSString *)theRedirectURI
                                withScopes:(NSArray *)theScopes
                               requestType:(SIORequestEncodingType)requestType; {
+  NSParameterAssert(theIdentifier);
   NSParameterAssert(theBaseUrl);
   NSParameterAssert(theClientId);
   NSParameterAssert(theSecretKey);
@@ -125,14 +127,9 @@
     default:
       break;
   }
-  NSString * sessionIdentifier = [NSString stringWithFormat:@"%@_%@_%@",
-                                  client.baseURLString,
-                                  theClientId,
-                                  @(requestType)
-                                  ];
   
-  client.session = [NSURLSession SI_fetchSessionWithName:sessionIdentifier];
-  if(client.session == nil) client.session = [NSURLSession SI_sessionWithName:sessionIdentifier
+  client.session = [NSURLSession SI_fetchSessionWithName:theIdentifier];
+  if(client.session == nil) client.session = [NSURLSession SI_sessionWithName:theIdentifier
                                                             withBaseURLString:client.baseURLString
                                                       andSessionConfiguration:sessionConfiguration
                                                          andRequestSerializer:request
@@ -140,7 +137,7 @@
                                               [SIURLSessionResponseSerializerJSON serializerWithJSONReadingOptions:NSJSONWritingPrettyPrinted withoutNull:YES] operationQueue:nil];
   
   
-  [[SIOAuth2ClientManager sharedManager].clientMap setObject:client forKey:sessionIdentifier];
+  [[SIOAuth2ClientManager sharedManager].clientMap setObject:client forKey:theIdentifier];
   
   return client;
   
@@ -233,12 +230,8 @@
     return NO;
   
   
-  NSMutableDictionary * params = @{}.mutableCopy;
-  [[theUrl.query componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(NSString * param, __unused NSUInteger idx, __unused  BOOL *stop) {
-    NSArray * parts = [param componentsSeparatedByString:@"="];
-    if(parts.count < 2) return;
-    [params setObject:[parts objectAtIndex:1] forKey:[parts objectAtIndex:0]];
-  }];
+  NSMutableDictionary * params = [self.session.SI_serializerForResponse
+                                  queryDictionaryFromString:theUrl.query].mutableCopy;
   
   
   if ([params[@"state"] isEqualToString:[self.session.SI_serializerForRequest escapedQueryValueFromString:self.nonceState]] == NO) {

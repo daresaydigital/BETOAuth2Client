@@ -14,16 +14,18 @@ typedef NS_ENUM(NSInteger, SIORequestEncodingType) {
 
 @interface SIOAuth2Client : NSObject
 #pragma mark Properties
+@property(nonatomic,copy,readonly) NSString * identifier;
 @property(nonatomic,copy,readonly) NSArray * scopes;
 @property(nonatomic,copy,readonly) NSString * redirectURI;
 @property(nonatomic,strong) SIOAccessCredential * accessCredential;
 @property(nonatomic,copy,readonly) SIOAuth2ClientAuthenticationCompleteBlock authenticationCompletionBlock;
 
 #pragma mark - Initializer
-+(instancetype)fetchOAuth2ClientWithURLBaseURL:(NSString *)theBaseUrl;
++(instancetype)existingOAuth2ClientWithIdentifier:(NSString *)theIdentifier;
 
 
-+(instancetype)OAuth2ClientWithURLBaseURL:(NSString *)theBaseUrl
++(instancetype)OAuth2ClientWithIdentifier:(NSString *)theIdentifier
+                                  baseURL:(NSString *)theBaseUrl
                                  clientId:(NSString *)theClientId
                                 secretKey:(NSString *)theSecretKey
                               redirectURI:(NSString *)theRedirectURI
