@@ -60,11 +60,13 @@
 
 
 @interface SIOAccessCredential ()
+
 +(instancetype)accessCredentialWithDictionary:(NSDictionary *)theDictionary;
 @end
 
 
 @interface SIOAuth2Client ()
+
 @property(nonatomic,copy)   NSString     * baseURLString;
 @property(nonatomic,copy)   NSString     * clientId;
 @property(nonatomic,copy)   NSString     * secretKey;
@@ -138,6 +140,8 @@
   
   
   [[SIOAuth2ClientManager sharedManager].clientMap setObject:client forKey:theIdentifier];
+
+
   
   return client;
   
@@ -161,6 +165,7 @@
   NSParameterAssert(theUsername);
   NSParameterAssert(thePassword);
   self.tokenPath = theTokenPath;
+  self.session.SI_delegate = (id <NSURLSessionDataDelegate,NSURLSessionDownloadDelegate>)self;
   NSMutableDictionary *     params = @{@"grant_type" : @"password",
                                        @"client_id" : self.clientId,
                                        @"client_secret" : self.secretKey,
@@ -170,16 +175,19 @@
   
   if([theUsername isEqualToString:self.clientId]) params[@"grant_type"] = @"client_credentials";
   
-  
+
   __weak typeof(self) weakSelf = self;
   self.authenticationCompletionBlock = theBlock;
-  [[self.session SI_taskPOSTResource:theTokenPath withParams:params completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+  NSURLSessionTask * task = [self.session SI_taskPOSTResource:theTokenPath withParams:params completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
     
     
     weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
     weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
     
-  }] resume];
+  }];
+  
+  
+  [task resume];
   
   
   
@@ -320,7 +328,6 @@
   
   
 }
-
 
 
 
