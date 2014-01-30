@@ -26,10 +26,17 @@
 
 }
 
-#warning Do not hardcode later.
+-(NSTimeInterval)expiresInTimeInterval; {
+  return [self.expiresAtDate timeIntervalSinceNow];
+}
+
+-(BOOL)isAboutToExpire; {
+  return self.expiresInTimeInterval < 4000.f;
+}
+
 
 -(BOOL)isExpired; {
-  return NO;
+  return self.expiresInTimeInterval < 10.f;
 }
 
 -(instancetype)copyWithZone:(NSZone *)zone; {
@@ -48,7 +55,7 @@
   [aCoder encodeObject:self.accessToken forKey:@"accessToken"];
   [aCoder encodeObject:self.tokenType forKey:@"tokenType"];
   [aCoder encodeObject:self.refreshToken forKey:@"refreshToken"];
-  [aCoder encodeObject:self.expiresAtDate forKey:@"expiresInDate"];
+  [aCoder encodeObject:self.expiresAtDate forKey:@"expiresAtDate"];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder; {
@@ -67,12 +74,15 @@
   return YES;
 }
 -(NSString *)description; {
-  return [NSString stringWithFormat:@"accessToken: %@ \n tokenType: %@ \n refreshToken: %@ \n expiresInDate: %@ \n isExpired: %@ \n",
+  return [NSString
+          stringWithFormat:@"accessToken: %@ \n tokenType: %@ \n refreshToken: %@ \n expiresInDate: %@ \n expiresInTimeInterval: %f \n isExpired: %@ \n isAboutToExpire: %@ \n",
           self.accessToken,
           self.tokenType,
           self.refreshToken,
           self.expiresAtDate,
-          self.isExpired ? @"YES" : @"NO"
+          self.expiresInTimeInterval,
+          self.isExpired ? @"YES" : @"NO",
+          self.isAboutToExpire ? @"YES" : @"NO"
           ];
 }
 @end
