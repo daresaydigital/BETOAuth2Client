@@ -18,7 +18,6 @@
   credential.expiresAtDate = [NSDate dateWithTimeIntervalSinceNow:number.integerValue];
   credential.tokenType = theDictionary[@"token_type"];
   credential.refreshToken = theDictionary[@"refresh_token"];
-  //if(credential.refreshToken && credential.accessToken && credential.tokenType && credential.expiresAtDate)
   if(credential.accessToken)
     return credential;
   else
@@ -31,7 +30,7 @@
 }
 
 -(BOOL)isAboutToExpire; {
-  return self.expiresInTimeInterval < 4000;
+  return self.expiresInTimeInterval < 1000;
 }
 
 
