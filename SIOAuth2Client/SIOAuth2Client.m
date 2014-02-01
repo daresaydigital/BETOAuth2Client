@@ -294,7 +294,6 @@
 -(void)refreshWithTokenPath:(NSString *)theTokenPath
                  onComplete:(SIOAuth2ClientAuthenticationCompleteBlock)theBlock; {
   NSParameterAssert(self.accessCredential);
-  
   NSParameterAssert(self.session);
   
   NSDictionary * postData = @{@"grant_type" : @"refresh_token",
@@ -305,7 +304,7 @@
   
   
   __weak typeof(self) weakSelf = self;
-  [[self.session SI_taskPOSTResource:self.tokenPath withParams:postData completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+  [[self.session SI_taskPOSTResource:theTokenPath withParams:postData completeBlock:^(NSError *error, NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
     weakSelf.accessCredential = [SIOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
     theBlock(weakSelf.accessCredential, error);
   }] resume];

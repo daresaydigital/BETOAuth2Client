@@ -31,7 +31,7 @@
 }
 
 -(BOOL)isAboutToExpire; {
-  return self.expiresInTimeInterval < 4000.f;
+  return self.expiresInTimeInterval < 4000;
 }
 
 

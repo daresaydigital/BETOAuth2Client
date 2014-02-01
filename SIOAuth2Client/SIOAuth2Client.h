@@ -20,10 +20,10 @@ typedef NS_ENUM(NSInteger, SIORequestEncodingType) {
 @property(nonatomic,strong) SIOAccessCredential * accessCredential;
 @property(nonatomic,copy,readonly) SIOAuth2ClientAuthenticationCompleteBlock authenticationCompletionBlock;
 
-#pragma mark - Initializer
+#pragma mark - Shared
 +(instancetype)existingOAuth2ClientWithIdentifier:(NSString *)theIdentifier;
 
-
+#pragma mark - Initializer
 +(instancetype)OAuth2ClientWithIdentifier:(NSString *)theIdentifier
                                   baseURL:(NSString *)theBaseUrl
                                  clientId:(NSString *)theClientId
@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, SIORequestEncodingType) {
                                withScopes:(NSArray *)theScopes
                               requestType:(SIORequestEncodingType)requestType;
 
+#pragma mark - Authentication
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
                             andTokenPath:(NSString *)theTokenPath
                               onComplete:(SIOAuth2ClientAuthenticationCompleteBlock)theBlock;
@@ -40,14 +41,16 @@ typedef NS_ENUM(NSInteger, SIORequestEncodingType) {
                             andTokenPath:(NSString *)theTokenPath
                               onComplete:(SIOAuth2ClientAuthenticationCompleteBlock)theBlock;
 
-
+#pragma mark - Delegation
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
                 onlyMatchingUrlPrefix:(NSString *)thePrefix
     withSourceApplicationString:(NSString *)theSourceApplicationString;
 
+#pragma mark - Session
 -(void)refreshWithTokenPath:(NSString *)theTokenPath
                  onComplete:(SIOAuth2ClientAuthenticationCompleteBlock)theBlock;
 
+#pragma mark - Requests
 -(void)requestWithResourcePath:(NSString *)theResourcePath
                     parameters:(NSDictionary *)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
