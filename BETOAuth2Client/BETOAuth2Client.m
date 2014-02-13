@@ -178,11 +178,11 @@
 
   __weak typeof(self) weakSelf = self;
   self.authenticationCompletionBlock = theCompletion;
-  NSURLSessionTask * task = [self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task, NSError *error) {
+  NSURLSessionTask * task = [self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(BETResponse * response) {
     
     
-    weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)responseObject];
-    weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
+    weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
+    weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, response.error);
     
   }];
   
@@ -280,9 +280,9 @@
     
     
     __weak typeof(self) weakSelf = self;
-    [[self.session bet_taskPOSTResource:self.tokenPath withParams:postData completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task, NSError *error) {
-      weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)responseObject];
-      weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
+    [[self.session bet_taskPOSTResource:self.tokenPath withParams:postData completion:^(BETResponse * response) {
+      weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
+      weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, response.error);
     }] resume];
     
   }
@@ -310,16 +310,16 @@
   
   
   __weak typeof(self) weakSelf = self;
-  [[self.session bet_taskPOSTResource:theTokenPath withParams:postData completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task,NSError *error) {
-    weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)responseObject];
-    if(theCompletion) theCompletion(weakSelf.accessCredential, error);
+  [[self.session bet_taskPOSTResource:theTokenPath withParams:postData completion:^(BETResponse * response) {
+    weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
+    if(theCompletion) theCompletion(weakSelf.accessCredential, response.error);
   }] resume];
   
   
 }
 
 -(void)requestWithResourcePath:(NSString *)theResourcePath
-                    parameters:(NSDictionary *)theParameters
+                    parameters:(id<NSFastEnumeration>)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
                     completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion; {
   
@@ -327,8 +327,8 @@
   NSParameterAssert(theResourcePath);
   NSParameterAssert(self.session);
   
-  [[self.session bet_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse * HTTPURLResponse, NSURLSessionTask *task, NSError *error) {
-    if(theCompletion) theCompletion((NSDictionary *)responseObject, HTTPURLResponse, error);
+  [[self.session bet_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completion:^(BETResponse * response) {
+    if(theCompletion) theCompletion(response.content, response.HTTPURLResponse, response.error);
   }] resume];
   
   

@@ -4,7 +4,7 @@
 
 
 typedef void (^BETOAuth2ClientAuthenticationCompletionBlock)(BETOAuth2Credential * credential, NSError * error);
-typedef void (^BETOAuth2ClientRequestCompletionBlock)(NSObject<NSFastEnumeration> * responseObject, NSHTTPURLResponse * URLResponse, NSError * error);
+typedef void (^BETOAuth2ClientRequestCompletionBlock)(id<NSFastEnumeration> responseObject, NSHTTPURLResponse * URLResponse, NSError * error);
 
 typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
   BETOAuth2ClientRequestEncodingTypeFormURLEncoding,
@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
 
 #pragma mark - Requests
 -(void)requestWithResourcePath:(NSString *)theResourcePath
-                    parameters:(NSDictionary *)theParameters
+                    parameters:(id<NSFastEnumeration>)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
                     completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
 
