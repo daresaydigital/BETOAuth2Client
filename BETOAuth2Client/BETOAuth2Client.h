@@ -3,8 +3,8 @@
 #import "BETOAccessCredential.h"
 
 
-typedef void (^BETOAuth2ClientAuthenticationCompleteBlock)(BETOAccessCredential * credential, NSError * error);
-typedef void (^BETOAuth2ClientRequestCompleteBlock)(NSDictionary * responseObject, NSError * error, NSHTTPURLResponse * URLResponse);
+typedef void (^BETOAuth2ClientAuthenticationCompletionBlock)(BETOAccessCredential * credential, NSError * error);
+typedef void (^BETOAuth2ClientRequestCompletionBlock)(NSDictionary * responseObject, NSError * error, NSHTTPURLResponse * URLResponse);
 
 typedef NS_ENUM(NSInteger, BETRequestEncodingType) {
   BETRequestEncodingTypeFormURLEncoding,
@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, BETRequestEncodingType) {
 @property(nonatomic,copy,readonly) NSArray * scopes;
 @property(nonatomic,copy,readonly) NSString * redirectURI;
 @property(nonatomic,strong) BETOAccessCredential * accessCredential;
-@property(nonatomic,copy,readonly) BETOAuth2ClientAuthenticationCompleteBlock authenticationCompletionBlock;
+@property(nonatomic,copy,readonly) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletion;
 
 #pragma mark - Shared
 +(instancetype)existingOAuth2ClientWithIdentifier:(NSString *)theIdentifier;
@@ -29,17 +29,17 @@ typedef NS_ENUM(NSInteger, BETRequestEncodingType) {
                                  clientId:(NSString *)theClientId
                                 secretKey:(NSString *)theSecretKey
                               redirectURI:(NSString *)theRedirectURI
-                               withScopes:(NSArray *)theScopes
+                               scopes:(NSArray *)theScopes
                               requestType:(BETRequestEncodingType)requestType;
 
 #pragma mark - Authentication
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
-                            andTokenPath:(NSString *)theTokenPath
-                              onComplete:(BETOAuth2ClientAuthenticationCompleteBlock)theBlock;
+                            tokenPath:(NSString *)theTokenPath
+                          completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
 
 -(void)authenticateWithAuthorizationPath:(NSString *)theAuthorizationPath
-                            andTokenPath:(NSString *)theTokenPath
-                              onComplete:(BETOAuth2ClientAuthenticationCompleteBlock)theBlock;
+                            tokenPath:(NSString *)theTokenPath
+                              completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
 
 #pragma mark - Delegation
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
@@ -48,12 +48,12 @@ typedef NS_ENUM(NSInteger, BETRequestEncodingType) {
 
 #pragma mark - Session
 -(void)refreshWithTokenPath:(NSString *)theTokenPath
-                 onComplete:(BETOAuth2ClientAuthenticationCompleteBlock)theBlock;
+                   completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
 
 #pragma mark - Requests
 -(void)requestWithResourcePath:(NSString *)theResourcePath
                     parameters:(NSDictionary *)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
-                    onComplete:(BETOAuth2ClientRequestCompleteBlock)theBlock;
+                    completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
 
 @end

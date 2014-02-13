@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation; {
   BOOL isHandled = NO;
   
-  isHandled =[[BETOAuth2Client existingOAuth2ClientWithIdentifier:@"https://api-etalio.3fs.si"]
+  isHandled =[[BETOAuth2Client existingOAuth2ClientWithIdentifier:@"etalio"]
               handleApplicationOpenURL:url
               onlyMatchingUrlPrefix:@"etalio" withSourceApplicationString:sourceApplication];
 

@@ -9,11 +9,23 @@
 #import "SIFirstViewController.h"
 #import <BETOAuth2Client.h>
 
-#define CLIENT_ID  @"7y7gp0495bt7acqbqdaw7y7gp0495bt7"
-#define APP_SECRET @"ckm6ssv30cwz1zg7xu2pckm6ssv30cwz1zg7xu2p"
-#define REDIRECT_URI @"etalio7y7gp0495bt7acqbqdaw7y7gp0495bt7://authentication"
+//Application   : Etalio iOS SDK Sample App
+//KeyName       : Sample iOS
+//ClientId      : 4b76d81aea2ac2bcd3d9ebe30eb55834
+//Client secret : ae5a7f277e9df81f21265cd584d28f89
+//Platform      : ios
+//
+//BundleId      : com.seivan.Sample
+//Redirects:
+//etalio4b76d81aea2ac2bcd3d9ebe30eb55834://authentication
 
+//static NSString * const ETALIORedirectURI = @"etalio4b76d81aea2ac2bcd3d9ebe30eb55834495bt7://authentication";
+//static NSString * const ETALIOKeyClientId = @"4b76d81aea2ac2bcd3d9ebe30eb55834";
+//static NSString * const ETALIOKeyAppSecret = @"ae5a7f277e9df81f21265cd584d28f89";
 
+static NSString * const ETALIORedirectURI = @"etalio33ddb2e59d7b315807ba49975da4199f://authentication";
+static NSString * const ETALIOKeyClientId = @"33ddb2e59d7b315807ba49975da4199f";
+static NSString * const ETALIOKeyAppSecret = @"955b2c4071dde0014296d0b63d77ee47";
 
 @interface SIFirstViewController ()
 
@@ -24,40 +36,33 @@
 -(void)viewWillAppear:(BOOL)animated;{
   [super viewWillAppear:animated];
   
-//  [[[NSURLSession bet_buildSessionWithName:@"x" withBaseURLString:@"http://localhost:3000" andSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] andRequestSerializer:SIURLSessionRequestSerializerFormURLEncoding.new andResponseSerializer:nil operationQueue:nil] bet_taskPOSTResource:@"users" withParams:@{@"user" : @{@"name" : @[@"has", @"an", @"array"]}} completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
-//    NSLog(@"%@ %@", error, responseObject);
-//
-//  }] resume];
   
   
-  BETOAuth2Client * authClient = [BETOAuth2Client OAuth2ClientWithIdentifier:@"https://api-etalio.3fs.si"
-                                                                    baseURL:@"https://api-etalio.3fs.si"
-                                                                  clientId:CLIENT_ID
-                                                                 secretKey:APP_SECRET
-                                                               redirectURI:REDIRECT_URI
-                                                                withScopes:@[@"profile.w"]
-                                                               requestType:SIORequestEncodingTypeFormURLEncoding];
-  
-[authClient authenticateWithResourceOwner:@"+46728880188" andPassword:@"diablo" andTokenPath:@"oauth2/token" onComplete:^(BETOAccessCredential *credential, NSError *error) {
-  [authClient refreshWithTokenPath:@"oauth2/token" onComplete:^(BETOAccessCredential * newCredential, NSError *yerror) {
-    
-  }];
-
-}];
+  BETOAuth2Client * authClient = [BETOAuth2Client OAuth2ClientWithIdentifier:@"etalio"
+                                                                     baseURL:@"https://api.etalio.com"
+                                                                    clientId:ETALIOKeyClientId
+                                                                   secretKey:ETALIOKeyAppSecret
+                                                                 redirectURI:ETALIORedirectURI
+                                                                      scopes:nil
+                                                                 requestType:BETRequestEncodingTypeFormURLEncoding];
   
   
-//  [authClient authenticateWithAuthorizationPath:@"oauth2"
-//                                   andTokenPath:@"oauth2/token"
-//                                     onComplete:^(BETOAccessCredential *oldCredential, NSError *xerror) {
-//
-//                                       [authClient refreshWithTokenPath:@"oauth2/token" onComplete:^(BETOAccessCredential * newCredential, NSError *yerror) {
-//                                         
-//                                       }];
-//                                     
-//
-//                                     }];
-//  
+  
+  [authClient authenticateWithAuthorizationPath:@"oauth2"
+                                      tokenPath:@"oauth2/token"
+                                     completion:^(BETOAccessCredential *oldCredential, NSError *xerror) {
+                                       NSLog(@"%@ %@", oldCredential,xerror);
+                                       
+                                       [authClient refreshWithTokenPath:@"oauth2/token" completion:^(BETOAccessCredential * newCredential, NSError *yerror) {
+                                         NSLog(@"%@ %@", newCredential,yerror);
+                                       }];
+                                       
+                                       
+                                     }];
+  
 }
 
 @end
 
+
+//[authClient authenticateWithResourceOwner:@"+46728880188" andPassword:@"diablo" andTokenPath:@"oauth2/token" onComplete:^

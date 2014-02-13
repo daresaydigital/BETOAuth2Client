@@ -76,7 +76,7 @@
 @property(nonatomic,copy) NSString * authorizationPath;
 @property(nonatomic,copy) NSString * tokenPath;
 @property(nonatomic,copy) NSString * nonceState;
-@property(nonatomic,copy) BETOAuth2ClientAuthenticationCompleteBlock authenticationCompletionBlock;
+@property(nonatomic,copy) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletionBlock;
 
 @end
 
@@ -99,7 +99,7 @@
                                  clientId:(NSString *)theClientId
                                 secretKey:(NSString *)theSecretKey
                               redirectURI:(NSString *)theRedirectURI
-                               withScopes:(NSArray *)theScopes
+                               scopes:(NSArray *)theScopes
                               requestType:(BETRequestEncodingType)requestType; {
   NSParameterAssert(theIdentifier);
   NSParameterAssert(theBaseUrl);
@@ -158,9 +158,9 @@
 
 
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
-                        andTokenPath:(NSString *)theTokenPath
-                          onComplete:(BETOAuth2ClientAuthenticationCompleteBlock)theBlock; {
-  NSParameterAssert(theBlock);
+                        tokenPath:(NSString *)theTokenPath
+                          completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion; {
+  NSParameterAssert(theCompletion);
   NSParameterAssert(theTokenPath);
   NSParameterAssert(theUsername);
   NSParameterAssert(thePassword);
@@ -177,7 +177,7 @@
   
 
   __weak typeof(self) weakSelf = self;
-  self.authenticationCompletionBlock = theBlock;
+  self.authenticationCompletionBlock = theCompletion;
   NSURLSessionTask * task = [self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task, NSError *error) {
     
     
@@ -195,9 +195,10 @@
   
 }
 
--(void)authenticateWithAuthorizationPath:(NSString *)theAuthorizationPath andTokenPath:(NSString *)theTokenPath
-                              onComplete:(BETOAuth2ClientAuthenticationCompleteBlock)theBlock; {
-  NSParameterAssert(theBlock);
+-(void)authenticateWithAuthorizationPath:(NSString *)theAuthorizationPath
+                            tokenPath:(NSString *)theTokenPath
+                              completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion; {
+  NSParameterAssert(theCompletion);
   NSParameterAssert(theAuthorizationPath);
   NSParameterAssert(theTokenPath);
   self.authorizationPath = theAuthorizationPath;
@@ -220,7 +221,7 @@
   if(self.scopes && self.scopes.count > 0) [params addEntriesFromDictionary:@{@"scope" : [self.scopes componentsJoinedByString:@" "]}];
   
   NSURL * requestUrl =[self.session bet_taskGETResource:theAuthorizationPath withParams:params.copy completion:nil].currentRequest.URL;
-  self.authenticationCompletionBlock = theBlock;
+  self.authenticationCompletionBlock = theCompletion;
   [[UIApplication sharedApplication] openURL:requestUrl];
   
 }
@@ -292,7 +293,7 @@
 
 
 -(void)refreshWithTokenPath:(NSString *)theTokenPath
-                 onComplete:(BETOAuth2ClientAuthenticationCompleteBlock)theBlock; {
+                 completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion; {
 
   NSParameterAssert(self.accessCredential);
   NSParameterAssert(self.accessCredential.refreshToken);
@@ -311,7 +312,7 @@
   __weak typeof(self) weakSelf = self;
   [[self.session bet_taskPOSTResource:theTokenPath withParams:postData completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task,NSError *error) {
     weakSelf.accessCredential = [BETOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
-    theBlock(weakSelf.accessCredential, error);
+    if(theCompletion) theCompletion(weakSelf.accessCredential, error);
   }] resume];
   
   
@@ -320,14 +321,14 @@
 -(void)requestWithResourcePath:(NSString *)theResourcePath
                     parameters:(NSDictionary *)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
-                    onComplete:(BETOAuth2ClientRequestCompleteBlock)theBlock; {
+                    completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion; {
   
   NSParameterAssert(theHTTPMethod);
   NSParameterAssert(theResourcePath);
   NSParameterAssert(self.session);
   
   [[self.session bet_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse * HTTPURLResponse, NSURLSessionTask *task, NSError *error) {
-    if(theBlock) theBlock((NSDictionary *)responseObject, error, HTTPURLResponse);
+    if(theCompletion) theCompletion((NSDictionary *)responseObject, error, HTTPURLResponse);
   }] resume];
   
   

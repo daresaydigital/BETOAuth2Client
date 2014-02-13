@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## BETOAAuth2Client
+## BETOAuth2Client
 
 Copyright (c) 2012 Seivan Heidari.
 
