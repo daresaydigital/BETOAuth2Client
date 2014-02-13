@@ -5,13 +5,14 @@ PODS:
 
 DEPENDENCIES:
   - BETOAuth2Client (from `../`)
-  - BETURLSession (from `../../BETURLSession`)
+  - BETURLSession (from `https://github.com/screeninteraction/BETURLSession.git`, branch `master`)
 
 EXTERNAL SOURCES:
   BETOAuth2Client:
     :path: ../
   BETURLSession:
-    :path: ../../BETURLSession
+    :branch: :master
+    :git: https://github.com/screeninteraction/BETURLSession.git
 
 SPEC CHECKSUMS:
   BETOAuth2Client: f979c7f4f93e197488556bbb03569febec759064

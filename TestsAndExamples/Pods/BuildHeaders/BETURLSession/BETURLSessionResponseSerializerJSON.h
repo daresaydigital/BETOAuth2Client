@@ -1,1 +1,1 @@
-../../../../../BETURLSession/BETURLSession/BETURLSessionResponseSerializerJSON.h
+../../BETURLSession/BETURLSession/BETURLSessionResponseSerializerJSON.h

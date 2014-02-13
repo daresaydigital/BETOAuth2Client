@@ -1,733 +1,1890 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		00BD3EC3C81F45D4905917F9 /* BETOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 019DB594715D4C2681DCE950 /* BETOAuth2Client.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		202C92560AD64D81B274E4C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED7405F890E436F955CDE0A /* Foundation.framework */; };
-		2765D34897F8415980B78129 /* libPods-BETOAuth2Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D395EAFF74E6E9FFECD01 /* libPods-BETOAuth2Client.a */; };
-		3E053668DF44468AA6C368FD /* BETOAccessCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = C226ED4D019F4BE1A2837EE1 /* BETOAccessCredential.h */; };
-		3FD7F662023D43D98A182F47 /* __BETInternalManager+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 778E4D5893554954B702A8E0 /* __BETInternalManager+Delegate.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		43ED5683C0974316AD3AC4F6 /* BETURLSessionAbstractSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15676EF168A449E5B846FA62 /* BETURLSessionAbstractSerializer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		529110EF92314EC18A648EC8 /* __BETInternalManager+Delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 576A6FA2EAD9466CB37CEE95 /* __BETInternalManager+Delegate.h */; };
-		5801CB26BEEB4D949BEDC852 /* libPods-BETURLSession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD93F9D09A4495EBAACE081 /* libPods-BETURLSession.a */; };
-		59CCB10700CD47EEBF978524 /* BETOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = C765AD1C941C4038B206C099 /* BETOAuth2Client.h */; };
-		5A200267A86C469E8477269B /* Pods-BETOAuth2Client-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A571F5916BDE4CF19E9EF75A /* Pods-BETOAuth2Client-dummy.m */; };
-		5DEFDA94CA104D2A8F4AF01C /* BETOAccessCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C876FB5A664139B5CD84E2 /* BETOAccessCredential.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		69CB57F3D43B4B7DB4EC4664 /* BETURLSessionRequestSerializerJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4052BA4BCC23402DB606E5AE /* BETURLSessionRequestSerializerJSON.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		731E105B0ADD44C283F9BBF8 /* BETURLSessionAbstractSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 38547BA024EB4166BFE0CC70 /* BETURLSessionAbstractSerializer.h */; };
-		7A08BB61F8B24DCDB775E721 /* BETURLSessionResponseSerializerJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = E402B9512D0846A08E0A6B8B /* BETURLSessionResponseSerializerJSON.h */; };
-		7A08E9029B6A40DF9C3FF20A /* BETURLSessionResponseSerializerJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D7687E2FCC27458AAAC414C2 /* BETURLSessionResponseSerializerJSON.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		82068BE1ED8149DC827697AB /* __BETInternalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB615059055400F8AA03C28 /* __BETInternalManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		8EC3F43F92B442A0867765E9 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D36FDFBF29F4EA7BF68DB1B /* Pods-dummy.m */; };
-		8F23E7743AFF4559AF9F6B95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED7405F890E436F955CDE0A /* Foundation.framework */; };
-		95363958E155467EBF081F11 /* BETURLSessionRequestSerializerFormURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 932C61747A0F4BFABE830C0A /* BETURLSessionRequestSerializerFormURLEncoding.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		A59158B7B0264702B7E32A0E /* NSURLSessionTask+BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD04D61F16F4B4F93D43EE4 /* NSURLSessionTask+BETURLSession.h */; };
-		BD4041E25BBD43CCB5565795 /* NSURLSession+BETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = B26B4419600E4595AFC6BE56 /* NSURLSession+BETURLSession.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C5FED67433EC4433A9D15622 /* BETURLSessionRequestSerializerJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 076EB09E4EB64B20B9BDD9D9 /* BETURLSessionRequestSerializerJSON.h */; };
-		D0ABFAFA728E454DB461F7F8 /* BETURLSessionRequestSerializerFormURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = EC077038022C47D0A579594B /* BETURLSessionRequestSerializerFormURLEncoding.h */; };
-		D4F1DABEA5FB4AA4A4C480FE /* BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = FD5257DD0BB3486CBFA2B67E /* BETURLSession.h */; };
-		DB9D8083B3B24CD6A49BD1E4 /* Pods-BETURLSession-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A6C8D17E9447E8DA58CA6 /* Pods-BETURLSession-dummy.m */; };
-		ED08FF88B58647A5BB147449 /* NSURLSessionTask+BETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD8B786D9C4CCB98A7A994 /* NSURLSessionTask+BETURLSession.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F4A1B8A597F546629FAF116A /* __BETInternalManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FEC6584A2DFA4D09B19E8C8D /* __BETInternalManager.h */; };
-		F80B1C76B0D9497E8A08F0A2 /* NSURLSession+BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 755EAE1DBD9D472D97E27C19 /* NSURLSession+BETURLSession.h */; };
-		F99A4A467D974B8D86614F2A /* BETURLSessionTaskSharedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF72BC73B5246148EA8B4E1 /* BETURLSessionTaskSharedBlocks.h */; };
-		FF363F1D687C45F1A2A4BE4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED7405F890E436F955CDE0A /* Foundation.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		29943CB1DE2043AD8B3592FD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 01B5CCDAF65D44AA851FE89E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 118740EDD4324D73AAAEBAB1;
-			remoteInfo = "Pods-BETURLSession";
-		};
-		4233BEC5957946918BADEBC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 01B5CCDAF65D44AA851FE89E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 118740EDD4324D73AAAEBAB1;
-			remoteInfo = "Pods-BETURLSession";
-		};
-		F8CA99397C23437B973DBCEE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 01B5CCDAF65D44AA851FE89E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AD4C6BED03A3436B8309EA69;
-			remoteInfo = "Pods-BETOAuth2Client";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		0040BED687EC414AA02D51BC /* Pods-BETOAuth2Client.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETOAuth2Client.xcconfig"; sourceTree = "<group>"; };
-		019DB594715D4C2681DCE950 /* BETOAuth2Client.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETOAuth2Client.m; path = BETOAuth2Client/BETOAuth2Client.m; sourceTree = "<group>"; };
-		076EB09E4EB64B20B9BDD9D9 /* BETURLSessionRequestSerializerJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionRequestSerializerJSON.h; path = BETURLSession/BETURLSessionRequestSerializerJSON.h; sourceTree = "<group>"; };
-		0D96C96006A0498B8DABCB90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0DF72BC73B5246148EA8B4E1 /* BETURLSessionTaskSharedBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionTaskSharedBlocks.h; path = BETURLSession/BETURLSessionTaskSharedBlocks.h; sourceTree = "<group>"; };
-		11BA31B275764544A675EDF8 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		14D41554B1E844D694D4179E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = "<group>"; };
-		15676EF168A449E5B846FA62 /* BETURLSessionAbstractSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionAbstractSerializer.m; path = BETURLSession/BETURLSessionAbstractSerializer.m; sourceTree = "<group>"; };
-		168D395EAFF74E6E9FFECD01 /* libPods-BETOAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BETOAuth2Client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FB615059055400F8AA03C28 /* __BETInternalManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = __BETInternalManager.m; path = BETURLSession/__BETInternalManager.m; sourceTree = "<group>"; };
-		36E26E152D574D07B0C02AA4 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		38547BA024EB4166BFE0CC70 /* BETURLSessionAbstractSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionAbstractSerializer.h; path = BETURLSession/BETURLSessionAbstractSerializer.h; sourceTree = "<group>"; };
-		3F8A6C8D17E9447E8DA58CA6 /* Pods-BETURLSession-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BETURLSession-dummy.m"; sourceTree = "<group>"; };
-		4052BA4BCC23402DB606E5AE /* BETURLSessionRequestSerializerJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionRequestSerializerJSON.m; path = BETURLSession/BETURLSessionRequestSerializerJSON.m; sourceTree = "<group>"; };
-		4D36FDFBF29F4EA7BF68DB1B /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		576A6FA2EAD9466CB37CEE95 /* __BETInternalManager+Delegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "__BETInternalManager+Delegate.h"; path = "BETURLSession/__BETInternalManager+Delegate.h"; sourceTree = "<group>"; };
-		5D15851CCF7D4C2E9D4CBC22 /* Pods-BETURLSession-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BETURLSession-prefix.pch"; sourceTree = "<group>"; };
-		629891481E3A415BA5CE9BEE /* __BETInternalShared.private */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = __BETInternalShared.private; path = BETURLSession/__BETInternalShared.private; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6AD93F9D09A4495EBAACE081 /* libPods-BETURLSession.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BETURLSession.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DFD8B786D9C4CCB98A7A994 /* NSURLSessionTask+BETURLSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSessionTask+BETURLSession.m"; path = "BETURLSession/NSURLSessionTask+BETURLSession.m"; sourceTree = "<group>"; };
-		755EAE1DBD9D472D97E27C19 /* NSURLSession+BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSession+BETURLSession.h"; path = "BETURLSession/NSURLSession+BETURLSession.h"; sourceTree = "<group>"; };
-		778E4D5893554954B702A8E0 /* __BETInternalManager+Delegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "__BETInternalManager+Delegate.m"; path = "BETURLSession/__BETInternalManager+Delegate.m"; sourceTree = "<group>"; };
-		80CAC3DAF0BA4DA68BCFA520 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		82E60995847F4F02880153E7 /* Pods-BETURLSession.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETURLSession.xcconfig"; sourceTree = "<group>"; };
-		932C61747A0F4BFABE830C0A /* BETURLSessionRequestSerializerFormURLEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionRequestSerializerFormURLEncoding.m; path = BETURLSession/BETURLSessionRequestSerializerFormURLEncoding.m; sourceTree = "<group>"; };
-		99C876FB5A664139B5CD84E2 /* BETOAccessCredential.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETOAccessCredential.m; path = BETOAuth2Client/BETOAccessCredential.m; sourceTree = "<group>"; };
-		A571F5916BDE4CF19E9EF75A /* Pods-BETOAuth2Client-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BETOAuth2Client-dummy.m"; sourceTree = "<group>"; };
-		A6341864EE6946AF964739B6 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		ABD04D61F16F4B4F93D43EE4 /* NSURLSessionTask+BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSessionTask+BETURLSession.h"; path = "BETURLSession/NSURLSessionTask+BETURLSession.h"; sourceTree = "<group>"; };
-		B26B4419600E4595AFC6BE56 /* NSURLSession+BETURLSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSession+BETURLSession.m"; path = "BETURLSession/NSURLSession+BETURLSession.m"; sourceTree = "<group>"; };
-		B62E8674D30E47AEAC5A067E /* Pods-BETURLSession-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETURLSession-Private.xcconfig"; sourceTree = "<group>"; };
-		B9A7EF1986CD495D895326DF /* Pods-BETOAuth2Client-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BETOAuth2Client-prefix.pch"; sourceTree = "<group>"; };
-		C226ED4D019F4BE1A2837EE1 /* BETOAccessCredential.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETOAccessCredential.h; path = BETOAuth2Client/BETOAccessCredential.h; sourceTree = "<group>"; };
-		C765AD1C941C4038B206C099 /* BETOAuth2Client.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETOAuth2Client.h; path = BETOAuth2Client/BETOAuth2Client.h; sourceTree = "<group>"; };
-		D7687E2FCC27458AAAC414C2 /* BETURLSessionResponseSerializerJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionResponseSerializerJSON.m; path = BETURLSession/BETURLSessionResponseSerializerJSON.m; sourceTree = "<group>"; };
-		DED7405F890E436F955CDE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E402B9512D0846A08E0A6B8B /* BETURLSessionResponseSerializerJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionResponseSerializerJSON.h; path = BETURLSession/BETURLSessionResponseSerializerJSON.h; sourceTree = "<group>"; };
-		E9736B8B311546AA9A485007 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EAD497CAEEF4401DA4887FF8 /* Pods-BETOAuth2Client-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETOAuth2Client-Private.xcconfig"; sourceTree = "<group>"; };
-		EC077038022C47D0A579594B /* BETURLSessionRequestSerializerFormURLEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionRequestSerializerFormURLEncoding.h; path = BETURLSession/BETURLSessionRequestSerializerFormURLEncoding.h; sourceTree = "<group>"; };
-		FD5257DD0BB3486CBFA2B67E /* BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSession.h; path = BETURLSession/BETURLSession.h; sourceTree = "<group>"; };
-		FEC6584A2DFA4D09B19E8C8D /* __BETInternalManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = __BETInternalManager.h; path = BETURLSession/__BETInternalManager.h; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		0617A4A2A6F2404FA9287FF8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				202C92560AD64D81B274E4C9 /* Foundation.framework in Frameworks */,
-				2765D34897F8415980B78129 /* libPods-BETOAuth2Client.a in Frameworks */,
-				5801CB26BEEB4D949BEDC852 /* libPods-BETURLSession.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A8D9B77899D84DCF8FF527E2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F23E7743AFF4559AF9F6B95 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F10FD601525345D5839FA3E3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FF363F1D687C45F1A2A4BE4B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		1D87FB842B5A45468FF6F8AA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				14D41554B1E844D694D4179E /* Pods.xcconfig */,
-				E9736B8B311546AA9A485007 /* Pods-acknowledgements.markdown */,
-				11BA31B275764544A675EDF8 /* Pods-acknowledgements.plist */,
-				4D36FDFBF29F4EA7BF68DB1B /* Pods-dummy.m */,
-				36E26E152D574D07B0C02AA4 /* Pods-environment.h */,
-				80CAC3DAF0BA4DA68BCFA520 /* Pods-resources.sh */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		38200CDDDB1B49989DDB694D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				629891481E3A415BA5CE9BEE /* __BETInternalShared.private */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		3C9A6F79F89D4B85B7DD1026 /* BETURLSession */ = {
-			isa = PBXGroup;
-			children = (
-				FD5257DD0BB3486CBFA2B67E /* BETURLSession.h */,
-				38547BA024EB4166BFE0CC70 /* BETURLSessionAbstractSerializer.h */,
-				15676EF168A449E5B846FA62 /* BETURLSessionAbstractSerializer.m */,
-				EC077038022C47D0A579594B /* BETURLSessionRequestSerializerFormURLEncoding.h */,
-				932C61747A0F4BFABE830C0A /* BETURLSessionRequestSerializerFormURLEncoding.m */,
-				076EB09E4EB64B20B9BDD9D9 /* BETURLSessionRequestSerializerJSON.h */,
-				4052BA4BCC23402DB606E5AE /* BETURLSessionRequestSerializerJSON.m */,
-				E402B9512D0846A08E0A6B8B /* BETURLSessionResponseSerializerJSON.h */,
-				D7687E2FCC27458AAAC414C2 /* BETURLSessionResponseSerializerJSON.m */,
-				0DF72BC73B5246148EA8B4E1 /* BETURLSessionTaskSharedBlocks.h */,
-				755EAE1DBD9D472D97E27C19 /* NSURLSession+BETURLSession.h */,
-				B26B4419600E4595AFC6BE56 /* NSURLSession+BETURLSession.m */,
-				ABD04D61F16F4B4F93D43EE4 /* NSURLSessionTask+BETURLSession.h */,
-				6DFD8B786D9C4CCB98A7A994 /* NSURLSessionTask+BETURLSession.m */,
-				FEC6584A2DFA4D09B19E8C8D /* __BETInternalManager.h */,
-				1FB615059055400F8AA03C28 /* __BETInternalManager.m */,
-				576A6FA2EAD9466CB37CEE95 /* __BETInternalManager+Delegate.h */,
-				778E4D5893554954B702A8E0 /* __BETInternalManager+Delegate.m */,
-				38200CDDDB1B49989DDB694D /* Resources */,
-				FD37F310227D4E92A073467C /* Support Files */,
-			);
-			name = BETURLSession;
-			path = ../../../BETURLSession;
-			sourceTree = "<group>";
-		};
-		75E413C87C524EF48998E54F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0040BED687EC414AA02D51BC /* Pods-BETOAuth2Client.xcconfig */,
-				EAD497CAEEF4401DA4887FF8 /* Pods-BETOAuth2Client-Private.xcconfig */,
-				A571F5916BDE4CF19E9EF75A /* Pods-BETOAuth2Client-dummy.m */,
-				B9A7EF1986CD495D895326DF /* Pods-BETOAuth2Client-prefix.pch */,
-			);
-			name = "Support Files";
-			sourceTree = SOURCE_ROOT;
-		};
-		80408DE9A39149EA87A4AC60 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				DED7405F890E436F955CDE0A /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		9B1EFC4B66FA4901B7895DDC /* BETOAuth2Client */ = {
-			isa = PBXGroup;
-			children = (
-				C226ED4D019F4BE1A2837EE1 /* BETOAccessCredential.h */,
-				99C876FB5A664139B5CD84E2 /* BETOAccessCredential.m */,
-				C765AD1C941C4038B206C099 /* BETOAuth2Client.h */,
-				019DB594715D4C2681DCE950 /* BETOAuth2Client.m */,
-				75E413C87C524EF48998E54F /* Support Files */,
-			);
-			name = BETOAuth2Client;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		B935C437EC11498084A6DCFE /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9B1EFC4B66FA4901B7895DDC /* BETOAuth2Client */,
-				3C9A6F79F89D4B85B7DD1026 /* BETURLSession */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		BE9B7763F36C459FB1F1DFFF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				80408DE9A39149EA87A4AC60 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CC2F9B6BF32B4DCC804DD887 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0D96C96006A0498B8DABCB90 /* libPods.a */,
-				168D395EAFF74E6E9FFECD01 /* libPods-BETOAuth2Client.a */,
-				6AD93F9D09A4495EBAACE081 /* libPods-BETURLSession.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D6B1BF51B7344F708E3B355B /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1D87FB842B5A45468FF6F8AA /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		E0FBF072256C498B950CE34C = {
-			isa = PBXGroup;
-			children = (
-				A6341864EE6946AF964739B6 /* Podfile */,
-				B935C437EC11498084A6DCFE /* Development Pods */,
-				BE9B7763F36C459FB1F1DFFF /* Frameworks */,
-				CC2F9B6BF32B4DCC804DD887 /* Products */,
-				D6B1BF51B7344F708E3B355B /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		FD37F310227D4E92A073467C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				82E60995847F4F02880153E7 /* Pods-BETURLSession.xcconfig */,
-				B62E8674D30E47AEAC5A067E /* Pods-BETURLSession-Private.xcconfig */,
-				3F8A6C8D17E9447E8DA58CA6 /* Pods-BETURLSession-dummy.m */,
-				5D15851CCF7D4C2E9D4CBC22 /* Pods-BETURLSession-prefix.pch */,
-			);
-			name = "Support Files";
-			sourceTree = SOURCE_ROOT;
-		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		94204312CE274875AD718355 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4F1DABEA5FB4AA4A4C480FE /* BETURLSession.h in Headers */,
-				731E105B0ADD44C283F9BBF8 /* BETURLSessionAbstractSerializer.h in Headers */,
-				D0ABFAFA728E454DB461F7F8 /* BETURLSessionRequestSerializerFormURLEncoding.h in Headers */,
-				C5FED67433EC4433A9D15622 /* BETURLSessionRequestSerializerJSON.h in Headers */,
-				7A08BB61F8B24DCDB775E721 /* BETURLSessionResponseSerializerJSON.h in Headers */,
-				F99A4A467D974B8D86614F2A /* BETURLSessionTaskSharedBlocks.h in Headers */,
-				F80B1C76B0D9497E8A08F0A2 /* NSURLSession+BETURLSession.h in Headers */,
-				A59158B7B0264702B7E32A0E /* NSURLSessionTask+BETURLSession.h in Headers */,
-				529110EF92314EC18A648EC8 /* __BETInternalManager+Delegate.h in Headers */,
-				F4A1B8A597F546629FAF116A /* __BETInternalManager.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A0ABB82E6472418390B96FBE /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3E053668DF44468AA6C368FD /* BETOAccessCredential.h in Headers */,
-				59CCB10700CD47EEBF978524 /* BETOAuth2Client.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		118740EDD4324D73AAAEBAB1 /* Pods-BETURLSession */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 61E9B99C29B24DDCB812000E /* Build configuration list for PBXNativeTarget "Pods-BETURLSession" */;
-			buildPhases = (
-				AA5FDD861C784D9B9CDBF361 /* Sources */,
-				F10FD601525345D5839FA3E3 /* Frameworks */,
-				94204312CE274875AD718355 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-BETURLSession";
-			productName = "Pods-BETURLSession";
-			productReference = 6AD93F9D09A4495EBAACE081 /* libPods-BETURLSession.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		2EBEE78B1E7B4701AA8540DE /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F7773B86BAC84258B1F33114 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				CD3CBD48DD1C415D8A313CAB /* Sources */,
-				0617A4A2A6F2404FA9287FF8 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9749CEF1AAAE4A71BC750065 /* PBXTargetDependency */,
-				BA7B0D1889F0492C9EDF65A6 /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 0D96C96006A0498B8DABCB90 /* libPods.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		AD4C6BED03A3436B8309EA69 /* Pods-BETOAuth2Client */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7B3D4B97266641CD9B1E2CF3 /* Build configuration list for PBXNativeTarget "Pods-BETOAuth2Client" */;
-			buildPhases = (
-				C80B5385E14E4FFB996CB8BF /* Sources */,
-				A8D9B77899D84DCF8FF527E2 /* Frameworks */,
-				A0ABB82E6472418390B96FBE /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				28AAD4A1F16C4A128D9A3854 /* PBXTargetDependency */,
-			);
-			name = "Pods-BETOAuth2Client";
-			productName = "Pods-BETOAuth2Client";
-			productReference = 168D395EAFF74E6E9FFECD01 /* libPods-BETOAuth2Client.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		01B5CCDAF65D44AA851FE89E /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0500;
-			};
-			buildConfigurationList = 5BF8CA0E18124B05A785FAFC /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = E0FBF072256C498B950CE34C;
-			productRefGroup = CC2F9B6BF32B4DCC804DD887 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				2EBEE78B1E7B4701AA8540DE /* Pods */,
-				AD4C6BED03A3436B8309EA69 /* Pods-BETOAuth2Client */,
-				118740EDD4324D73AAAEBAB1 /* Pods-BETURLSession */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		AA5FDD861C784D9B9CDBF361 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				43ED5683C0974316AD3AC4F6 /* BETURLSessionAbstractSerializer.m in Sources */,
-				95363958E155467EBF081F11 /* BETURLSessionRequestSerializerFormURLEncoding.m in Sources */,
-				69CB57F3D43B4B7DB4EC4664 /* BETURLSessionRequestSerializerJSON.m in Sources */,
-				7A08E9029B6A40DF9C3FF20A /* BETURLSessionResponseSerializerJSON.m in Sources */,
-				BD4041E25BBD43CCB5565795 /* NSURLSession+BETURLSession.m in Sources */,
-				ED08FF88B58647A5BB147449 /* NSURLSessionTask+BETURLSession.m in Sources */,
-				DB9D8083B3B24CD6A49BD1E4 /* Pods-BETURLSession-dummy.m in Sources */,
-				3FD7F662023D43D98A182F47 /* __BETInternalManager+Delegate.m in Sources */,
-				82068BE1ED8149DC827697AB /* __BETInternalManager.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C80B5385E14E4FFB996CB8BF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5DEFDA94CA104D2A8F4AF01C /* BETOAccessCredential.m in Sources */,
-				00BD3EC3C81F45D4905917F9 /* BETOAuth2Client.m in Sources */,
-				5A200267A86C469E8477269B /* Pods-BETOAuth2Client-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD3CBD48DD1C415D8A313CAB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8EC3F43F92B442A0867765E9 /* Pods-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		28AAD4A1F16C4A128D9A3854 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 118740EDD4324D73AAAEBAB1 /* Pods-BETURLSession */;
-			targetProxy = 4233BEC5957946918BADEBC3 /* PBXContainerItemProxy */;
-		};
-		9749CEF1AAAE4A71BC750065 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AD4C6BED03A3436B8309EA69 /* Pods-BETOAuth2Client */;
-			targetProxy = F8CA99397C23437B973DBCEE /* PBXContainerItemProxy */;
-		};
-		BA7B0D1889F0492C9EDF65A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 118740EDD4324D73AAAEBAB1 /* Pods-BETURLSession */;
-			targetProxy = 29943CB1DE2043AD8B3592FD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		218A8F8F56794B2EB6ACB8D6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14D41554B1E844D694D4179E /* Pods.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		4DD8C8B79A4148CA83D57C30 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B62E8674D30E47AEAC5A067E /* Pods-BETURLSession-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-BETURLSession-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		5570EAEE60FC472CA3C9DA83 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B62E8674D30E47AEAC5A067E /* Pods-BETURLSession-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-BETURLSession-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		793897C37B0548E086C23924 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
-				STRIP_INSTALLED_PRODUCT = NO;
-			};
-			name = Debug;
-		};
-		9AE41719745944BEAA7FE3EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAD497CAEEF4401DA4887FF8 /* Pods-BETOAuth2Client-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-BETOAuth2Client-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		C3A6BAA2A201403CAE0E7661 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		FADAC357A93D4E299E2DBB15 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14D41554B1E844D694D4179E /* Pods.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		FECF421D33EF49D08E4D719E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAD497CAEEF4401DA4887FF8 /* Pods-BETOAuth2Client-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-BETOAuth2Client-prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		5BF8CA0E18124B05A785FAFC /* Build configuration list for PBXProject "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				793897C37B0548E086C23924 /* Debug */,
-				C3A6BAA2A201403CAE0E7661 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		61E9B99C29B24DDCB812000E /* Build configuration list for PBXNativeTarget "Pods-BETURLSession" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4DD8C8B79A4148CA83D57C30 /* Debug */,
-				5570EAEE60FC472CA3C9DA83 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7B3D4B97266641CD9B1E2CF3 /* Build configuration list for PBXNativeTarget "Pods-BETOAuth2Client" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9AE41719745944BEAA7FE3EB /* Debug */,
-				FECF421D33EF49D08E4D719E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F7773B86BAC84258B1F33114 /* Build configuration list for PBXNativeTarget "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FADAC357A93D4E299E2DBB15 /* Debug */,
-				218A8F8F56794B2EB6ACB8D6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 01B5CCDAF65D44AA851FE89E /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>00B147059EBB4541941681E0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BETURLSessionRequestSerializerFormURLEncoding.h</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionRequestSerializerFormURLEncoding.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>00E430638BDC4D35ABB29ADF</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>12593CBDF34D4018B4D9C630</string>
+				<string>1B251441E2CC4465BF484F0F</string>
+				<string>0D2A1E57100A4C42AE2F3E57</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>016D3150A2FE444FB691B492</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7386DCA7D9414C32BEFBBE75</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0236996B21EC4E12AA71CFC0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>04D9113F25FE4723A8B0219B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0236996B21EC4E12AA71CFC0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0558847DAC0D4B5F88313766</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-BETURLSession-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>07BBD124354C4B1EA0B597A8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E4152F63E68B46CE98255021</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0ACB7994F445402488BE105C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8D3B02DDF3B5485A8A4EF1D5</string>
+				<string>C2AFB066186940629A337445</string>
+				<string>7843752674A046B7B599C7A4</string>
+				<string>50A5810994A84446B55CD973</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>0AD6F87AB57D4D44A6BE22FD</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3272F965597F43A095B97232</string>
+				<string>C18E196CAEB94070AFFED9E0</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0C507CD1896C4064B5911248</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>96BEFB65D0CC4662906E72F7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0C560B78829D4F6EAD4CA6A0</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C2AFB066186940629A337445</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-BETOAuth2Client-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0D2A1E57100A4C42AE2F3E57</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7843752674A046B7B599C7A4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>12593CBDF34D4018B4D9C630</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CA63815BEAFC448B9177E358</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>12B4B04B1FAF4AFEA140338B</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>166DD0F37D32405FA648C800</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-BETURLSession-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>1514548904914750866356A4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B93CDCDF42B14991A52BE55F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>166DD0F37D32405FA648C800</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-BETURLSession-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>199C828182624E38924244D3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.ruby</string>
+		</dict>
+		<key>1B251441E2CC4465BF484F0F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>216B537758944653BE82E51C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>1F3CD36B39094AF29FAB7517</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2368CE2A23604ECEA497EE5A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1FA3CA1BF6D14D1D82204E8B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E80FEA0DD1D540B1B6192185</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>20C299FAC0394772B78B999E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>3B017ED2AA164F55B5D07AE8</string>
+			<key>targetProxy</key>
+			<string>ABF47C8024B64327ABB0F1D4</string>
+		</dict>
+		<key>216B537758944653BE82E51C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BETOAuth2Client.m</string>
+			<key>path</key>
+			<string>BETOAuth2Client/BETOAuth2Client.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>22D3B462347D4F9DAA068442</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>04D9113F25FE4723A8B0219B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>235CE284E2E84C03A031282E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>606D59E65C5F495792D51B79</string>
+			<key>targetProxy</key>
+			<string>B30618ECEF344723B412D2AE</string>
+		</dict>
+		<key>2368CE2A23604ECEA497EE5A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-BETURLSession.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>23CF5BBA34D34217B186BCA6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FF3FC317B8D942779AC6A8C4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>243D4C0EC04C4794B409551D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>__BETInternalManager.h</string>
+			<key>path</key>
+			<string>BETURLSession/__BETInternalManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>261A5C06EFC2471981220D1F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NSURLSessionTask+BETURLSession.m</string>
+			<key>path</key>
+			<string>BETURLSession/NSURLSessionTask+BETURLSession.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>291400CBB48D412781076C71</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NSURLSession+BETURLSession.h</string>
+			<key>path</key>
+			<string>BETURLSession/NSURLSession+BETURLSession.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>299B73041F314F8A90C12D31</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>857C084B95004264B0BB651A</string>
+				<string>D3332333ED7347DDAB7D6EAC</string>
+				<string>397837D2CF2B49A39033DD73</string>
+				<string>5A70EA49F5864C459DFCBF9C</string>
+				<string>1514548904914750866356A4</string>
+				<string>AA8931DCA3EB462396AFDD69</string>
+				<string>E625E961D40148158B497E7B</string>
+				<string>9D49CE78167242ADB1CDBF3F</string>
+				<string>56A234F3A1844B118DB06008</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>2A5F2E604CC7407BA8660389</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BETOAuth2Client.h</string>
+			<key>path</key>
+			<string>BETOAuth2Client/BETOAuth2Client.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2BB41EC57B4B48AEB39DEF97</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BETOAccessCredential.h</string>
+			<key>path</key>
+			<string>BETOAuth2Client/BETOAccessCredential.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3272F965597F43A095B97232</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>F5A478F6243F448A95B7915C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>341BF2FB2A2C48E5BD6D3083</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>CB0B04617CE540809404BB0A</string>
+				<string>1FA3CA1BF6D14D1D82204E8B</string>
+				<string>1F3CD36B39094AF29FAB7517</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>35A20A0A779C449785D52035</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>__BETInternalManager+Delegate.h</string>
+			<key>path</key>
+			<string>BETURLSession/__BETInternalManager+Delegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>380CC9CC0584487C9104853C</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>501F14BE09B848F5AA1F06F1</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>3B017ED2AA164F55B5D07AE8</string>
+			<key>remoteInfo</key>
+			<string>Pods-BETURLSession</string>
+		</dict>
+		<key>397837D2CF2B49A39033DD73</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7594F56AF1AD49D39BCF698C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>3A33B1804FA74324A3829ABB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3B017ED2AA164F55B5D07AE8</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>3B04C07EC69F4449BFEC00C5</string>
+			<key>buildPhases</key>
+			<array>
+				<string>299B73041F314F8A90C12D31</string>
+				<string>408FA63FD4F747699C224D7A</string>
+				<string>BD336424CFA14F7BA7272282</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-BETURLSession</string>
+			<key>productName</key>
+			<string>Pods-BETURLSession</string>
+			<key>productReference</key>
+			<string>2368CE2A23604ECEA497EE5A</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>3B04C07EC69F4449BFEC00C5</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>12B4B04B1FAF4AFEA140338B</string>
+				<string>486F6940D89640E584CA1CA9</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>40552ED48B6F4AF6BE72D0DE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NSURLSessionTask+BETURLSession.h</string>
+			<key>path</key>
+			<string>BETURLSession/NSURLSessionTask+BETURLSession.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>408FA63FD4F747699C224D7A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>5D332040C56D4F3380816125</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>486F6940D89640E584CA1CA9</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>166DD0F37D32405FA648C800</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-BETURLSession-prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>4B07E81C5228488098F86D88</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>NO</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>4D3943D849AE403DBC8ECC2B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>243D4C0EC04C4794B409551D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4FF761EF9EED41B595163F43</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>__BETInternalManager+Delegate.m</string>
+			<key>path</key>
+			<string>BETURLSession/__BETInternalManager+Delegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>501F14BE09B848F5AA1F06F1</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0500</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>AC3A898201704073A324EF65</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>BF889B115F0A411DA4383C88</string>
+			<key>productRefGroup</key>
+			<string>88705733C0C0489D99C0F3A5</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>FED42DC77AED418BBB8C09DD</string>
+				<string>606D59E65C5F495792D51B79</string>
+				<string>3B017ED2AA164F55B5D07AE8</string>
+			</array>
+		</dict>
+		<key>50A5810994A84446B55CD973</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-BETOAuth2Client-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>50E2920E411447158AC8D4CF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BETURLSessionTaskSharedBlocks.h</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionTaskSharedBlocks.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>522EC15D969E43D592215307</key>
+		<dict>
+			<key>fileRef</key>
+			<string>50E2920E411447158AC8D4CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>56A234F3A1844B118DB06008</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CFD670F77AFE4A9182C54060</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>5A70EA49F5864C459DFCBF9C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5D8C46FCFDF14D7582CB2566</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>5D332040C56D4F3380816125</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0236996B21EC4E12AA71CFC0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5D8C46FCFDF14D7582CB2566</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BETURLSessionResponseSerializerJSON.m</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionResponseSerializerJSON.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>606D59E65C5F495792D51B79</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>68FB4D36795D49F39DFEDF43</string>
+			<key>buildPhases</key>
+			<array>
+				<string>00E430638BDC4D35ABB29ADF</string>
+				<string>22D3B462347D4F9DAA068442</string>
+				<string>7F6D7B7524AF427CB35FEF42</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>CA80FD5385304F7D8CD43631</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-BETOAuth2Client</string>
+			<key>productName</key>
+			<string>Pods-BETOAuth2Client</string>
+			<key>productReference</key>
+			<string>E80FEA0DD1D540B1B6192185</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>68FB4D36795D49F39DFEDF43</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0C560B78829D4F6EAD4CA6A0</string>
+				<string>C0F612E01C5E41F2B7B3DC55</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>6B1432DF2B9E44F78C5EA6FD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7A3893014C3F4C5E9086ABB9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6ED6A80726184D9AB05F16A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2A5F2E604CC7407BA8660389</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>725A7152F18F426B8513C8BE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BDEDBE8D75E04CE5B3CAD596</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7386DCA7D9414C32BEFBBE75</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FF3FC317B8D942779AC6A8C4</string>
+				<string>E4152F63E68B46CE98255021</string>
+				<string>A833253955634831B227ADDD</string>
+				<string>00B147059EBB4541941681E0</string>
+				<string>7A6539E947484640BD8596E2</string>
+				<string>B60805A18C294D978347676F</string>
+				<string>7594F56AF1AD49D39BCF698C</string>
+				<string>CC2B96B3CABA497F8BCBFB1F</string>
+				<string>5D8C46FCFDF14D7582CB2566</string>
+				<string>50E2920E411447158AC8D4CF</string>
+				<string>291400CBB48D412781076C71</string>
+				<string>B93CDCDF42B14991A52BE55F</string>
+				<string>40552ED48B6F4AF6BE72D0DE</string>
+				<string>261A5C06EFC2471981220D1F</string>
+				<string>243D4C0EC04C4794B409551D</string>
+				<string>CFD670F77AFE4A9182C54060</string>
+				<string>35A20A0A779C449785D52035</string>
+				<string>4FF761EF9EED41B595163F43</string>
+				<string>0C507CD1896C4064B5911248</string>
+				<string>EE90688262E146D38D3F39F6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>BETURLSession</string>
+			<key>path</key>
+			<string>BETURLSession</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7594F56AF1AD49D39BCF698C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BETURLSessionRequestSerializerJSON.m</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionRequestSerializerJSON.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7843752674A046B7B599C7A4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-BETOAuth2Client-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7A3893014C3F4C5E9086ABB9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7A6539E947484640BD8596E2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BETURLSessionRequestSerializerFormURLEncoding.m</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionRequestSerializerFormURLEncoding.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7F6D7B7524AF427CB35FEF42</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BF26874343A74D1DBE3E7916</string>
+				<string>6ED6A80726184D9AB05F16A7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>857C084B95004264B0BB651A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A833253955634831B227ADDD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>88705733C0C0489D99C0F3A5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FCC4756CC96444C4A57E8971</string>
+				<string>E80FEA0DD1D540B1B6192185</string>
+				<string>2368CE2A23604ECEA497EE5A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8D3B02DDF3B5485A8A4EF1D5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-BETOAuth2Client.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>938CC86547B94650AEA3681A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>40552ED48B6F4AF6BE72D0DE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>96BEFB65D0CC4662906E72F7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>__BETInternalShared.private</string>
+			<key>path</key>
+			<string>BETURLSession/__BETInternalShared.private</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>99E074E4177C432FB078220B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9D49CE78167242ADB1CDBF3F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4FF761EF9EED41B595163F43</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>9EDADF7868F9460C8ACFB07C</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6B1432DF2B9E44F78C5EA6FD</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>A0AB9F6509C0462B99676F0C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>00B147059EBB4541941681E0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A353190335594BDA99071C4F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>ED090505F36D45638231E254</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Development Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A6BD42F4FA2743A789D10513</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A7E1AD0A762B475FAB99CEC4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A7E1AD0A762B475FAB99CEC4</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F5A478F6243F448A95B7915C</string>
+				<string>99E074E4177C432FB078220B</string>
+				<string>3A33B1804FA74324A3829ABB</string>
+				<string>7A3893014C3F4C5E9086ABB9</string>
+				<string>B05CAFB540C94A9095F4563C</string>
+				<string>D105E184D79F4A6F9775129E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A833253955634831B227ADDD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BETURLSessionAbstractSerializer.m</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionAbstractSerializer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AA8931DCA3EB462396AFDD69</key>
+		<dict>
+			<key>fileRef</key>
+			<string>261A5C06EFC2471981220D1F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>ABF47C8024B64327ABB0F1D4</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>501F14BE09B848F5AA1F06F1</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>3B017ED2AA164F55B5D07AE8</string>
+			<key>remoteInfo</key>
+			<string>Pods-BETURLSession</string>
+		</dict>
+		<key>AC3A898201704073A324EF65</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>4B07E81C5228488098F86D88</string>
+				<string>EBD7E874B99C4717BB4FBE29</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AFC5D1951A8D4975B3FD0F36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CC2B96B3CABA497F8BCBFB1F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B05CAFB540C94A9095F4563C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-environment.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B30618ECEF344723B412D2AE</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>501F14BE09B848F5AA1F06F1</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>606D59E65C5F495792D51B79</string>
+			<key>remoteInfo</key>
+			<string>Pods-BETOAuth2Client</string>
+		</dict>
+		<key>B60805A18C294D978347676F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BETURLSessionRequestSerializerJSON.h</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionRequestSerializerJSON.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B93CDCDF42B14991A52BE55F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NSURLSession+BETURLSession.m</string>
+			<key>path</key>
+			<string>BETURLSession/NSURLSession+BETURLSession.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BD336424CFA14F7BA7272282</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>23CF5BBA34D34217B186BCA6</string>
+				<string>07BBD124354C4B1EA0B597A8</string>
+				<string>A0AB9F6509C0462B99676F0C</string>
+				<string>BE1E02EF7E6D473E98EF5E7B</string>
+				<string>AFC5D1951A8D4975B3FD0F36</string>
+				<string>522EC15D969E43D592215307</string>
+				<string>D67252EF566F4AE5B5A73905</string>
+				<string>938CC86547B94650AEA3681A</string>
+				<string>CB0E701353DA4B65AE60AA96</string>
+				<string>4D3943D849AE403DBC8ECC2B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BDEDBE8D75E04CE5B3CAD596</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0236996B21EC4E12AA71CFC0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BE1E02EF7E6D473E98EF5E7B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B60805A18C294D978347676F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BF26874343A74D1DBE3E7916</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2BB41EC57B4B48AEB39DEF97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BF889B115F0A411DA4383C88</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>199C828182624E38924244D3</string>
+				<string>A353190335594BDA99071C4F</string>
+				<string>725A7152F18F426B8513C8BE</string>
+				<string>016D3150A2FE444FB691B492</string>
+				<string>88705733C0C0489D99C0F3A5</string>
+				<string>A6BD42F4FA2743A789D10513</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C07F996970DC4C5B9B623232</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-BETURLSession-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C0F612E01C5E41F2B7B3DC55</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C2AFB066186940629A337445</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-BETOAuth2Client-prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>C18E196CAEB94070AFFED9E0</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>F5A478F6243F448A95B7915C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>C2AFB066186940629A337445</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-BETOAuth2Client-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C6E1D4195209441EA787ADA6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-BETURLSession.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CA63815BEAFC448B9177E358</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>BETOAccessCredential.m</string>
+			<key>path</key>
+			<string>BETOAuth2Client/BETOAccessCredential.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CA80FD5385304F7D8CD43631</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>3B017ED2AA164F55B5D07AE8</string>
+			<key>targetProxy</key>
+			<string>380CC9CC0584487C9104853C</string>
+		</dict>
+		<key>CB0B04617CE540809404BB0A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0236996B21EC4E12AA71CFC0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CB0E701353DA4B65AE60AA96</key>
+		<dict>
+			<key>fileRef</key>
+			<string>35A20A0A779C449785D52035</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CC2B96B3CABA497F8BCBFB1F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BETURLSessionResponseSerializerJSON.h</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionResponseSerializerJSON.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CFD670F77AFE4A9182C54060</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>__BETInternalManager.m</string>
+			<key>path</key>
+			<string>BETURLSession/__BETInternalManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D105E184D79F4A6F9775129E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D3332333ED7347DDAB7D6EAC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7A6539E947484640BD8596E2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>D67252EF566F4AE5B5A73905</key>
+		<dict>
+			<key>fileRef</key>
+			<string>291400CBB48D412781076C71</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E4152F63E68B46CE98255021</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BETURLSessionAbstractSerializer.h</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSessionAbstractSerializer.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E625E961D40148158B497E7B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0558847DAC0D4B5F88313766</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E80FEA0DD1D540B1B6192185</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-BETOAuth2Client.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>EBD7E874B99C4717BB4FBE29</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>NO</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>ED090505F36D45638231E254</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2BB41EC57B4B48AEB39DEF97</string>
+				<string>CA63815BEAFC448B9177E358</string>
+				<string>2A5F2E604CC7407BA8660389</string>
+				<string>216B537758944653BE82E51C</string>
+				<string>0ACB7994F445402488BE105C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>BETOAuth2Client</string>
+			<key>path</key>
+			<string>../..</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EE90688262E146D38D3F39F6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C6E1D4195209441EA787ADA6</string>
+				<string>166DD0F37D32405FA648C800</string>
+				<string>0558847DAC0D4B5F88313766</string>
+				<string>C07F996970DC4C5B9B623232</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>F5A478F6243F448A95B7915C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FCC4756CC96444C4A57E8971</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>FED42DC77AED418BBB8C09DD</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0AD6F87AB57D4D44A6BE22FD</string>
+			<key>buildPhases</key>
+			<array>
+				<string>9EDADF7868F9460C8ACFB07C</string>
+				<string>341BF2FB2A2C48E5BD6D3083</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>235CE284E2E84C03A031282E</string>
+				<string>20C299FAC0394772B78B999E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>productName</key>
+			<string>Pods</string>
+			<key>productReference</key>
+			<string>FCC4756CC96444C4A57E8971</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>FF3FC317B8D942779AC6A8C4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>BETURLSession.h</string>
+			<key>path</key>
+			<string>BETURLSession/BETURLSession.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>501F14BE09B848F5AA1F06F1</string>
+</dict>
+</plist>
