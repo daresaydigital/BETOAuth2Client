@@ -1,5 +1,5 @@
 
-@protocol BETOAccessing <NSSecureCoding,NSCopying>
+@protocol BETAuthenticating <NSSecureCoding,NSCopying>
 @required
 @property(nonatomic,copy,readonly) NSString * tokenType;
 @property(nonatomic,copy,readonly) NSString * accessToken;
@@ -10,6 +10,6 @@
 @property(nonatomic,readonly) BOOL isAboutToExpire;
 @end
 
-@interface BETOAccessCredential : NSObject
-<BETOAccessing>
+@interface BETOAuth2Credential : NSObject
+<BETAuthenticating>
 @end

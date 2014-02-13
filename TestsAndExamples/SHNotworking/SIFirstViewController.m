@@ -44,17 +44,21 @@ static NSString * const ETALIOKeyAppSecret = @"955b2c4071dde0014296d0b63d77ee47"
                                                                    secretKey:ETALIOKeyAppSecret
                                                                  redirectURI:ETALIORedirectURI
                                                                       scopes:nil
-                                                                 requestType:BETRequestEncodingTypeFormURLEncoding];
+                                                                 requestType:BETOAuth2ClientRequestEncodingTypeFormURLEncoding];
   
   
   
   [authClient authenticateWithAuthorizationPath:@"oauth2"
                                       tokenPath:@"oauth2/token"
-                                     completion:^(BETOAccessCredential *oldCredential, NSError *xerror) {
+                                     completion:^(BETOAuth2Credential *oldCredential, NSError *xerror) {
                                        NSLog(@"%@ %@", oldCredential,xerror);
                                        
-                                       [authClient refreshWithTokenPath:@"oauth2/token" completion:^(BETOAccessCredential * newCredential, NSError *yerror) {
+                                       [authClient refreshWithTokenPath:@"oauth2/token" completion:^(BETOAuth2Credential * newCredential, NSError *yerror) {
                                          NSLog(@"%@ %@", newCredential,yerror);
+                                         
+                                         [authClient requestWithResourcePath:@"v1/profile/me" parameters:nil HTTPMethod:@"GET" completion:^(NSDictionary *responseObject, NSHTTPURLResponse *URLResponse, NSError *error) {
+                                         NSLog(@"%@ %@", responseObject, error);
+                                         }];
                                        }];
                                        
                                        

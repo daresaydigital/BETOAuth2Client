@@ -1,6 +1,7 @@
 
-#import "BETOAccessCredential.h"
-@interface BETOAccessCredential ()
+#import "BETOAuth2Client.h"
+
+@interface BETOAuth2Credential ()
 @property(nonatomic,copy) NSString *accessToken;
 @property(nonatomic,copy) NSString *tokenType;
 @property(nonatomic,copy) NSString *refreshToken;
@@ -9,10 +10,10 @@
 @end
 
 
-@implementation BETOAccessCredential
+@implementation BETOAuth2Credential
 
 +(instancetype)accessCredentialWithDictionary:(NSDictionary *)theDictionary; {
-  BETOAccessCredential * credential = [[[self class] alloc] init];
+  BETOAuth2Credential * credential = [[[self class] alloc] init];
   credential.accessToken = theDictionary[@"access_token"];
   NSNumber * number = theDictionary[@"expires_in"];
   credential.expiresAtDate = [NSDate dateWithTimeIntervalSinceNow:number.integerValue];
@@ -39,7 +40,7 @@
 }
 
 -(instancetype)copyWithZone:(NSZone *)zone; {
-  BETOAccessCredential * credential = [[super class] allocWithZone:zone];
+  BETOAuth2Credential * credential = [[super class] allocWithZone:zone];
   if(credential) {
     credential.accessToken   = self.accessToken;
     credential.tokenType     = self.tokenType;

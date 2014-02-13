@@ -59,7 +59,7 @@
 @end
 
 
-@interface BETOAccessCredential ()
+@interface BETOAuth2Credential ()
 
 +(instancetype)accessCredentialWithDictionary:(NSDictionary *)theDictionary;
 @end
@@ -100,7 +100,7 @@
                                 secretKey:(NSString *)theSecretKey
                               redirectURI:(NSString *)theRedirectURI
                                scopes:(NSArray *)theScopes
-                              requestType:(BETRequestEncodingType)requestType; {
+                              requestType:(BETOAuth2ClientRequestEncodingType)requestType; {
   NSParameterAssert(theIdentifier);
   NSParameterAssert(theBaseUrl);
   NSParameterAssert(theClientId);
@@ -121,10 +121,10 @@
   sessionConfiguration.URLCredentialStorage = nil;
   BETURLSessionRequestSerializer * request = nil;
   switch (requestType) {
-    case BETRequestEncodingTypeJSON:
+    case BETOAuth2ClientRequestEncodingTypeJSON:
       request = [BETURLSessionRequestSerializerJSON new];
       break;
-    case BETRequestEncodingTypeFormURLEncoding:
+    case BETOAuth2ClientRequestEncodingTypeFormURLEncoding:
       request = [BETURLSessionRequestSerializerFormURLEncoding new];
     default:
       break;
@@ -148,7 +148,7 @@
 }
 
 
--(void)setAccessCredential:(BETOAccessCredential *)accessCredential; {
+-(void)setAccessCredential:(BETOAuth2Credential *)accessCredential; {
   _accessCredential = accessCredential;
   if(accessCredential) [self.session bet_setValue:[NSString stringWithFormat:@"Bearer %@", accessCredential.accessToken] forHTTPHeaderField:@"Authorization"];
   else [self.session bet_setValue:nil forHTTPHeaderField:@"Authorization"];
@@ -181,7 +181,7 @@
   NSURLSessionTask * task = [self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task, NSError *error) {
     
     
-    weakSelf.accessCredential = [BETOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
+    weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)responseObject];
     weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
     
   }];
@@ -281,7 +281,7 @@
     
     __weak typeof(self) weakSelf = self;
     [[self.session bet_taskPOSTResource:self.tokenPath withParams:postData completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task, NSError *error) {
-      weakSelf.accessCredential = [BETOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
+      weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)responseObject];
       weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
     }] resume];
     
@@ -311,7 +311,7 @@
   
   __weak typeof(self) weakSelf = self;
   [[self.session bet_taskPOSTResource:theTokenPath withParams:postData completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task,NSError *error) {
-    weakSelf.accessCredential = [BETOAccessCredential accessCredentialWithDictionary:(NSDictionary *)responseObject];
+    weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)responseObject];
     if(theCompletion) theCompletion(weakSelf.accessCredential, error);
   }] resume];
   
@@ -328,7 +328,7 @@
   NSParameterAssert(self.session);
   
   [[self.session bet_buildTaskWithHTTPMethodString:theHTTPMethod onResource:theResourcePath params:theParameters completion:^(NSObject<NSFastEnumeration> *responseObject, NSHTTPURLResponse * HTTPURLResponse, NSURLSessionTask *task, NSError *error) {
-    if(theCompletion) theCompletion((NSDictionary *)responseObject, error, HTTPURLResponse);
+    if(theCompletion) theCompletion((NSDictionary *)responseObject, HTTPURLResponse, error);
   }] resume];
   
   

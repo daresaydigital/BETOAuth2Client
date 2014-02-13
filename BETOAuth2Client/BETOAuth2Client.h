@@ -1,14 +1,14 @@
 
 
-#import "BETOAccessCredential.h"
+#import "BETOAuth2Credential.h"
 
 
-typedef void (^BETOAuth2ClientAuthenticationCompletionBlock)(BETOAccessCredential * credential, NSError * error);
-typedef void (^BETOAuth2ClientRequestCompletionBlock)(NSDictionary * responseObject, NSError * error, NSHTTPURLResponse * URLResponse);
+typedef void (^BETOAuth2ClientAuthenticationCompletionBlock)(BETOAuth2Credential * credential, NSError * error);
+typedef void (^BETOAuth2ClientRequestCompletionBlock)(NSObject<NSFastEnumeration> * responseObject, NSHTTPURLResponse * URLResponse, NSError * error);
 
-typedef NS_ENUM(NSInteger, BETRequestEncodingType) {
-  BETRequestEncodingTypeFormURLEncoding,
-  BETRequestEncodingTypeJSON
+typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
+  BETOAuth2ClientRequestEncodingTypeFormURLEncoding,
+  BETOAuth2ClientRequestEncodingTypeJSON
 };
 
 
@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, BETRequestEncodingType) {
 @property(nonatomic,copy,readonly) NSString * identifier;
 @property(nonatomic,copy,readonly) NSArray * scopes;
 @property(nonatomic,copy,readonly) NSString * redirectURI;
-@property(nonatomic,strong) BETOAccessCredential * accessCredential;
+@property(nonatomic,strong) BETOAuth2Credential * accessCredential;
 @property(nonatomic,copy,readonly) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletion;
 
 #pragma mark - Shared
@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, BETRequestEncodingType) {
                                 secretKey:(NSString *)theSecretKey
                               redirectURI:(NSString *)theRedirectURI
                                scopes:(NSArray *)theScopes
-                              requestType:(BETRequestEncodingType)requestType;
+                              requestType:(BETOAuth2ClientRequestEncodingType)requestType;
 
 #pragma mark - Authentication
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
