@@ -1,8 +1,8 @@
-#SIOAuth2Client
+#BETOAuth2Client
 
-[![Build Status](https://travis-ci.org/etalio/SIOAuth2Client.png?branch=master)](https://travis-ci.org/screeninteraction/SIOAuth2Client)
-[![Version](http://cocoapod-badges.herokuapp.com/v/SIOAuth2Client/badge.png)](http://cocoadocs.org/docsets/SIOAuth2Client)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/SIOAuth2Client/badge.png)](http://cocoadocs.org/docsets/SIOAuth2Client)
+[![Build Status](https://travis-ci.org/etalio/BETOAuth2Client.png?branch=master)](https://travis-ci.org/screeninteraction/BETOAuth2Client)
+[![Version](http://cocoapod-badges.herokuapp.com/v/BETOAuth2Client/badge.png)](http://cocoadocs.org/docsets/BETOAuth2Client)
+[![Platform](http://cocoapod-badges.herokuapp.com/p/BETOAuth2Client/badge.png)](http://cocoadocs.org/docsets/BETOAuth2Client)
 
 > Lightweight OAuth 2 client based on [SIHTTPCore](https://github.com/screeninteraction/SIHTTPCore) with blocks & delegate support. 
 
@@ -20,31 +20,31 @@ Convenience serializers (JSON out of the box by default) to get started fast.
 ##Installation
 
 ```ruby
-pod 'SIOAuth2Client'
+pod 'BETOAuth2Client'
 ```
 
 
 ##Setup
 
 ```objective-c
-#import <SIOAuth2Client.h>
+#import <BETOAuth2Client.h>
 ```
 
 
 ## API
-[Documentation for now](https://github.com/screeninteraction/SIOAuth2Client/blob/master/SIOAuth2Client/SIOAuth2Client.h)
+[Documentation for now](https://github.com/screeninteraction/BETOAuth2Client/blob/master/BETOAuth2Client/BETOAuth2Client.h)
 
 
 Contact
 -------
 
-If you end up using SIOAuth2Client in a project, we'd love to hear about it.
+If you end up using BETOAuth2Client in a project, we'd love to hear about it.
 
 email: [info@screeninteraction.com](mailto:contact@screeninteraction.com)  
 twitter: [@ScreenTwitt](https://twitter.com/ScreenTwitt)
 
 ## License
 
-SIOAuth2Client is © 2013 [Screen Interaction](https://github.com/screeninteraction) and may be freely
+BETOAuth2Client is © 2013 [Screen Interaction](https://github.com/screeninteraction) and may be freely
 distributed under the [MIT license](http://opensource.org/licenses/MIT).
-See the [`LICENSE.md`](https://github.com/screeninteraction/SIOAuth2Client/blob/master/LICENSE.md) file.
+See the [`LICENSE.md`](https://github.com/screeninteraction/BETOAuth2Client/blob/master/LICENSE.md) file.

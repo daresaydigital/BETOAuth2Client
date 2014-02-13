@@ -7,8 +7,7 @@
 //
 
 #import "SIFirstViewController.h"
-#import <SIOAuth2Client.h>
-#import <SIHTTPCore.h>
+#import <BETOAuth2Client.h>
 
 #define CLIENT_ID  @"7y7gp0495bt7acqbqdaw7y7gp0495bt7"
 #define APP_SECRET @"ckm6ssv30cwz1zg7xu2pckm6ssv30cwz1zg7xu2p"
@@ -25,13 +24,13 @@
 -(void)viewWillAppear:(BOOL)animated;{
   [super viewWillAppear:animated];
   
-//  [[[NSURLSession SI_buildSessionWithName:@"x" withBaseURLString:@"http://localhost:3000" andSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] andRequestSerializer:SIURLSessionRequestSerializerFormURLEncoding.new andResponseSerializer:nil operationQueue:nil] SI_taskPOSTResource:@"users" withParams:@{@"user" : @{@"name" : @[@"has", @"an", @"array"]}} completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
+//  [[[NSURLSession bet_buildSessionWithName:@"x" withBaseURLString:@"http://localhost:3000" andSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] andRequestSerializer:SIURLSessionRequestSerializerFormURLEncoding.new andResponseSerializer:nil operationQueue:nil] bet_taskPOSTResource:@"users" withParams:@{@"user" : @{@"name" : @[@"has", @"an", @"array"]}} completeBlock:^(NSError *error, NSDictionary *responseObject, NSHTTPURLResponse *urlResponse, NSURLSessionTask *task) {
 //    NSLog(@"%@ %@", error, responseObject);
 //
 //  }] resume];
   
   
-  SIOAuth2Client * authClient = [SIOAuth2Client OAuth2ClientWithIdentifier:@"https://api-etalio.3fs.si"
+  BETOAuth2Client * authClient = [BETOAuth2Client OAuth2ClientWithIdentifier:@"https://api-etalio.3fs.si"
                                                                     baseURL:@"https://api-etalio.3fs.si"
                                                                   clientId:CLIENT_ID
                                                                  secretKey:APP_SECRET
@@ -39,8 +38,8 @@
                                                                 withScopes:@[@"profile.w"]
                                                                requestType:SIORequestEncodingTypeFormURLEncoding];
   
-[authClient authenticateWithResourceOwner:@"+46728880188" andPassword:@"diablo" andTokenPath:@"oauth2/token" onComplete:^(SIOAccessCredential *credential, NSError *error) {
-  [authClient refreshWithTokenPath:@"oauth2/token" onComplete:^(SIOAccessCredential * newCredential, NSError *yerror) {
+[authClient authenticateWithResourceOwner:@"+46728880188" andPassword:@"diablo" andTokenPath:@"oauth2/token" onComplete:^(BETOAccessCredential *credential, NSError *error) {
+  [authClient refreshWithTokenPath:@"oauth2/token" onComplete:^(BETOAccessCredential * newCredential, NSError *yerror) {
     
   }];
 
@@ -49,9 +48,9 @@
   
 //  [authClient authenticateWithAuthorizationPath:@"oauth2"
 //                                   andTokenPath:@"oauth2/token"
-//                                     onComplete:^(SIOAccessCredential *oldCredential, NSError *xerror) {
+//                                     onComplete:^(BETOAccessCredential *oldCredential, NSError *xerror) {
 //
-//                                       [authClient refreshWithTokenPath:@"oauth2/token" onComplete:^(SIOAccessCredential * newCredential, NSError *yerror) {
+//                                       [authClient refreshWithTokenPath:@"oauth2/token" onComplete:^(BETOAccessCredential * newCredential, NSError *yerror) {
 //                                         
 //                                       }];
 //                                     

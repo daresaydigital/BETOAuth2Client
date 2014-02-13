@@ -1,20 +1,21 @@
 PODS:
-  - SIHTTPCore (0.1.0)
-  - SIOAuth2Client (0.1.0):
-    - SIHTTPCore
+  - BETOAuth2Client (1.0.0):
+    - BETURLSession (~> 1.0.0)
+  - BETURLSession (1.0.0)
 
 DEPENDENCIES:
-  - SIHTTPCore (from `../../SIHTTPCore`)
-  - SIOAuth2Client (from `../`)
+  - BETOAuth2Client (from `../`)
+  - BETURLSession (from `https://github.com/screeninteraction/BETURLSession.git`, branch `master`)
 
 EXTERNAL SOURCES:
-  SIHTTPCore:
-    :path: ../../SIHTTPCore
-  SIOAuth2Client:
+  BETOAuth2Client:
     :path: ../
+  BETURLSession:
+    :branch: :master
+    :git: https://github.com/screeninteraction/BETURLSession.git
 
 SPEC CHECKSUMS:
-  SIHTTPCore: 80193798604ae9fba769ba8e2118a7d8658a01fc
-  SIOAuth2Client: 74c4946582c6025fcde4c35ef54056ce50ca9bc0
+  BETOAuth2Client: f979c7f4f93e197488556bbb03569febec759064
+  BETURLSession: 2e51573f9794aa50cfa85fb0b54ce93e1c8eaa79
 
 COCOAPODS: 0.29.0
