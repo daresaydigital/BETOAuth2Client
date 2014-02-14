@@ -4,7 +4,7 @@
 [![Version](http://cocoapod-badges.herokuapp.com/v/BETOAuth2Client/badge.png)](http://cocoadocs.org/docsets/BETOAuth2Client)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/BETOAuth2Client/badge.png)](http://cocoadocs.org/docsets/BETOAuth2Client)
 
-> Lightweight OAuth 2 client based on [SIHTTPCore](https://github.com/screeninteraction/SIHTTPCore) with blocks & delegate support. 
+> Lightweight OAuth 2 client based on [BETURLSession](https://github.com/screeninteraction/BETURLSession) with blocks & delegate support. 
 
 
 
