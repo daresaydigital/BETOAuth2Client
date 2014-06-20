@@ -337,12 +337,12 @@ static NSString * BETBase64EncodedStringFromString(NSString *string) {
   NSParameterAssert(self.clientId);
   NSParameterAssert(self.session);
   
-  
-  NSDictionary * postData = @{@"grant_type" : @"refresh_token",
+
+    
+     NSDictionary * postData = @{@"grant_type" : @"refresh_token",
                               @"refresh_token" : self.accessCredential.refreshToken
                               };
-  
-  
+
   __weak typeof(self) weakSelf = self;
 
   [self setAuthorizationHeaderFieldithClientIDAndKey];
