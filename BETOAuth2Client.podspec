@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.9'
 
-  s.dependency 'BETURLSession', :git => 'https://github.com/screeninteraction/BETURLSession'
+  s.dependency 'BETURLSession', '1.2'
 
   s.source_files = source_files
   s.resources    = "#{name}/**/*.{implementation,private}"
