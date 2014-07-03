@@ -1,21 +1,20 @@
 PODS:
-  - BETOAuth2Client (1.0.0):
-    - BETURLSession (~> 1.0.0)
-  - BETURLSession (1.0.0)
+  - BETOAuth2Client (1.2):
+    - BETURLSession (= 1.2)
+  - BETURLSession (1.2)
 
 DEPENDENCIES:
   - BETOAuth2Client (from `../`)
-  - BETURLSession (from `https://github.com/screeninteraction/BETURLSession.git`, branch `master`)
+  - BETURLSession (from `https://github.com/screeninteraction/BETURLSession`)
 
 EXTERNAL SOURCES:
   BETOAuth2Client:
     :path: ../
   BETURLSession:
-    :branch: :master
-    :git: https://github.com/screeninteraction/BETURLSession.git
+    :git: https://github.com/screeninteraction/BETURLSession
 
 SPEC CHECKSUMS:
-  BETOAuth2Client: f979c7f4f93e197488556bbb03569febec759064
-  BETURLSession: 2e51573f9794aa50cfa85fb0b54ce93e1c8eaa79
+  BETOAuth2Client: 41e8f7d604861b24684d51a52d7a665d79a00658
+  BETURLSession: f49fbfc7bcbe90781b06962d90925879e65f219e
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.33.1

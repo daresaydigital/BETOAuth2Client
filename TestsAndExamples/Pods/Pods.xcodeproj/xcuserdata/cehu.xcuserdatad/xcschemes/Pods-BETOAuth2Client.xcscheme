@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C3FE1259F1F4422FA5B5F8C1"
+               BlueprintIdentifier = "9DFA6E4EF9504673A713B5C9"
                BuildableName = "libPods-BETOAuth2Client.a"
                BlueprintName = "Pods-BETOAuth2Client"
                ReferencedContainer = "container:Pods.xcodeproj">

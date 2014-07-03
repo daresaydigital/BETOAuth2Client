@@ -39,7 +39,44 @@ pod 'BETURLSession'
 [Documentation for now](https://github.com/screeninteraction/BETURLSession/blob/develop/BETURLSession/NSURLSession%2BBETURLSession.h#L35-L36)
 
 
+## Sample
+```objective-c
+  NSURLSession * session = [NSURLSession bet_sessionWithName:@"Random" baseURLString:@"http://httpbin.org"];
+  
+  NSMutableArray * bigData = @[].mutableCopy;
+  for (NSInteger i = 0; i!=50000; i++) [bigData addObject:@(i)];
+  
+  NSURLSessionTask * task = [session bet_taskPOSTResource:@"post" 
+                                               withParams:@{@"POST" : bigData} 
+                                               completion:^(BETResponse *response) {
+    NSLog(@"POST completed with code %@ & error %@", 
+                @(response.HTTPURLResponse.statusCode), 
+                  response.error
+          );
+  }];
+  
+  BETURLSessionTaskProgressHandlerBlock (^progressHandlerWithName)(NSString *) = ^BETURLSessionTaskProgressHandlerBlock(NSString * name) {
+    return ^(NSURLSessionTask *task, NSInteger bytes, NSInteger totalBytes, NSInteger totalBytesExpected) {
+      NSLog(@"%@ : %@ <-> %@ <-> %@", name, @(bytes), @(totalBytes), @(totalBytesExpected));
+    };
+  };
 
+
+  
+  [task bet_setUploadProgressHandler:progressHandlerWithName(@"Upload")];
+  
+  [task bet_setDownloadProgressHandler:progressHandlerWithName(@"Download")];
+  
+  [task resume];
+  
+```
+
+
+## Notes
+* Proper naming
+* completion: for callbacks that are complete (option)
+* completionHandler: callbacks that are complete but need action (required)
+* handler: callbacks that need action but are not necessarily completion (required)
 
 
 Contact

@@ -6,52 +6,21 @@
 	<dict>
 		<key>Pods-BETOAuth2Client.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-BETURLSession.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>64C3AA42C23E45FBB5E03453</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7C708F1C5DF248ED9B62A65B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C031306F43B54005AA0FB0B3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C3FE1259F1F4422FA5B5F8C1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C8A0D453C222419F83858948</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EEA26FD8E67A4015B5DD27CA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
