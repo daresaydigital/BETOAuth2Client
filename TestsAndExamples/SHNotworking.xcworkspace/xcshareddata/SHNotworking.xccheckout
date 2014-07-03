@@ -5,48 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8E6BB1D2-2C4E-4047-96F7-BA4CA4351E3C</string>
+	<string>19699A9E-67FE-49B6-957B-813586314C7D</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SHNotworking</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>23277B19-0C99-4556-A798-18A1E53916B5</key>
-		<string>ssh://github.com/screeninteraction/SIOAuth2Client.git</string>
-		<key>86C2470F-C857-478E-A0BF-A384C3E39ABD</key>
-		<string>ssh://github.com/screeninteraction/SIHTTPCore.git</string>
+		<key>C9D0DD27-C118-4A67-B1FD-95DCAAD4AFB4</key>
+		<string>https://github.com/screeninteraction/BETOAuth2Client.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TestsAndExamples/SHNotworking.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>23277B19-0C99-4556-A798-18A1E53916B5</key>
+		<key>C9D0DD27-C118-4A67-B1FD-95DCAAD4AFB4</key>
 		<string>../..</string>
-		<key>86C2470F-C857-478E-A0BF-A384C3E39ABD</key>
-		<string>../../../SIHTTPCore</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/screeninteraction/SIOAuth2Client.git</string>
+	<string>https://github.com/screeninteraction/BETOAuth2Client.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>23277B19-0C99-4556-A798-18A1E53916B5</string>
+	<string>C9D0DD27-C118-4A67-B1FD-95DCAAD4AFB4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>86C2470F-C857-478E-A0BF-A384C3E39ABD</string>
+			<string>C9D0DD27-C118-4A67-B1FD-95DCAAD4AFB4</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SIHTTPCore</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>23277B19-0C99-4556-A798-18A1E53916B5</string>
-			<key>IDESourceControlWCCName</key>
-			<string>SIOAuth2Client</string>
+			<string>BETOAuth2Client</string>
 		</dict>
 	</array>
 </dict>
