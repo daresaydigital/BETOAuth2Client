@@ -82,6 +82,8 @@
 
 @implementation BETOAuth2Client : NSObject
 
+
+
 #pragma mark - Fetcher
 +(instancetype)existingOAuth2ClientWithIdentifier:(NSString *)theIdentifier; {
   NSParameterAssert(theIdentifier);
@@ -153,8 +155,15 @@
   if(accessCredential) [self.session bet_setValue:[NSString stringWithFormat:@"Bearer %@", accessCredential.accessToken] forHTTPHeaderField:@"Authorization"];
   else [self.session bet_setValue:nil forHTTPHeaderField:@"Authorization"];
   
-  
 }
+
+
+- (void)setAuthorizationHeaderFieldithClientIDAndKey;{
+    NSString *basicAuthCredentials = [NSString stringWithFormat:@"%@:%@", self.clientId, self.secretKey];
+    [self.session bet_setValue:[NSString stringWithFormat:@"Basic %@", [[basicAuthCredentials dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:kNilOptions]] forHTTPHeaderField:@"Authorization"];
+}
+
+
 
 
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
@@ -179,7 +188,6 @@
   __weak typeof(self) weakSelf = self;
   self.authenticationCompletionBlock = theCompletion;
   NSURLSessionTask * task = [self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(BETResponse * response) {
-    
     
     weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
     weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, response.error);
@@ -281,7 +289,7 @@
     
     __weak typeof(self) weakSelf = self;
     [[self.session bet_taskPOSTResource:self.tokenPath withParams:postData completion:^(BETResponse * response) {
-      weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
+     weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
       weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, response.error);
     }] resume];
     
@@ -301,15 +309,16 @@
   NSParameterAssert(self.clientId);
   NSParameterAssert(self.session);
   
-  
-  NSDictionary * postData = @{@"grant_type" : @"refresh_token",
-                              @"refresh_token" : self.accessCredential.refreshToken,
-                              @"client_secret" : self.secretKey,
-                              @"client_id" : self.clientId
+
+    
+     NSDictionary * postData = @{@"grant_type" : @"refresh_token",
+                              @"refresh_token" : self.accessCredential.refreshToken
                               };
-  
-  
+
   __weak typeof(self) weakSelf = self;
+
+  [self setAuthorizationHeaderFieldithClientIDAndKey];
+
   [[self.session bet_taskPOSTResource:theTokenPath withParams:postData completion:^(BETResponse * response) {
     weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
     if(theCompletion) theCompletion(weakSelf.accessCredential, response.error);
