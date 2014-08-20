@@ -5,7 +5,9 @@
 @property(nonatomic,copy) NSString *accessToken;
 @property(nonatomic,copy) NSString *tokenType;
 @property(nonatomic,copy) NSString *refreshToken;
-@property(nonatomic,copy) NSDate   * expiresAtDate;
+@property(nonatomic,copy) NSDate   *expiresAtDate;
+@property(nonatomic,copy) NSString *idToken;
+
 +(instancetype)accessCredentialWithDictionary:(NSDictionary *)theDictionary;
 @end
 
@@ -19,6 +21,7 @@
   credential.expiresAtDate = [NSDate dateWithTimeIntervalSinceNow:number.integerValue];
   credential.tokenType = theDictionary[@"token_type"];
   credential.refreshToken = theDictionary[@"refresh_token"];
+  credential.idToken = theDictionary[@"id_token"];
   if(credential.accessToken)
     return credential;
   else
@@ -46,6 +49,7 @@
     credential.tokenType     = self.tokenType;
     credential.refreshToken  = self.refreshToken;
     credential.expiresAtDate = self.expiresAtDate;
+    credential.idToken       = self.idToken;
   }
   NSParameterAssert(credential);
   return credential;
@@ -54,6 +58,7 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder; {
   [aCoder encodeObject:self.accessToken forKey:@"accessToken"];
   [aCoder encodeObject:self.tokenType forKey:@"tokenType"];
+  [aCoder encodeObject:self.idToken forKey:@"idToken"];
   [aCoder encodeObject:self.refreshToken forKey:@"refreshToken"];
   [aCoder encodeObject:self.expiresAtDate forKey:@"expiresAtDate"];
 }
@@ -63,6 +68,7 @@
   if(self) {
     self.accessToken = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"accessToken"];
     self.tokenType = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"tokenType"];
+    self.idToken   = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"idToken"];
     self.refreshToken = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"refreshToken"];
     self.expiresAtDate = [aDecoder decodeObjectOfClass:[NSDate class] forKey:@"expiresAtDate"];
   }
@@ -75,14 +81,15 @@
 }
 -(NSString *)description; {
   return [NSString
-          stringWithFormat:@"accessToken: %@ \n tokenType: %@ \n refreshToken: %@ \n expiresInDate: %@ \n expiresInTimeInterval: %f \n isExpired: %@ \n isAboutToExpire: %@ \n",
+          stringWithFormat:@"accessToken: %@ \n tokenType: %@ \n refreshToken: %@ \n expiresInDate: %@ \n expiresInTimeInterval: %f \n isExpired: %@ \n isAboutToExpire: %@ \n idToken: %@ \n",
           self.accessToken,
           self.tokenType,
           self.refreshToken,
           self.expiresAtDate,
           self.expiresInTimeInterval,
           self.isExpired ? @"YES" : @"NO",
-          self.isAboutToExpire ? @"YES" : @"NO"
+          self.isAboutToExpire ? @"YES" : @"NO",
+          self.idToken
           ];
 }
 @end

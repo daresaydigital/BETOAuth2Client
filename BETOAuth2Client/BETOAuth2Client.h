@@ -41,6 +41,12 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                             tokenPath:(NSString *)theTokenPath
                               completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
 
+#pragma mark - authorization code third party
+-(void)authorizeThirdPartyCodeWithAuthorizationPath:(NSString *)theAuthorizationPath
+                                    onCompleteBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+-(void)retrieveAccessCredentialForThirdPartyWithAuthorizationCode:(NSString *)code
+                                                       completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
+
 #pragma mark - Delegation
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
                 onlyMatchingUrlPrefix:(NSString *)thePrefix
