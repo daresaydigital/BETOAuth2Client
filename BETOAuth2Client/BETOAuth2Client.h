@@ -43,9 +43,11 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
 
 #pragma mark - authorization code third party
 -(void)authorizeThirdPartyCodeWithAuthorizationPath:(NSString *)theAuthorizationPath
-                                    onCompleteBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
--(void)retrieveAccessCredentialForThirdPartyWithAuthorizationCode:(NSString *)code
-                                                       completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
+                                         parameters:(id<NSFastEnumeration>)theParameters
+                                      completeBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+-(void)retrieveThirdPartyAccessCredentialWithTokenPath:(NSString *)theTokenPath
+                                                 params:(NSDictionary *)params
+                                             completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
 
 #pragma mark - Delegation
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
@@ -61,5 +63,7 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                     parameters:(id<NSFastEnumeration>)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
                     completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+#pragma mark - Client ID and secret as header
+- (void)setAuthorizationHeaderFieldithClientID:(NSString *)clientID AndKey:(NSString *)clientSecret;
 
 @end
