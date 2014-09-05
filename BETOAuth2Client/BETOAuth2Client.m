@@ -210,6 +210,7 @@
 -(void)authenticateWithAuthorizationPath:(NSString *)theAuthorizationPath
                             tokenPath:(NSString *)theTokenPath
                               completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion; {
+  NSParameterAssert(self.baseURLWeb);
   NSParameterAssert(theCompletion);
   NSParameterAssert(theAuthorizationPath);
   NSParameterAssert(theTokenPath);
@@ -223,18 +224,24 @@
   NSParameterAssert(self.nonceState);
   
   
-  
+#warning in the future change LOA level
   NSMutableDictionary * params = @{@"response_type" : @"code",
                                    @"client_id" : self.clientId,
                                    @"redirect_uri" : self.redirectURI,
-                                   @"state" : self.nonceState
+                                   @"state" : self.nonceState,
+                                   @"nonce" : self.nonceState,
+                                   @"acr_values":@"2"
                                    }.mutableCopy;
   
   if(self.scopes && self.scopes.count > 0) [params addEntriesFromDictionary:@{@"scope" : [self.scopes componentsJoinedByString:@" "]}];
-  
-  NSURL * requestUrl =[self.session bet_taskGETResource:theAuthorizationPath withParams:params.copy completion:nil].currentRequest.URL;
+    
+    NSURL * redirectURL = [NSURL URLWithString:[self.baseURLWeb stringByAppendingPathComponent:theAuthorizationPath]];
+    NSString * queryparameter = nil;
+    queryparameter = [[BETURLSessionSerializer new] queryStringFromParameters:params];
+    redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString
+                                         stringByAppendingFormat:@"?%@",queryparameter]];
   self.authenticationCompletionBlock = theCompletion;
-  [[UIApplication sharedApplication] openURL:requestUrl];
+  [[UIApplication sharedApplication] openURL:redirectURL];
   
 }
 
@@ -257,7 +264,7 @@
 
 -(void)retrieveThirdPartyAccessCredentialWithTokenPath:(NSString *)theTokenPath
                                                   params:(NSDictionary *)params
-                                            completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;{
+                                            completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;{
     
     __weak typeof(self) weakSelf = self;
     NSLog(@"self.session %@",self.session.configuration.HTTPAdditionalHeaders);
@@ -265,7 +272,7 @@
     [[self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(BETResponse * response) {
         NSLog(@"weakself response %@",response);
         weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
-        if(theCompletion) theCompletion(weakSelf.accessCredential, response.error);
+        if(theCompletion) theCompletion(response.content, response.HTTPURLResponse,response.error);
     }] resume];
 }
 
@@ -321,10 +328,12 @@
                                 @"client_secret" : self.secretKey,
                                 @"client_id" : self.clientId
                                 };
-    
-    
+      
+
+
     __weak typeof(self) weakSelf = self;
-    
+      NSLog(@"self.session %@",self.session.configuration.HTTPAdditionalHeaders);
+
     [[self.session bet_taskPOSTResource:self.tokenPath withParams:postData completion:^(BETResponse * response) {
      weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
       weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, response.error);
@@ -355,7 +364,6 @@
   __weak typeof(self) weakSelf = self;
 
   [self setAuthorizationHeaderFieldithClientIDAndKey];
-
   [[self.session bet_taskPOSTResource:theTokenPath withParams:postData completion:^(BETResponse * response) {
     weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
     if(theCompletion) theCompletion(weakSelf.accessCredential, response.error);
@@ -379,7 +387,6 @@
   
   
 }
-
 
 
 @end

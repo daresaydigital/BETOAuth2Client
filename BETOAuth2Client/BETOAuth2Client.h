@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
 @property(nonatomic,copy,readonly) NSString * identifier;
 @property(nonatomic,copy,readonly) NSArray * scopes;
 @property(nonatomic,copy,readonly) NSString * redirectURI;
+@property(nonatomic,copy) NSString * baseURLWeb; // is used to do the web authentication
 @property(nonatomic,strong) BETOAuth2Credential * accessCredential;
 @property(nonatomic,copy,readonly) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletion;
 
@@ -47,7 +48,7 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                                       completeBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
 -(void)retrieveThirdPartyAccessCredentialWithTokenPath:(NSString *)theTokenPath
                                                  params:(NSDictionary *)params
-                                             completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
+                                             completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
 
 #pragma mark - Delegation
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
@@ -65,5 +66,6 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                     completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
 #pragma mark - Client ID and secret as header
 - (void)setAuthorizationHeaderFieldithClientID:(NSString *)clientID AndKey:(NSString *)clientSecret;
+
 
 @end
