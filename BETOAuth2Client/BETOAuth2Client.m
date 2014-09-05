@@ -76,6 +76,10 @@
 @property(nonatomic,copy) NSString * authorizationPath;
 @property(nonatomic,copy) NSString * tokenPath;
 @property(nonatomic,copy) NSString * nonceState;
+@property(nonatomic,copy) NSString * theloaLevel;
+@property(nonatomic,copy) NSString * theloginHint;
+@property(nonatomic,copy) NSString * thePrompt;
+@property(nonatomic,copy) NSString * baseURLWeb;
 @property(nonatomic,copy) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletionBlock;
 
 @end
@@ -147,6 +151,18 @@
   
   return client;
   
+}
+
+-(void)setBaseURLWeb:(NSString *)baseURLWeb;{
+    _baseURLWeb = baseURLWeb;
+}
+
+-(void) setupAdditionalParamsWithloaLevel:(NSString *)theloaLevel
+                                loginHint:(NSString *)theloginHint
+                                   prompt:(NSString *)thePrompt;{
+    self.theloaLevel = theloaLevel;
+    self.theloginHint = theloginHint;
+    self.thePrompt = thePrompt;
 }
 
 

@@ -17,7 +17,10 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
 @property(nonatomic,copy,readonly) NSString * identifier;
 @property(nonatomic,copy,readonly) NSArray * scopes;
 @property(nonatomic,copy,readonly) NSString * redirectURI;
-@property(nonatomic,copy) NSString * baseURLWeb; // is used to do the web authentication
+@property(nonatomic,copy,readonly) NSString * baseURLWeb; // is used to do the web authentication
+@property(nonatomic,copy,readonly) NSString * theloaLevel;
+@property(nonatomic,copy,readonly) NSString * theloginHint;
+@property(nonatomic,copy,readonly) NSString * thePrompt;
 @property(nonatomic,strong) BETOAuth2Credential * accessCredential;
 @property(nonatomic,copy,readonly) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletion;
 
@@ -32,6 +35,13 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                               redirectURI:(NSString *)theRedirectURI
                                scopes:(NSArray *)theScopes
                               requestType:(BETOAuth2ClientRequestEncodingType)requestType;
+
+-(void) setupAdditionalParamsWithloaLevel:(NSString *)theloaLevel
+                                loginHint:(NSString *)theloginHint
+                                   prompt:(NSString *)thePrompt;
+
+-(void)setBaseURLWeb:(NSString *)baseURLWeb;
+
 
 #pragma mark - Authentication
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
