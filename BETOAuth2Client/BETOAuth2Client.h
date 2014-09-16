@@ -47,14 +47,17 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
                             tokenPath:(NSString *)theTokenPath
                           completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
-
+//web
 -(void)authenticateWithAuthorizationPath:(NSString *)theAuthorizationPath
                             tokenPath:(NSString *)theTokenPath
+                                  withUI:(Boolean)withUI
                               completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
+
 
 #pragma mark - authorization code third party
 -(void)authorizeThirdPartyCodeWithAuthorizationPath:(NSString *)theAuthorizationPath
                                          parameters:(id<NSFastEnumeration>)theParameters
+                                             withUI:(Boolean)withUI
                                       completeBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
 -(void)retrieveThirdPartyAccessCredentialWithTokenPath:(NSString *)theTokenPath
                                                  params:(NSDictionary *)params
