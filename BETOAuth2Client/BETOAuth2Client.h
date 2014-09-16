@@ -17,6 +17,10 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
 @property(nonatomic,copy,readonly) NSString * identifier;
 @property(nonatomic,copy,readonly) NSArray * scopes;
 @property(nonatomic,copy,readonly) NSString * redirectURI;
+@property(nonatomic,copy,readonly) NSString * baseURLWeb; // is used to do the web authentication
+@property(nonatomic,copy,readonly) NSString * theloaLevel;
+@property(nonatomic,copy,readonly) NSString * theloginHint;
+@property(nonatomic,copy,readonly) NSString * thePrompt;
 @property(nonatomic,strong) BETOAuth2Credential * accessCredential;
 @property(nonatomic,copy,readonly) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletion;
 
@@ -32,14 +36,32 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                                scopes:(NSArray *)theScopes
                               requestType:(BETOAuth2ClientRequestEncodingType)requestType;
 
+-(void) setupAdditionalParamsWithloaLevel:(NSString *)theloaLevel
+                                loginHint:(NSString *)theloginHint
+                                   prompt:(NSString *)thePrompt;
+
+-(void)setBaseURLWeb:(NSString *)baseURLWeb;
+
+
 #pragma mark - Authentication
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
                             tokenPath:(NSString *)theTokenPath
                           completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
-
+//web
 -(void)authenticateWithAuthorizationPath:(NSString *)theAuthorizationPath
                             tokenPath:(NSString *)theTokenPath
+                                  withUI:(Boolean)withUI
                               completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion;
+
+
+#pragma mark - authorization code third party
+-(void)authorizeThirdPartyCodeWithAuthorizationPath:(NSString *)theAuthorizationPath
+                                         parameters:(id<NSFastEnumeration>)theParameters
+                                             withUI:(Boolean)withUI
+                                      completeBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+-(void)retrieveThirdPartyAccessCredentialWithTokenPath:(NSString *)theTokenPath
+                                                 params:(NSDictionary *)params
+                                             completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
 
 #pragma mark - Delegation
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
@@ -55,5 +77,8 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                     parameters:(id<NSFastEnumeration>)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
                     completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+#pragma mark - Client ID and secret as header
+- (void)setAuthorizationHeaderFieldithClientID:(NSString *)clientID AndKey:(NSString *)clientSecret;
+
 
 @end

@@ -76,6 +76,10 @@
 @property(nonatomic,copy) NSString * authorizationPath;
 @property(nonatomic,copy) NSString * tokenPath;
 @property(nonatomic,copy) NSString * nonceState;
+@property(nonatomic,copy) NSString * theloaLevel;
+@property(nonatomic,copy) NSString * theloginHint;
+@property(nonatomic,copy) NSString * thePrompt;
+@property(nonatomic,copy) NSString * baseURLWeb;
 @property(nonatomic,copy) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletionBlock;
 
 @end
@@ -149,6 +153,18 @@
   
 }
 
+-(void)setBaseURLWeb:(NSString *)baseURLWeb;{
+    _baseURLWeb = baseURLWeb;
+}
+
+-(void) setupAdditionalParamsWithloaLevel:(NSString *)theloaLevel
+                                loginHint:(NSString *)theloginHint
+                                   prompt:(NSString *)thePrompt;{
+    self.theloaLevel = theloaLevel;
+    self.theloginHint = theloginHint;
+    self.thePrompt = thePrompt;
+}
+
 
 -(void)setAccessCredential:(BETOAuth2Credential *)accessCredential; {
   _accessCredential = accessCredential;
@@ -157,6 +173,10 @@
   
 }
 
+- (void)setAuthorizationHeaderFieldithClientID:(NSString *)clientID AndKey:(NSString *)clientSecret;{
+    NSString *basicAuthCredentials = [NSString stringWithFormat:@"%@:%@", clientID, clientSecret];
+    [self.session bet_setValue:[NSString stringWithFormat:@"Basic %@", [[basicAuthCredentials dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:kNilOptions]] forHTTPHeaderField:@"Authorization"];
+}
 
 - (void)setAuthorizationHeaderFieldithClientIDAndKey;{
     NSString *basicAuthCredentials = [NSString stringWithFormat:@"%@:%@", self.clientId, self.secretKey];
@@ -205,7 +225,9 @@
 
 -(void)authenticateWithAuthorizationPath:(NSString *)theAuthorizationPath
                             tokenPath:(NSString *)theTokenPath
-                              completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion; {
+                               withUI:(Boolean)withUI
+                           completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion; {
+  NSParameterAssert(self.baseURLWeb);
   NSParameterAssert(theCompletion);
   NSParameterAssert(theAuthorizationPath);
   NSParameterAssert(theTokenPath);
@@ -218,21 +240,85 @@
   self.nonceState = (NSString *)CFBridgingRelease(nonce);
   NSParameterAssert(self.nonceState);
   
-  
-  
+  __weak typeof(self) weakSelf = self;
+#warning in the future change LOA level
   NSMutableDictionary * params = @{@"response_type" : @"code",
                                    @"client_id" : self.clientId,
                                    @"redirect_uri" : self.redirectURI,
-                                   @"state" : self.nonceState
+                                   @"state" : self.nonceState,
+                                   @"nonce" : self.nonceState,
+                                   @"acr_values":@"2"
                                    }.mutableCopy;
   
   if(self.scopes && self.scopes.count > 0) [params addEntriesFromDictionary:@{@"scope" : [self.scopes componentsJoinedByString:@" "]}];
-  
-  NSURL * requestUrl =[self.session bet_taskGETResource:theAuthorizationPath withParams:params.copy completion:nil].currentRequest.URL;
   self.authenticationCompletionBlock = theCompletion;
-  [[UIApplication sharedApplication] openURL:requestUrl];
-  
+    if(withUI){
+        NSURL * redirectURL = [NSURL URLWithString:[self.baseURLWeb stringByAppendingPathComponent:theAuthorizationPath]];
+        NSString * queryparameter = nil;
+        queryparameter = [[BETURLSessionSerializer new] queryStringFromParameters:params];
+        redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString
+                                             stringByAppendingFormat:@"?%@",queryparameter]];
+      
+        [[UIApplication sharedApplication] openURL:redirectURL];
+    }
+    else{
+        [self authorizeThirdPartyCodeWithAuthorizationPath:theAuthorizationPath parameters:params withUI:withUI completeBlock:^(id<NSFastEnumeration> responseObject, NSHTTPURLResponse *URLResponse, NSError *error) {
+            //get the code // authorization needed
+            if(error){
+                self.authenticationCompletionBlock(nil,error);
+            }
+            else{
+                NSDictionary * postData = @{@"grant_type" : @"authorization_code",
+                                            @"code" : responseObject[@"code"],
+                                            @"redirect_uri" : self.redirectURI,
+                                            @"client_id":self.clientId,
+                                            @"client_secret":self.secretKey
+                                            };
+                [self retrieveThirdPartyAccessCredentialWithTokenPath:theTokenPath params:params completion:^(id<NSFastEnumeration> responseObject, NSHTTPURLResponse *URLResponse, NSError *error) {
+                    weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:responseObject];
+                   self.authenticationCompletionBlock(weakSelf.accessCredential, error);
+                }];
+            }
+        }];
+    }
+    
 }
+
+
+
+
+-(void)authorizeThirdPartyCodeWithAuthorizationPath:(NSString *)theAuthorizationPath
+                                         parameters:(id<NSFastEnumeration>)theParameters
+                                             withUI:(Boolean)withUI
+                                      completeBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion;{
+    
+    NSParameterAssert(theParameters);
+    NSParameterAssert(theAuthorizationPath);
+    
+    
+    NSString *httpMethod = withUI == YES ? @"POST":@"GET";
+    [self requestWithResourcePath:theAuthorizationPath parameters:theParameters HTTPMethod:httpMethod completion:^(id<NSFastEnumeration> responseObject, NSHTTPURLResponse *URLResponse, NSError *error) {
+         if(theCompletion) theCompletion(responseObject,URLResponse,error);
+    }];
+    
+}
+
+
+
+-(void)retrieveThirdPartyAccessCredentialWithTokenPath:(NSString *)theTokenPath
+                                                  params:(NSDictionary *)params
+                                            completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;{
+    
+    __weak typeof(self) weakSelf = self;
+    NSLog(@"self.session %@",self.session.configuration.HTTPAdditionalHeaders);
+ 
+    [[self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(BETResponse * response) {
+        NSLog(@"weakself response %@",response);
+        weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
+        if(theCompletion) theCompletion(response.content, response.HTTPURLResponse,response.error);
+    }] resume];
+}
+
 
 
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
@@ -285,15 +371,14 @@
                                 @"client_secret" : self.secretKey,
                                 @"client_id" : self.clientId
                                 };
-    
-    
-    __weak typeof(self) weakSelf = self;
-    [[self.session bet_taskPOSTResource:self.tokenPath withParams:postData completion:^(BETResponse * response) {
-     weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
-      weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, response.error);
-    }] resume];
-    
-  }
+      
+       __weak typeof(self) weakSelf = self;
+      [self retrieveThirdPartyAccessCredentialWithTokenPath:self.tokenPath params:postData completion:^(id<NSFastEnumeration> responseObject, NSHTTPURLResponse *URLResponse, NSError *error) {
+          weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:responseObject];
+          weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
+      }];
+
+}
   
   
   return YES;
@@ -318,7 +403,6 @@
   __weak typeof(self) weakSelf = self;
 
   [self setAuthorizationHeaderFieldithClientIDAndKey];
-
   [[self.session bet_taskPOSTResource:theTokenPath withParams:postData completion:^(BETResponse * response) {
     weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
     if(theCompletion) theCompletion(weakSelf.accessCredential, response.error);
@@ -342,7 +426,6 @@
   
   
 }
-
 
 
 @end
