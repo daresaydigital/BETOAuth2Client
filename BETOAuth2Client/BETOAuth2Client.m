@@ -247,7 +247,7 @@
                                    @"redirect_uri" : self.redirectURI,
                                    @"state" : self.nonceState,
                                    @"nonce" : self.nonceState,
-                                   @"acr_values":@"2"
+                                   @"acr_values":self.theloaLevel
                                    }.mutableCopy;
   
   if(self.scopes && self.scopes.count > 0) [params addEntriesFromDictionary:@{@"scope" : [self.scopes componentsJoinedByString:@" "]}];
