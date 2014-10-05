@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
 @property(nonatomic,copy,readonly) NSString * identifier;
 @property(nonatomic,copy,readonly) NSArray * scopes;
 @property(nonatomic,copy,readonly) NSString * redirectURI;
-@property(nonatomic,copy,readonly) NSString * baseURLWeb; // is used to do the web authentication
+@property(nonatomic,copy,readonly) NSString * webAuthURL; // is used to do the web authentication
 @property(nonatomic,copy,readonly) NSString * theloaLevel;
 @property(nonatomic,copy,readonly) NSString * theloginHint;
 @property(nonatomic,copy,readonly) NSString * thePrompt;
@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                                 loginHint:(NSString *)theloginHint
                                    prompt:(NSString *)thePrompt;
 
--(void)setBaseURLWeb:(NSString *)baseURLWeb;
+-(void)setWebAuthURL:(NSString *)baseURLWeb;
 
 
 #pragma mark - Authentication

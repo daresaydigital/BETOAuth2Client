@@ -79,7 +79,7 @@
 @property(nonatomic,copy) NSString * theloaLevel;
 @property(nonatomic,copy) NSString * theloginHint;
 @property(nonatomic,copy) NSString * thePrompt;
-@property(nonatomic,copy) NSString * baseURLWeb;
+@property(nonatomic,copy) NSString * webAuthURL;
 @property(nonatomic,copy) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletionBlock;
 
 @end
@@ -153,8 +153,8 @@
   
 }
 
--(void)setBaseURLWeb:(NSString *)baseURLWeb;{
-    _baseURLWeb = baseURLWeb;
+-(void)setWebAuthURL:(NSString *)baseURLWeb;{
+    _webAuthURL = baseURLWeb;
 }
 
 -(void) setupAdditionalParamsWithloaLevel:(NSString *)theloaLevel
@@ -261,7 +261,7 @@
     }
     else{
         //TODO: should not show UI
-        NSURL * redirectURL = [NSURL URLWithString:[self.baseURLWeb stringByAppendingPathComponent:theAuthorizationPath]];
+        NSURL * redirectURL = [NSURL URLWithString:[self.webAuthURL stringByAppendingPathComponent:theAuthorizationPath]];
                 NSString * queryparameter = nil;
                 queryparameter = [[BETURLSessionSerializer new] queryStringFromParameters:params];
                 redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString
