@@ -251,24 +251,62 @@
                                        }.mutableCopy;
     
       if(self.scopes && self.scopes.count > 0) [params addEntriesFromDictionary:@{@"scope" : [self.scopes componentsJoinedByString:@" "]}];
-      self.authenticationCompletionBlock = theCompletion;
-    
 
+    
+    self.authenticationCompletionBlock = theCompletion;
     if(withUI){
-        NSURL * requestUrl =[self.session bet_taskGETResource:theAuthorizationPath withParams:params.copy completion:nil].currentRequest.URL;
-        self.authenticationCompletionBlock = theCompletion;
-        [[UIApplication sharedApplication] openURL:requestUrl];
+//        NSURL * requestUrl =[self.session bet_taskGETResource:theAuthorizationPath withParams:params.copy completion:nil].currentRequest.URL;
+//        self.authenticationCompletionBlock = theCompletion;
+//        [[UIApplication sharedApplication] openURL:requestUrl];
+        
+
+        NSURL * redirectURL = [NSURL URLWithString:[self.webAuthURL stringByAppendingPathComponent:theAuthorizationPath]];
+        NSString * queryparameter = nil;
+        queryparameter = [[BETURLSessionSerializer new] queryStringFromParameters:params];
+        redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString
+                                             stringByAppendingFormat:@"?%@",queryparameter]];
+
+        [[UIApplication sharedApplication] openURL:redirectURL];
+
     }
     else{
         //TODO: should not show UI
-        NSURL * redirectURL = [NSURL URLWithString:[self.webAuthURL stringByAppendingPathComponent:theAuthorizationPath]];
-                NSString * queryparameter = nil;
-                queryparameter = [[BETURLSessionSerializer new] queryStringFromParameters:params];
-                redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString
-                                                     stringByAppendingFormat:@"?%@",queryparameter]];
+        params[@"prompt"] = @"none";
         
-                [[UIApplication sharedApplication] openURL:redirectURL];
+        NSURL * redirectURL = [NSURL URLWithString:[self.webAuthURL stringByAppendingPathComponent:theAuthorizationPath]];
+        NSString * queryparameter = nil;
+        queryparameter = [[BETURLSessionSerializer new] queryStringFromParameters:params];
+        redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString
+                                             stringByAppendingFormat:@"?%@",queryparameter]];
 
+        
+        NSURLSessionConfiguration *sessionconfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        [sessionconfig setHTTPAdditionalHeaders:@{@"Accept": @"application/json"}];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionconfig];
+       
+        [[session dataTaskWithURL:redirectURL
+                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                    NSError *jsonError = nil;
+                    id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+                    __block __weak typeof(self) weakSelf = self;
+                    if([responseObject isKindOfClass:[NSDictionary class]]){
+                        NSMutableString *string  = [NSMutableString string];;
+                       for (id key in responseObject) {
+                            [string appendString:key];
+                            [string appendString:@"="];
+                            [string appendString:responseObject[key]];
+                            [string appendString:@"&"];
+                       }
+                        NSString *newString = [string substringToIndex:[string length]-1];
+                        NSString *urlString = [NSString stringWithFormat:@"%@?%@",weakSelf.redirectURI,newString];
+                        NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                        [weakSelf handleApplicationOpenURL:url onlyMatchingUrlPrefix:weakSelf.redirectURI withSourceApplicationString:@"come.apple.mobilesafari"];
+                        
+                    }
+                    else{
+                       
+                    }
+                }] resume];
     }
     
 
