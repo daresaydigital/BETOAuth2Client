@@ -2,7 +2,6 @@
 
 #import "BETOAuth2Credential.h"
 
-
 typedef void (^BETOAuth2ClientAuthenticationCompletionBlock)(BETOAuth2Credential * credential, NSError * error);
 typedef void (^BETOAuth2ClientRequestCompletionBlock)(id<NSFastEnumeration> responseObject, NSHTTPURLResponse * URLResponse, NSError * error);
 
@@ -79,6 +78,23 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                     completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
 #pragma mark - Client ID and secret as header
 - (void)setAuthorizationHeaderFieldithClientID:(NSString *)clientID AndKey:(NSString *)clientSecret;
+
+
+#pragma mark - Authentication policy engine
+
+-(void)retrieveAuthenticationPolicyEngineListWithResourcePath:(NSString *)theResourcePath
+                                                       params:(NSDictionary *)params
+                                                   completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+
+-(void)authenticateUserBySendingSMSWithPhoneNumber:(NSString *)thePhoneNumber
+                                        completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+
+-(void)authenticateUserUsingTwoFactorWithResourcePath:(NSString *)theResourcePath
+                                               params:(NSDictionary *)params
+                                           completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+-(void)requestCurrentAuthenticationStatusOfTwoFactorWithResourcePath:(NSString *)theResourcePath
+                                                        completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+
 
 
 @end

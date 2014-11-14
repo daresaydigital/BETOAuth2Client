@@ -81,7 +81,7 @@
 @property(nonatomic,copy) NSString * thePrompt;
 @property(nonatomic,copy) NSString * webAuthURL;
 @property(nonatomic,copy) BETOAuth2ClientAuthenticationCompletionBlock authenticationCompletionBlock;
-
+@property(nonatomic,copy) BETOAuth2ClientRequestCompletionBlock requestCompletionBlock;
 @end
 
 @implementation BETOAuth2Client : NSObject
@@ -452,6 +452,48 @@
   }] resume];
   
   
+}
+
+
+#pragma mark - Authentication policy engine
+
+-(void)retrieveAuthenticationPolicyEngineListWithResourcePath:(NSString *)theResourcePath
+                                                       params:(NSDictionary *)params
+                                                   completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;{
+    NSParameterAssert(theResourcePath);
+    NSParameterAssert(params);
+    NSParameterAssert(theCompletion);
+    [[self.session bet_taskGETResource:theResourcePath withParams:params completion:^(BETResponse *response) {
+        if(theCompletion) theCompletion(response.content, response.HTTPURLResponse, response.error);
+    }] resume];
+    
+}
+
+-(void)authenticateUserBySendingSMSWithPhoneNumber:(NSString *)thePhoneNumber
+                                        completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;{
+    
+}
+
+
+-(void)authenticateUserUsingTwoFactorWithResourcePath:(NSString *)theResourcePath
+                                               params:(NSDictionary *)params
+                                           completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;{
+    NSParameterAssert(theResourcePath);
+    NSParameterAssert(params);
+    NSParameterAssert(theCompletion);
+    [[self.session bet_taskPOSTResource:theResourcePath withParams:params completion:^(BETResponse *response) {
+        if(theCompletion) theCompletion(response.content, response.HTTPURLResponse, response.error);
+    }] resume];
+}
+
+
+-(void)requestCurrentAuthenticationStatusOfTwoFactorWithResourcePath:(NSString *)theResourcePath
+                                                          completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;{
+    NSParameterAssert(theCompletion);
+    self.requestCompletionBlock = theCompletion;
+    [[self.session bet_taskGETResource:theResourcePath withParams:nil completion:^(BETResponse *response) {
+        if(theCompletion) theCompletion(response.content, response.HTTPURLResponse,response.error);
+    }] resume];
 }
 
 
