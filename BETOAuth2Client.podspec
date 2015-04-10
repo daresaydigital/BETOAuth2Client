@@ -21,8 +21,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = url
   s.license      = 'MIT'
-  s.author       = { "Seivan Heidari" => "seivan.heidari@screeninteraction.com",
-                     "Screen Interaction" => "contact@screeninteraction.com" 
+  s.author       = { "Screen Interaction" => "contact@screeninteraction.com"
                    }
   
   s.source       = { :git => git_url, :tag => version}
@@ -32,7 +31,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.9'
 
-  s.dependency 'BETURLSession', '1.3'
+  s.dependency 'BETURLSession', '1.0.0'
 
   s.source_files = source_files
   s.resources    = "#{name}/**/*.{implementation,private}"
