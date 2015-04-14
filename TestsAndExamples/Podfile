@@ -1,7 +1,6 @@
 platform :ios, '7.0' 
 
 #link_with [:SINotworking, :SINotworkingTests]
-pod 'BETURLSession',    :git => 'https://github.com/screeninteraction/BETURLSession'
-#pod 'BETURLSession', :path => '../../BETURLSession'
+pod 'BETURLSession'
 
 pod 'BETOAuth2Client', :path => '../'
