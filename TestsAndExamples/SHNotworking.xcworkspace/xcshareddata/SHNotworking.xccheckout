@@ -10,29 +10,29 @@
 	<string>SHNotworking</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C9D0DD27-C118-4A67-B1FD-95DCAAD4AFB4</key>
+		<key>60279D300F64ED7A5B6E8AF8E16F607F0DF04829</key>
 		<string>https://github.com/screeninteraction/BETOAuth2Client.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TestsAndExamples/SHNotworking.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C9D0DD27-C118-4A67-B1FD-95DCAAD4AFB4</key>
+		<key>60279D300F64ED7A5B6E8AF8E16F607F0DF04829</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/screeninteraction/BETOAuth2Client.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C9D0DD27-C118-4A67-B1FD-95DCAAD4AFB4</string>
+	<string>60279D300F64ED7A5B6E8AF8E16F607F0DF04829</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C9D0DD27-C118-4A67-B1FD-95DCAAD4AFB4</string>
+			<string>60279D300F64ED7A5B6E8AF8E16F607F0DF04829</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BETOAuth2Client</string>
 		</dict>

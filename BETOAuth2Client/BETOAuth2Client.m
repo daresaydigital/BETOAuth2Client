@@ -265,9 +265,9 @@
         queryparameter = [[BETURLSessionSerializer new] queryStringFromParameters:params];
         redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString
                                              stringByAppendingFormat:@"?%@",queryparameter]];
-
+#if TARGET_OS_IPHONE
         [[UIApplication sharedApplication] openURL:redirectURL];
-
+#endif
     }
     else{
         //TODO: should not show UI

@@ -34,6 +34,5 @@ Pod::Spec.new do |s|
   s.dependency 'BETURLSession', '1.0.0'
 
   s.source_files = source_files
-  s.resources    = "#{name}/**/*.{implementation,private}"
   s.requires_arc = true
 end
