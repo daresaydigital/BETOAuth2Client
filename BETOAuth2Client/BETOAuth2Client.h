@@ -76,6 +76,16 @@ typedef NS_ENUM(NSInteger, BETOAuth2ClientRequestEncodingType) {
                     parameters:(id<NSFastEnumeration>)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
                     completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+
+-(void)requestWithResourcePath:(NSString *)theResourcePath
+                    parameters:(id<NSFastEnumeration>)theParameters
+                    HTTPMethod:(NSString *)theHTTPMethod
+                          data:(NSData *)data
+                      mimeType:(NSString *)mimeType
+                      filename:(NSString *)filename
+                          name:(NSString *)name
+                    completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion;
+
 #pragma mark - Client ID and secret as header
 - (void)setAuthorizationHeaderFieldithClientID:(NSString *)clientID AndKey:(NSString *)clientSecret;
 
