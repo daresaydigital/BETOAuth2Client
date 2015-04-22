@@ -438,6 +438,8 @@
   
 }
 
+#pragma mark - Requests
+
 -(void)requestWithResourcePath:(NSString *)theResourcePath
                     parameters:(id<NSFastEnumeration>)theParameters
                     HTTPMethod:(NSString *)theHTTPMethod
@@ -454,6 +456,30 @@
   
 }
 
+-(void)requestWithResourcePath:(NSString *)theResourcePath
+                    parameters:(id<NSFastEnumeration>)theParameters
+                    HTTPMethod:(NSString *)theHTTPMethod
+                          data:(NSData *)data
+                      mimeType:(NSString *)mimeType
+                      filename:(NSString *)filename
+                          name:(NSString *)name
+                    completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion {
+    
+    NSParameterAssert(theHTTPMethod);
+    NSParameterAssert(theResourcePath);
+    NSParameterAssert(self.session);
+    
+    [[self.session bet_buildTaskWithHTTPMethodString:theHTTPMethod
+                                          onResource:theResourcePath
+                                              params:theParameters
+                                                data:data
+                                            mimeType:mimeType
+                                            filename:filename
+                                                name:name
+                                          completion:^(BETResponse *response) {
+        if(theCompletion) theCompletion(response.content, response.HTTPURLResponse, response.error);
+    }] resume];
+}
 
 #pragma mark - Authentication policy engine
 
