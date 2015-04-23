@@ -1,7 +1,7 @@
 PODS:
-  - BETOAuth2Client (1.0.0):
-    - BETURLSession (= 1.0.0)
-  - BETURLSession (1.0.0)
+  - BETOAuth2Client (1.0.1):
+    - BETURLSession (~> 1.0)
+  - BETURLSession (1.0.1)
 
 DEPENDENCIES:
   - BETOAuth2Client (from `../`)
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  BETOAuth2Client: 591816beaf2a4fc355f7a6c2fd13a3bf90232f0c
-  BETURLSession: 75715eb26d812b57bcef61cb431026302a5b08fb
+  BETOAuth2Client: 57d51fa5c3c8edc30b4ea3b5535b68c81ffd0327
+  BETURLSession: f6ef65070cd85599295d4c800b7eca9c37f5cc3d
 
 COCOAPODS: 0.36.3

@@ -7,373 +7,373 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E5C0613B57017E0C7FB0106 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6E3303286B2E03F35F921E /* Foundation.framework */; };
-		4274AF53B859AC6B0DE74EAA /* BETResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C940D8354AEE1739236F601 /* BETResponse.h */; };
-		4F57C09BD37CE24AA20B7E5B /* BETURLSessionTaskSharedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 14787A950D07E55775EDFD02 /* BETURLSessionTaskSharedBlocks.h */; };
-		760BCC22E95DE935FF8BD1F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6E3303286B2E03F35F921E /* Foundation.framework */; };
-		7BE2CD081DED70C0DFB0427D /* BETOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA29057A287220CC163414A /* BETOAuth2Client.h */; };
-		8348577707C47309548772E5 /* __BETInternalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 075C4BA397E347909A193B70 /* __BETInternalManager.m */; };
-		84FD98079668B6A547051AF6 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE66E524B84B98C3229C6DB4 /* Pods-dummy.m */; };
-		852C29ABBC2791474E8A2F3E /* BETURLSessionRequestSerializerJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0BD00F7552D473FC9AEEE8 /* BETURLSessionRequestSerializerJSON.m */; };
-		8B667D1F5A8A940A4D8909B6 /* BETResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B2DC6EDDDA560BAEB74ACA /* BETResponse.m */; };
-		905C2B49C3F68A81447D8543 /* NSURLSession+BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 18F407AF19424FC84098A562 /* NSURLSession+BETURLSession.h */; };
-		98A10C3CA26F20AE6E033924 /* BETURLSessionRequestSerializerJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A8CF9427820506659C2BFAF /* BETURLSessionRequestSerializerJSON.h */; };
-		A1442A0B25387CB699B03DBB /* __BETInternalManager+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5728C1C42F88E5D30DC5454 /* __BETInternalManager+Delegate.m */; };
-		A3BCBAB958DF2C2F27610294 /* NSURLSessionTask+BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 11BD528F057EFD145B181A7E /* NSURLSessionTask+BETURLSession.h */; };
-		B6E441BC057F7F5BBB6F00DE /* BETURLSessionRequestSerializerFormURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 9671259B03DD2BD7B3255518 /* BETURLSessionRequestSerializerFormURLEncoding.h */; };
-		C888456769EEF2467CB8E348 /* BETURLSessionResponseSerializerJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = E17EA39C60CFEB3C776D3261 /* BETURLSessionResponseSerializerJSON.h */; };
-		CFBD701D62DBEF95B2418688 /* BETOAuth2Credential.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E7F3C49BD3E38C0D1881D1 /* BETOAuth2Credential.h */; };
-		D16849298D43DBDAB0496852 /* BETOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B3772CB61F37DE87680097 /* BETOAuth2Client.m */; };
-		D298BED2B6089C36D35716D9 /* Pods-BETURLSession-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7862F228FA8D94DE819410 /* Pods-BETURLSession-dummy.m */; };
-		D62AAEF14A4AB22AB4FAFC1C /* NSURLSessionTask+BETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2383CC6B27B8D32907F7A210 /* NSURLSessionTask+BETURLSession.m */; };
-		D924AC66C0CE53F05110908F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6E3303286B2E03F35F921E /* Foundation.framework */; };
-		D95214C472A3E0A490225B09 /* BETOAuth2Credential.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C010086644E2B5D6979237 /* BETOAuth2Credential.m */; };
-		DBBB2EC03CFF4EF548883D9F /* BETURLSessionAbstractSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D72A38DE0FC851F0DA208D7 /* BETURLSessionAbstractSerializer.h */; };
-		DD2BB2BF9F5919A7824B5095 /* NSURLSession+BETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F5871054972B5D20167F3A55 /* NSURLSession+BETURLSession.m */; };
-		DFA628FDB469A348729C9D56 /* BETURLSessionResponseSerializerJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E598DA54707FEF473FBAEF6A /* BETURLSessionResponseSerializerJSON.m */; };
-		E12A1935E767B6E2A9623AB7 /* BETURLSessionRequestSerializerFormURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D704937705207E7AF789145 /* BETURLSessionRequestSerializerFormURLEncoding.m */; };
-		EC72B099E3BBFBAC73D9F0D8 /* __BETInternalManager+Delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 88CA26423C147B9244CBD4BC /* __BETInternalManager+Delegate.h */; };
-		F08F521C46AC41D150E7705E /* __BETInternalManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 05FD4CB96A538EEADF12E2E1 /* __BETInternalManager.h */; };
-		F0D43D5F6B72A1EA62A85A6B /* BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 4183C11BDD3978B35AF0389A /* BETURLSession.h */; };
-		F76580A353330A6C0C06D991 /* BETURLSessionAbstractSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A0F768444203ED56DAA527 /* BETURLSessionAbstractSerializer.m */; };
-		FFD35BD8F26C95710AF9F77B /* Pods-BETOAuth2Client-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9935460B6794798D2186A15 /* Pods-BETOAuth2Client-dummy.m */; };
+		0B6359E8A4A90C1F92536EC2 /* __BETInternalManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A7731C979C47D6D72255EE5C /* __BETInternalManager.h */; };
+		13405522562517280BBB5260 /* NSURLSession+BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F337C9FA82C5BDD7393E29D /* NSURLSession+BETURLSession.h */; };
+		1670A223AE1BB49F2D564A4D /* BETResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC29E560CF556BE923BAF46 /* BETResponse.m */; };
+		1895225375EE794699F7E8B7 /* Pods-BETOAuth2Client-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E74F433D8027F8A000106956 /* Pods-BETOAuth2Client-dummy.m */; };
+		1B7E905425EA5BD4FC13043C /* NSURLSessionTask+BETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4CC63A5B3996B553181279 /* NSURLSessionTask+BETURLSession.m */; };
+		308AFEE340A360176242F28E /* BETURLSessionAbstractSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DA428F743767598057BFDF3 /* BETURLSessionAbstractSerializer.h */; };
+		3DECBDFF1DA2A61B068A6D2C /* BETOAuth2Credential.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE2DD4FA7F80AD1FC8D644 /* BETOAuth2Credential.m */; };
+		48A9E25C8C92C49E15DB4697 /* BETOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = DE943E6552135C0276DA876B /* BETOAuth2Client.h */; };
+		60DED0ACF5D0D49F4D44B80B /* Pods-BETURLSession-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BECE8B6BCEDFD831643E55 /* Pods-BETURLSession-dummy.m */; };
+		65AFC3E24DA34592889091D9 /* __BETInternalManager+Delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D91DBB6A12D8FA0684342FB /* __BETInternalManager+Delegate.h */; };
+		68F052094CD92A7773F80876 /* NSURLSession+BETURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF7401CA5137AFE8C9798D /* NSURLSession+BETURLSession.m */; };
+		6C81064CF1033AC2E63DEEA5 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8C9409104E4CA3E670B1B4 /* Pods-dummy.m */; };
+		76CE938D907F2D7F87AE5063 /* BETResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A0D4B8494D3235E8AD27776C /* BETResponse.h */; };
+		78F75BF084A18FBA3E26343E /* BETURLSessionResponseSerializerJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FA43DABA72CCCB146DD2EB12 /* BETURLSessionResponseSerializerJSON.h */; };
+		910052ED183CD96A87392052 /* BETURLSessionAbstractSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BD00576432C10CEDFDECDA /* BETURLSessionAbstractSerializer.m */; };
+		933327884CCDD694A6F19105 /* BETURLSessionResponseSerializerJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E8C7219D0D29D9F52C94B0 /* BETURLSessionResponseSerializerJSON.m */; };
+		97BA7092D317CC152ACFA139 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CC80347640B3D24F805983 /* Foundation.framework */; };
+		9EEA91E07CEF2AE5F11070DA /* BETURLSessionTaskSharedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E1E893F4B49C067317FAD3 /* BETURLSessionTaskSharedBlocks.h */; };
+		9FAA4045A1F52BAEF2DABC1B /* BETOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D8B08E762A78797936D1C1 /* BETOAuth2Client.m */; };
+		A3BA0BAF698E565FCD557E6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CC80347640B3D24F805983 /* Foundation.framework */; };
+		AFAB4B76B830F7EDCDE39120 /* BETURLSessionRequestSerializerJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5D319B4771D70397235204 /* BETURLSessionRequestSerializerJSON.m */; };
+		B518DE262265117D5BC2D0F3 /* BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 480E83CD7B3C2E7387D0274A /* BETURLSession.h */; };
+		B7202D103C40E2F6744BA445 /* BETOAuth2Credential.h in Headers */ = {isa = PBXBuildFile; fileRef = 69DA4993B7AF1015719F02AF /* BETOAuth2Credential.h */; };
+		BAFA482F3BC23C405EBB1441 /* __BETInternalManager+Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A6DFDB4DC500B2B0F5B096 /* __BETInternalManager+Delegate.m */; };
+		BCBE5BF637831E6698E97DD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CC80347640B3D24F805983 /* Foundation.framework */; };
+		D8A40297C33D9FF57CA275A1 /* BETURLSessionRequestSerializerFormURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 48A5A02E7F33BA07AEFE6F8E /* BETURLSessionRequestSerializerFormURLEncoding.h */; };
+		DBF59230CAC749873CE5DC72 /* NSURLSessionTask+BETURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B9ACA9EF8D6A725A255288 /* NSURLSessionTask+BETURLSession.h */; };
+		E42DE7A5B65AC83BBAA65DAA /* BETURLSessionRequestSerializerFormURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C69616BBAD0C74ADF90F01DB /* BETURLSessionRequestSerializerFormURLEncoding.m */; };
+		E9176E8222951F157060E5D6 /* __BETInternalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3238C19633F5C04FA7CDC8D0 /* __BETInternalManager.m */; };
+		F27453B04BB570D64067D175 /* BETURLSessionRequestSerializerJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 53436934C58CC5509E076837 /* BETURLSessionRequestSerializerJSON.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		247934CB4B06DE2671D4B474 /* PBXContainerItemProxy */ = {
+		0211EF941324F5CC515578F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C946322101E90D0D5E3167FF /* Project object */;
+			containerPortal = 742772ADFAB4C5AB7AA520D4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F5F81FA3853721318552570A;
+			remoteGlobalIDString = 74E60825E41F25F60EEA8A2C;
 			remoteInfo = "Pods-BETURLSession";
 		};
-		443593494A09AABE49383F94 /* PBXContainerItemProxy */ = {
+		3F80100FF4BFB563AC5B2AB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C946322101E90D0D5E3167FF /* Project object */;
+			containerPortal = 742772ADFAB4C5AB7AA520D4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EC0609C708A26D14B261E2A4;
+			remoteGlobalIDString = 74E60825E41F25F60EEA8A2C;
+			remoteInfo = "Pods-BETURLSession";
+		};
+		56C251B625C8DDDF2998DD13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 742772ADFAB4C5AB7AA520D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E9418B5F0C643AFD683B92D;
 			remoteInfo = "Pods-BETOAuth2Client";
-		};
-		59ABACEF0FB17BEAB0570729 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C946322101E90D0D5E3167FF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F5F81FA3853721318552570A;
-			remoteInfo = "Pods-BETURLSession";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02A0F768444203ED56DAA527 /* BETURLSessionAbstractSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionAbstractSerializer.m; path = BETURLSession/BETURLSessionAbstractSerializer.m; sourceTree = "<group>"; };
-		05FD4CB96A538EEADF12E2E1 /* __BETInternalManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = __BETInternalManager.h; path = BETURLSession/__BETInternalManager.h; sourceTree = "<group>"; };
-		075C4BA397E347909A193B70 /* __BETInternalManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = __BETInternalManager.m; path = BETURLSession/__BETInternalManager.m; sourceTree = "<group>"; };
-		0D704937705207E7AF789145 /* BETURLSessionRequestSerializerFormURLEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionRequestSerializerFormURLEncoding.m; path = BETURLSession/BETURLSessionRequestSerializerFormURLEncoding.m; sourceTree = "<group>"; };
-		11BD528F057EFD145B181A7E /* NSURLSessionTask+BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSessionTask+BETURLSession.h"; path = "BETURLSession/NSURLSessionTask+BETURLSession.h"; sourceTree = "<group>"; };
-		14787A950D07E55775EDFD02 /* BETURLSessionTaskSharedBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionTaskSharedBlocks.h; path = BETURLSession/BETURLSessionTaskSharedBlocks.h; sourceTree = "<group>"; };
-		180E229F592E79A96B6F9FAA /* Pods-BETOAuth2Client-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BETOAuth2Client-prefix.pch"; sourceTree = "<group>"; };
-		18F407AF19424FC84098A562 /* NSURLSession+BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSession+BETURLSession.h"; path = "BETURLSession/NSURLSession+BETURLSession.h"; sourceTree = "<group>"; };
-		19B3772CB61F37DE87680097 /* BETOAuth2Client.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BETOAuth2Client.m; sourceTree = "<group>"; };
-		1A4D0F01C8361ECE5AB2D5B9 /* libPods-BETOAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BETOAuth2Client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A8CF9427820506659C2BFAF /* BETURLSessionRequestSerializerJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionRequestSerializerJSON.h; path = BETURLSession/BETURLSessionRequestSerializerJSON.h; sourceTree = "<group>"; };
-		1B6E3303286B2E03F35F921E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		1E38A8268059778221E1FB44 /* libPods-BETURLSession.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BETURLSession.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2383CC6B27B8D32907F7A210 /* NSURLSessionTask+BETURLSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSessionTask+BETURLSession.m"; path = "BETURLSession/NSURLSessionTask+BETURLSession.m"; sourceTree = "<group>"; };
-		256A384BAA9463B5F241795A /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		35652BEF9C43EE456669AFDB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C940D8354AEE1739236F601 /* BETResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETResponse.h; path = BETURLSession/BETResponse.h; sourceTree = "<group>"; };
-		4183C11BDD3978B35AF0389A /* BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSession.h; path = BETURLSession/BETURLSession.h; sourceTree = "<group>"; };
-		43C3D3CACECFF0A62D1646D7 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		4AEBE5B9B524DC70B9605A4A /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		61AFBFC396DA02E55C60BA94 /* __BETInternalShared.private */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = __BETInternalShared.private; path = BETURLSession/__BETInternalShared.private; sourceTree = "<group>"; };
-		66B7EE720F88A0536CE06960 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6CA29057A287220CC163414A /* BETOAuth2Client.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BETOAuth2Client.h; sourceTree = "<group>"; };
-		6D72A38DE0FC851F0DA208D7 /* BETURLSessionAbstractSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionAbstractSerializer.h; path = BETURLSession/BETURLSessionAbstractSerializer.h; sourceTree = "<group>"; };
-		7D894076EF8DA260745F72FA /* Pods-BETURLSession-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETURLSession-Private.xcconfig"; sourceTree = "<group>"; };
-		7E0BD00F7552D473FC9AEEE8 /* BETURLSessionRequestSerializerJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionRequestSerializerJSON.m; path = BETURLSession/BETURLSessionRequestSerializerJSON.m; sourceTree = "<group>"; };
-		830EAFCF963F4C7610955E40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		88CA26423C147B9244CBD4BC /* __BETInternalManager+Delegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "__BETInternalManager+Delegate.h"; path = "BETURLSession/__BETInternalManager+Delegate.h"; sourceTree = "<group>"; };
-		8A4F91D148C88F2F2F0A420F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		8A8E66A0DD4CE4A88299624F /* Pods-BETURLSession.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETURLSession.xcconfig"; sourceTree = "<group>"; };
-		8E7862F228FA8D94DE819410 /* Pods-BETURLSession-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BETURLSession-dummy.m"; sourceTree = "<group>"; };
-		9671259B03DD2BD7B3255518 /* BETURLSessionRequestSerializerFormURLEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionRequestSerializerFormURLEncoding.h; path = BETURLSession/BETURLSessionRequestSerializerFormURLEncoding.h; sourceTree = "<group>"; };
-		9AE78D20584C68203EE20E15 /* Pods-BETURLSession-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BETURLSession-prefix.pch"; sourceTree = "<group>"; };
-		BD6E6BF6D30528BE0CA30086 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		BE66E524B84B98C3229C6DB4 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		C1C010086644E2B5D6979237 /* BETOAuth2Credential.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BETOAuth2Credential.m; sourceTree = "<group>"; };
-		D9935460B6794798D2186A15 /* Pods-BETOAuth2Client-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BETOAuth2Client-dummy.m"; sourceTree = "<group>"; };
-		E17EA39C60CFEB3C776D3261 /* BETURLSessionResponseSerializerJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionResponseSerializerJSON.h; path = BETURLSession/BETURLSessionResponseSerializerJSON.h; sourceTree = "<group>"; };
-		E5728C1C42F88E5D30DC5454 /* __BETInternalManager+Delegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "__BETInternalManager+Delegate.m"; path = "BETURLSession/__BETInternalManager+Delegate.m"; sourceTree = "<group>"; };
-		E598DA54707FEF473FBAEF6A /* BETURLSessionResponseSerializerJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionResponseSerializerJSON.m; path = BETURLSession/BETURLSessionResponseSerializerJSON.m; sourceTree = "<group>"; };
-		E5E7F3C49BD3E38C0D1881D1 /* BETOAuth2Credential.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BETOAuth2Credential.h; sourceTree = "<group>"; };
-		F04FDA4E5021CAF8492808F2 /* Pods-BETOAuth2Client.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETOAuth2Client.xcconfig"; sourceTree = "<group>"; };
-		F1781097FCF5642EF0BBC7F1 /* Pods-BETOAuth2Client-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETOAuth2Client-Private.xcconfig"; sourceTree = "<group>"; };
-		F5871054972B5D20167F3A55 /* NSURLSession+BETURLSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSession+BETURLSession.m"; path = "BETURLSession/NSURLSession+BETURLSession.m"; sourceTree = "<group>"; };
-		F5B2DC6EDDDA560BAEB74ACA /* BETResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETResponse.m; path = BETURLSession/BETResponse.m; sourceTree = "<group>"; };
+		03A6DFDB4DC500B2B0F5B096 /* __BETInternalManager+Delegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "__BETInternalManager+Delegate.m"; path = "BETURLSession/__BETInternalManager+Delegate.m"; sourceTree = "<group>"; };
+		03BECE8B6BCEDFD831643E55 /* Pods-BETURLSession-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BETURLSession-dummy.m"; sourceTree = "<group>"; };
+		0401C53D44C1FE024EEB3BBE /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		04B9ACA9EF8D6A725A255288 /* NSURLSessionTask+BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSessionTask+BETURLSession.h"; path = "BETURLSession/NSURLSessionTask+BETURLSession.h"; sourceTree = "<group>"; };
+		0A365F28C8892453E3D3F089 /* Pods-BETURLSession-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETURLSession-Private.xcconfig"; sourceTree = "<group>"; };
+		0DC531787FA999AAC7FFB367 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		1C5D319B4771D70397235204 /* BETURLSessionRequestSerializerJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionRequestSerializerJSON.m; path = BETURLSession/BETURLSessionRequestSerializerJSON.m; sourceTree = "<group>"; };
+		1D91DBB6A12D8FA0684342FB /* __BETInternalManager+Delegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "__BETInternalManager+Delegate.h"; path = "BETURLSession/__BETInternalManager+Delegate.h"; sourceTree = "<group>"; };
+		1FC29E560CF556BE923BAF46 /* BETResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETResponse.m; path = BETURLSession/BETResponse.m; sourceTree = "<group>"; };
+		2A0C64DA334A1ACA6A5579C4 /* Pods-BETOAuth2Client-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETOAuth2Client-Private.xcconfig"; sourceTree = "<group>"; };
+		3238C19633F5C04FA7CDC8D0 /* __BETInternalManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = __BETInternalManager.m; path = BETURLSession/__BETInternalManager.m; sourceTree = "<group>"; };
+		34BE2DD4FA7F80AD1FC8D644 /* BETOAuth2Credential.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BETOAuth2Credential.m; sourceTree = "<group>"; };
+		34E1E893F4B49C067317FAD3 /* BETURLSessionTaskSharedBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionTaskSharedBlocks.h; path = BETURLSession/BETURLSessionTaskSharedBlocks.h; sourceTree = "<group>"; };
+		3945D2C2BB4B6CB8D2344853 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		3DD95EA8DE5C28E6BB1FE408 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		40CC80347640B3D24F805983 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		480E83CD7B3C2E7387D0274A /* BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSession.h; path = BETURLSession/BETURLSession.h; sourceTree = "<group>"; };
+		48A5A02E7F33BA07AEFE6F8E /* BETURLSessionRequestSerializerFormURLEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionRequestSerializerFormURLEncoding.h; path = BETURLSession/BETURLSessionRequestSerializerFormURLEncoding.h; sourceTree = "<group>"; };
+		4DA428F743767598057BFDF3 /* BETURLSessionAbstractSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionAbstractSerializer.h; path = BETURLSession/BETURLSessionAbstractSerializer.h; sourceTree = "<group>"; };
+		4F337C9FA82C5BDD7393E29D /* NSURLSession+BETURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSession+BETURLSession.h"; path = "BETURLSession/NSURLSession+BETURLSession.h"; sourceTree = "<group>"; };
+		525A9F30E038B089D1BEEE4D /* __BETInternalShared.private */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = __BETInternalShared.private; path = BETURLSession/__BETInternalShared.private; sourceTree = "<group>"; };
+		53436934C58CC5509E076837 /* BETURLSessionRequestSerializerJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionRequestSerializerJSON.h; path = BETURLSession/BETURLSessionRequestSerializerJSON.h; sourceTree = "<group>"; };
+		61BD00576432C10CEDFDECDA /* BETURLSessionAbstractSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionAbstractSerializer.m; path = BETURLSession/BETURLSessionAbstractSerializer.m; sourceTree = "<group>"; };
+		69DA4993B7AF1015719F02AF /* BETOAuth2Credential.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BETOAuth2Credential.h; sourceTree = "<group>"; };
+		77DA1FADCAB93F7D41724DE7 /* Pods-BETURLSession.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETURLSession.xcconfig"; sourceTree = "<group>"; };
+		789C25AA6288E7B2F4F57C70 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		7AE8E613FA78488A0B7E751A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C4CC63A5B3996B553181279 /* NSURLSessionTask+BETURLSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSessionTask+BETURLSession.m"; path = "BETURLSession/NSURLSessionTask+BETURLSession.m"; sourceTree = "<group>"; };
+		932FB5CDE8C22E595BB48EA4 /* Pods-BETOAuth2Client-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BETOAuth2Client-prefix.pch"; sourceTree = "<group>"; };
+		94CE1F5D7F5CE8423DD49122 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		98336E39F9862E2C7CE2088A /* libPods-BETOAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BETOAuth2Client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E8C7219D0D29D9F52C94B0 /* BETURLSessionResponseSerializerJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionResponseSerializerJSON.m; path = BETURLSession/BETURLSessionResponseSerializerJSON.m; sourceTree = "<group>"; };
+		A0D4B8494D3235E8AD27776C /* BETResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETResponse.h; path = BETURLSession/BETResponse.h; sourceTree = "<group>"; };
+		A7731C979C47D6D72255EE5C /* __BETInternalManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = __BETInternalManager.h; path = BETURLSession/__BETInternalManager.h; sourceTree = "<group>"; };
+		C69616BBAD0C74ADF90F01DB /* BETURLSessionRequestSerializerFormURLEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BETURLSessionRequestSerializerFormURLEncoding.m; path = BETURLSession/BETURLSessionRequestSerializerFormURLEncoding.m; sourceTree = "<group>"; };
+		C7EC3B4C0A7669D6B6E771E7 /* libPods-BETURLSession.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BETURLSession.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA6ADB5A0D8098DD3C01570B /* Pods-BETURLSession-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BETURLSession-prefix.pch"; sourceTree = "<group>"; };
+		CD1B58CE6B5B29FAAF244B93 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DE943E6552135C0276DA876B /* BETOAuth2Client.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BETOAuth2Client.h; sourceTree = "<group>"; };
+		E6F8B568BC3B0A108296E762 /* Pods-BETOAuth2Client.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BETOAuth2Client.xcconfig"; sourceTree = "<group>"; };
+		E74F433D8027F8A000106956 /* Pods-BETOAuth2Client-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BETOAuth2Client-dummy.m"; sourceTree = "<group>"; };
+		EBFF7401CA5137AFE8C9798D /* NSURLSession+BETURLSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLSession+BETURLSession.m"; path = "BETURLSession/NSURLSession+BETURLSession.m"; sourceTree = "<group>"; };
+		EC8C9409104E4CA3E670B1B4 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		F4D8B08E762A78797936D1C1 /* BETOAuth2Client.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BETOAuth2Client.m; sourceTree = "<group>"; };
+		FA43DABA72CCCB146DD2EB12 /* BETURLSessionResponseSerializerJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BETURLSessionResponseSerializerJSON.h; path = BETURLSession/BETURLSessionResponseSerializerJSON.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6CC56A716BA9D327BB32BD42 /* Frameworks */ = {
+		7AEED4D44CC8A54F4097AA0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D924AC66C0CE53F05110908F /* Foundation.framework in Frameworks */,
+				A3BA0BAF698E565FCD557E6B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6E1E3F286B6C3BC45DFB0A00 /* Frameworks */ = {
+		B75FD72A3415FC79768540B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				760BCC22E95DE935FF8BD1F6 /* Foundation.framework in Frameworks */,
+				97BA7092D317CC152ACFA139 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5CB8969FDAA819075DA01B /* Frameworks */ = {
+		C3BA53FE9740261AD5DE41A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E5C0613B57017E0C7FB0106 /* Foundation.framework in Frameworks */,
+				BCBE5BF637831E6698E97DD5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A601FE9304282776ECEA95C /* BETOAuth2Client */ = {
+		020DA6C537F705F2A0D58042 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6CA29057A287220CC163414A /* BETOAuth2Client.h */,
-				19B3772CB61F37DE87680097 /* BETOAuth2Client.m */,
-				E5E7F3C49BD3E38C0D1881D1 /* BETOAuth2Credential.h */,
-				C1C010086644E2B5D6979237 /* BETOAuth2Credential.m */,
-			);
-			path = BETOAuth2Client;
-			sourceTree = "<group>";
-		};
-		328B43F4DD59161A16767E29 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5E7B3C0DE6FFA9D5513BB323 /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		384FD84B3E4CBCC882509FD5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EC3F987FBA6341E61D5DB0D0 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4B92C132CA75D6679A371554 /* BETOAuth2Client */ = {
-			isa = PBXGroup;
-			children = (
-				0A601FE9304282776ECEA95C /* BETOAuth2Client */,
-				BFC21856C99538FCADA50186 /* Support Files */,
-			);
-			name = BETOAuth2Client;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		5E7B3C0DE6FFA9D5513BB323 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				66B7EE720F88A0536CE06960 /* Pods-acknowledgements.markdown */,
-				BD6E6BF6D30528BE0CA30086 /* Pods-acknowledgements.plist */,
-				BE66E524B84B98C3229C6DB4 /* Pods-dummy.m */,
-				4AEBE5B9B524DC70B9605A4A /* Pods-environment.h */,
-				43C3D3CACECFF0A62D1646D7 /* Pods-resources.sh */,
-				830EAFCF963F4C7610955E40 /* Pods.debug.xcconfig */,
-				8A4F91D148C88F2F2F0A420F /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			path = "Target Support Files/Pods";
-			sourceTree = "<group>";
-		};
-		5F2725866708C91A9CDBF732 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				35652BEF9C43EE456669AFDB /* libPods.a */,
-				1A4D0F01C8361ECE5AB2D5B9 /* libPods-BETOAuth2Client.a */,
-				1E38A8268059778221E1FB44 /* libPods-BETURLSession.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		70DACA6881FC907C4AF7F305 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4B92C132CA75D6679A371554 /* BETOAuth2Client */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		BFC21856C99538FCADA50186 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F04FDA4E5021CAF8492808F2 /* Pods-BETOAuth2Client.xcconfig */,
-				F1781097FCF5642EF0BBC7F1 /* Pods-BETOAuth2Client-Private.xcconfig */,
-				D9935460B6794798D2186A15 /* Pods-BETOAuth2Client-dummy.m */,
-				180E229F592E79A96B6F9FAA /* Pods-BETOAuth2Client-prefix.pch */,
+				E6F8B568BC3B0A108296E762 /* Pods-BETOAuth2Client.xcconfig */,
+				2A0C64DA334A1ACA6A5579C4 /* Pods-BETOAuth2Client-Private.xcconfig */,
+				E74F433D8027F8A000106956 /* Pods-BETOAuth2Client-dummy.m */,
+				932FB5CDE8C22E595BB48EA4 /* Pods-BETOAuth2Client-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "TestsAndExamples/Pods/Target Support Files/Pods-BETOAuth2Client";
 			sourceTree = "<group>";
 		};
-		C9D69E3ADD133FB27C4238E3 /* Support Files */ = {
+		190443D0AA5FA022AD4D0794 /* BETOAuth2Client */ = {
 			isa = PBXGroup;
 			children = (
-				8A8E66A0DD4CE4A88299624F /* Pods-BETURLSession.xcconfig */,
-				7D894076EF8DA260745F72FA /* Pods-BETURLSession-Private.xcconfig */,
-				8E7862F228FA8D94DE819410 /* Pods-BETURLSession-dummy.m */,
-				9AE78D20584C68203EE20E15 /* Pods-BETURLSession-prefix.pch */,
+				8A77A6EA361478B67FC5B6AB /* BETOAuth2Client */,
+				020DA6C537F705F2A0D58042 /* Support Files */,
+			);
+			name = BETOAuth2Client;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		1F9506A2B1D8703AD865D10A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				40CC80347640B3D24F805983 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		2A21DAB5935FA6D24841021E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0401C53D44C1FE024EEB3BBE /* Pods-acknowledgements.markdown */,
+				3DD95EA8DE5C28E6BB1FE408 /* Pods-acknowledgements.plist */,
+				EC8C9409104E4CA3E670B1B4 /* Pods-dummy.m */,
+				789C25AA6288E7B2F4F57C70 /* Pods-environment.h */,
+				0DC531787FA999AAC7FFB367 /* Pods-resources.sh */,
+				94CE1F5D7F5CE8423DD49122 /* Pods.debug.xcconfig */,
+				3945D2C2BB4B6CB8D2344853 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		3B3B10CAB8961A4E0D5AD4D1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				77DA1FADCAB93F7D41724DE7 /* Pods-BETURLSession.xcconfig */,
+				0A365F28C8892453E3D3F089 /* Pods-BETURLSession-Private.xcconfig */,
+				03BECE8B6BCEDFD831643E55 /* Pods-BETURLSession-dummy.m */,
+				CA6ADB5A0D8098DD3C01570B /* Pods-BETURLSession-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-BETURLSession";
 			sourceTree = "<group>";
 		};
-		CA680BB0CA59DAAB9BFE8FB4 /* Pods */ = {
+		8A77A6EA361478B67FC5B6AB /* BETOAuth2Client */ = {
 			isa = PBXGroup;
 			children = (
-				F6DFA00AAC2979582EF82C02 /* BETURLSession */,
+				DE943E6552135C0276DA876B /* BETOAuth2Client.h */,
+				F4D8B08E762A78797936D1C1 /* BETOAuth2Client.m */,
+				69DA4993B7AF1015719F02AF /* BETOAuth2Credential.h */,
+				34BE2DD4FA7F80AD1FC8D644 /* BETOAuth2Credential.m */,
 			);
-			name = Pods;
+			path = BETOAuth2Client;
 			sourceTree = "<group>";
 		};
-		D1CF21743CA3BD1FA9C3670F = {
+		B07BFC5B474D9B83DDF25976 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				256A384BAA9463B5F241795A /* Podfile */,
-				70DACA6881FC907C4AF7F305 /* Development Pods */,
-				384FD84B3E4CBCC882509FD5 /* Frameworks */,
-				CA680BB0CA59DAAB9BFE8FB4 /* Pods */,
-				5F2725866708C91A9CDBF732 /* Products */,
-				328B43F4DD59161A16767E29 /* Targets Support Files */,
+				190443D0AA5FA022AD4D0794 /* BETOAuth2Client */,
 			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		D65746B867E92A1A468AD1CB /* Resources */ = {
+		B22962A2B8BE575438BB9C21 /* BETURLSession */ = {
 			isa = PBXGroup;
 			children = (
-				61AFBFC396DA02E55C60BA94 /* __BETInternalShared.private */,
+				A0D4B8494D3235E8AD27776C /* BETResponse.h */,
+				1FC29E560CF556BE923BAF46 /* BETResponse.m */,
+				480E83CD7B3C2E7387D0274A /* BETURLSession.h */,
+				4DA428F743767598057BFDF3 /* BETURLSessionAbstractSerializer.h */,
+				61BD00576432C10CEDFDECDA /* BETURLSessionAbstractSerializer.m */,
+				48A5A02E7F33BA07AEFE6F8E /* BETURLSessionRequestSerializerFormURLEncoding.h */,
+				C69616BBAD0C74ADF90F01DB /* BETURLSessionRequestSerializerFormURLEncoding.m */,
+				53436934C58CC5509E076837 /* BETURLSessionRequestSerializerJSON.h */,
+				1C5D319B4771D70397235204 /* BETURLSessionRequestSerializerJSON.m */,
+				FA43DABA72CCCB146DD2EB12 /* BETURLSessionResponseSerializerJSON.h */,
+				98E8C7219D0D29D9F52C94B0 /* BETURLSessionResponseSerializerJSON.m */,
+				34E1E893F4B49C067317FAD3 /* BETURLSessionTaskSharedBlocks.h */,
+				4F337C9FA82C5BDD7393E29D /* NSURLSession+BETURLSession.h */,
+				EBFF7401CA5137AFE8C9798D /* NSURLSession+BETURLSession.m */,
+				04B9ACA9EF8D6A725A255288 /* NSURLSessionTask+BETURLSession.h */,
+				8C4CC63A5B3996B553181279 /* NSURLSessionTask+BETURLSession.m */,
+				A7731C979C47D6D72255EE5C /* __BETInternalManager.h */,
+				3238C19633F5C04FA7CDC8D0 /* __BETInternalManager.m */,
+				1D91DBB6A12D8FA0684342FB /* __BETInternalManager+Delegate.h */,
+				03A6DFDB4DC500B2B0F5B096 /* __BETInternalManager+Delegate.m */,
+				E5EC2A53A2427B581D6CB591 /* Resources */,
+				3B3B10CAB8961A4E0D5AD4D1 /* Support Files */,
+			);
+			path = BETURLSession;
+			sourceTree = "<group>";
+		};
+		D73BEB11EE1B0C27D396CC8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AE8E613FA78488A0B7E751A /* libPods.a */,
+				98336E39F9862E2C7CE2088A /* libPods-BETOAuth2Client.a */,
+				C7EC3B4C0A7669D6B6E771E7 /* libPods-BETURLSession.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5EC2A53A2427B581D6CB591 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				525A9F30E038B089D1BEEE4D /* __BETInternalShared.private */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		EC3F987FBA6341E61D5DB0D0 /* iOS */ = {
+		E6CC050494B3405C019EDAD3 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1B6E3303286B2E03F35F921E /* Foundation.framework */,
+				2A21DAB5935FA6D24841021E /* Pods */,
 			);
-			name = iOS;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		F6DFA00AAC2979582EF82C02 /* BETURLSession */ = {
+		EDCACBAC68BA724E4C7A2D6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C940D8354AEE1739236F601 /* BETResponse.h */,
-				F5B2DC6EDDDA560BAEB74ACA /* BETResponse.m */,
-				4183C11BDD3978B35AF0389A /* BETURLSession.h */,
-				6D72A38DE0FC851F0DA208D7 /* BETURLSessionAbstractSerializer.h */,
-				02A0F768444203ED56DAA527 /* BETURLSessionAbstractSerializer.m */,
-				9671259B03DD2BD7B3255518 /* BETURLSessionRequestSerializerFormURLEncoding.h */,
-				0D704937705207E7AF789145 /* BETURLSessionRequestSerializerFormURLEncoding.m */,
-				1A8CF9427820506659C2BFAF /* BETURLSessionRequestSerializerJSON.h */,
-				7E0BD00F7552D473FC9AEEE8 /* BETURLSessionRequestSerializerJSON.m */,
-				E17EA39C60CFEB3C776D3261 /* BETURLSessionResponseSerializerJSON.h */,
-				E598DA54707FEF473FBAEF6A /* BETURLSessionResponseSerializerJSON.m */,
-				14787A950D07E55775EDFD02 /* BETURLSessionTaskSharedBlocks.h */,
-				18F407AF19424FC84098A562 /* NSURLSession+BETURLSession.h */,
-				F5871054972B5D20167F3A55 /* NSURLSession+BETURLSession.m */,
-				11BD528F057EFD145B181A7E /* NSURLSessionTask+BETURLSession.h */,
-				2383CC6B27B8D32907F7A210 /* NSURLSessionTask+BETURLSession.m */,
-				05FD4CB96A538EEADF12E2E1 /* __BETInternalManager.h */,
-				075C4BA397E347909A193B70 /* __BETInternalManager.m */,
-				88CA26423C147B9244CBD4BC /* __BETInternalManager+Delegate.h */,
-				E5728C1C42F88E5D30DC5454 /* __BETInternalManager+Delegate.m */,
-				D65746B867E92A1A468AD1CB /* Resources */,
-				C9D69E3ADD133FB27C4238E3 /* Support Files */,
+				1F9506A2B1D8703AD865D10A /* iOS */,
 			);
-			path = BETURLSession;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F58C3F729CA19E63370414A7 = {
+			isa = PBXGroup;
+			children = (
+				CD1B58CE6B5B29FAAF244B93 /* Podfile */,
+				B07BFC5B474D9B83DDF25976 /* Development Pods */,
+				EDCACBAC68BA724E4C7A2D6D /* Frameworks */,
+				F6FD680E902F97F1F10FE563 /* Pods */,
+				D73BEB11EE1B0C27D396CC8A /* Products */,
+				E6CC050494B3405C019EDAD3 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		F6FD680E902F97F1F10FE563 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B22962A2B8BE575438BB9C21 /* BETURLSession */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		25918890E3661D70670E6551 /* Headers */ = {
+		9A7E7A4A257C1586CE22BD55 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4274AF53B859AC6B0DE74EAA /* BETResponse.h in Headers */,
-				F0D43D5F6B72A1EA62A85A6B /* BETURLSession.h in Headers */,
-				DBBB2EC03CFF4EF548883D9F /* BETURLSessionAbstractSerializer.h in Headers */,
-				B6E441BC057F7F5BBB6F00DE /* BETURLSessionRequestSerializerFormURLEncoding.h in Headers */,
-				98A10C3CA26F20AE6E033924 /* BETURLSessionRequestSerializerJSON.h in Headers */,
-				C888456769EEF2467CB8E348 /* BETURLSessionResponseSerializerJSON.h in Headers */,
-				4F57C09BD37CE24AA20B7E5B /* BETURLSessionTaskSharedBlocks.h in Headers */,
-				905C2B49C3F68A81447D8543 /* NSURLSession+BETURLSession.h in Headers */,
-				A3BCBAB958DF2C2F27610294 /* NSURLSessionTask+BETURLSession.h in Headers */,
-				EC72B099E3BBFBAC73D9F0D8 /* __BETInternalManager+Delegate.h in Headers */,
-				F08F521C46AC41D150E7705E /* __BETInternalManager.h in Headers */,
+				48A9E25C8C92C49E15DB4697 /* BETOAuth2Client.h in Headers */,
+				B7202D103C40E2F6744BA445 /* BETOAuth2Credential.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D829FF32E7C68553F5388B5 /* Headers */ = {
+		A3F6F9A3537A513994E0FD36 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BE2CD081DED70C0DFB0427D /* BETOAuth2Client.h in Headers */,
-				CFBD701D62DBEF95B2418688 /* BETOAuth2Credential.h in Headers */,
+				76CE938D907F2D7F87AE5063 /* BETResponse.h in Headers */,
+				B518DE262265117D5BC2D0F3 /* BETURLSession.h in Headers */,
+				308AFEE340A360176242F28E /* BETURLSessionAbstractSerializer.h in Headers */,
+				D8A40297C33D9FF57CA275A1 /* BETURLSessionRequestSerializerFormURLEncoding.h in Headers */,
+				F27453B04BB570D64067D175 /* BETURLSessionRequestSerializerJSON.h in Headers */,
+				78F75BF084A18FBA3E26343E /* BETURLSessionResponseSerializerJSON.h in Headers */,
+				9EEA91E07CEF2AE5F11070DA /* BETURLSessionTaskSharedBlocks.h in Headers */,
+				13405522562517280BBB5260 /* NSURLSession+BETURLSession.h in Headers */,
+				DBF59230CAC749873CE5DC72 /* NSURLSessionTask+BETURLSession.h in Headers */,
+				65AFC3E24DA34592889091D9 /* __BETInternalManager+Delegate.h in Headers */,
+				0B6359E8A4A90C1F92536EC2 /* __BETInternalManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8B9907522A569D3E63C6FA0C /* Pods */ = {
+		22AA1A254CDC172C46C2B1EB /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B27F79A97E67D92CFF235AAC /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = DF905CFCD6E56BA5D873C5F4 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				50B7DBD93D2317D1FE000C74 /* Sources */,
-				6CC56A716BA9D327BB32BD42 /* Frameworks */,
+				F22784E548933C89AFF3D5D2 /* Sources */,
+				C3BA53FE9740261AD5DE41A3 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				493791D4B1C93BC1E7732822 /* PBXTargetDependency */,
-				A9DCCE9549517693242CF400 /* PBXTargetDependency */,
+				15A3D639D892C9DF9DF1A4EF /* PBXTargetDependency */,
+				CE0B37B9667D821295D2E70B /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 35652BEF9C43EE456669AFDB /* libPods.a */;
+			productReference = 7AE8E613FA78488A0B7E751A /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		EC0609C708A26D14B261E2A4 /* Pods-BETOAuth2Client */ = {
+		5E9418B5F0C643AFD683B92D /* Pods-BETOAuth2Client */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66541580EDC96484F79A1C75 /* Build configuration list for PBXNativeTarget "Pods-BETOAuth2Client" */;
+			buildConfigurationList = 0F9595A7FB46335C324EFA60 /* Build configuration list for PBXNativeTarget "Pods-BETOAuth2Client" */;
 			buildPhases = (
-				E0A505DCE68ADBB717A7364E /* Sources */,
-				FA5CB8969FDAA819075DA01B /* Frameworks */,
-				9D829FF32E7C68553F5388B5 /* Headers */,
+				076E14BE53BA1D61ED661FF6 /* Sources */,
+				B75FD72A3415FC79768540B6 /* Frameworks */,
+				9A7E7A4A257C1586CE22BD55 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FBC0A2EBAF3C53B0F99E12CB /* PBXTargetDependency */,
+				7D9A0B78D9E8C6B3A15FD5A2 /* PBXTargetDependency */,
 			);
 			name = "Pods-BETOAuth2Client";
 			productName = "Pods-BETOAuth2Client";
-			productReference = 1A4D0F01C8361ECE5AB2D5B9 /* libPods-BETOAuth2Client.a */;
+			productReference = 98336E39F9862E2C7CE2088A /* libPods-BETOAuth2Client.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		F5F81FA3853721318552570A /* Pods-BETURLSession */ = {
+		74E60825E41F25F60EEA8A2C /* Pods-BETURLSession */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 87DC49E743A64064D8DA4B85 /* Build configuration list for PBXNativeTarget "Pods-BETURLSession" */;
+			buildConfigurationList = 0E5FE40591F88E7676D3872E /* Build configuration list for PBXNativeTarget "Pods-BETURLSession" */;
 			buildPhases = (
-				4F5648272699FD86D8640E6E /* Sources */,
-				6E1E3F286B6C3BC45DFB0A00 /* Frameworks */,
-				25918890E3661D70670E6551 /* Headers */,
+				E07ADAA04EA48FAB1C4D65A1 /* Sources */,
+				7AEED4D44CC8A54F4097AA0A /* Frameworks */,
+				A3F6F9A3537A513994E0FD36 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -381,99 +381,150 @@
 			);
 			name = "Pods-BETURLSession";
 			productName = "Pods-BETURLSession";
-			productReference = 1E38A8268059778221E1FB44 /* libPods-BETURLSession.a */;
+			productReference = C7EC3B4C0A7669D6B6E771E7 /* libPods-BETURLSession.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C946322101E90D0D5E3167FF /* Project object */ = {
+		742772ADFAB4C5AB7AA520D4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = E916D4A215E415358037B43F /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 90D021B0E3A2FAE8B2736330 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D1CF21743CA3BD1FA9C3670F;
-			productRefGroup = 5F2725866708C91A9CDBF732 /* Products */;
+			mainGroup = F58C3F729CA19E63370414A7;
+			productRefGroup = D73BEB11EE1B0C27D396CC8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8B9907522A569D3E63C6FA0C /* Pods */,
-				EC0609C708A26D14B261E2A4 /* Pods-BETOAuth2Client */,
-				F5F81FA3853721318552570A /* Pods-BETURLSession */,
+				22AA1A254CDC172C46C2B1EB /* Pods */,
+				5E9418B5F0C643AFD683B92D /* Pods-BETOAuth2Client */,
+				74E60825E41F25F60EEA8A2C /* Pods-BETURLSession */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4F5648272699FD86D8640E6E /* Sources */ = {
+		076E14BE53BA1D61ED661FF6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B667D1F5A8A940A4D8909B6 /* BETResponse.m in Sources */,
-				F76580A353330A6C0C06D991 /* BETURLSessionAbstractSerializer.m in Sources */,
-				E12A1935E767B6E2A9623AB7 /* BETURLSessionRequestSerializerFormURLEncoding.m in Sources */,
-				852C29ABBC2791474E8A2F3E /* BETURLSessionRequestSerializerJSON.m in Sources */,
-				DFA628FDB469A348729C9D56 /* BETURLSessionResponseSerializerJSON.m in Sources */,
-				DD2BB2BF9F5919A7824B5095 /* NSURLSession+BETURLSession.m in Sources */,
-				D62AAEF14A4AB22AB4FAFC1C /* NSURLSessionTask+BETURLSession.m in Sources */,
-				D298BED2B6089C36D35716D9 /* Pods-BETURLSession-dummy.m in Sources */,
-				A1442A0B25387CB699B03DBB /* __BETInternalManager+Delegate.m in Sources */,
-				8348577707C47309548772E5 /* __BETInternalManager.m in Sources */,
+				9FAA4045A1F52BAEF2DABC1B /* BETOAuth2Client.m in Sources */,
+				3DECBDFF1DA2A61B068A6D2C /* BETOAuth2Credential.m in Sources */,
+				1895225375EE794699F7E8B7 /* Pods-BETOAuth2Client-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50B7DBD93D2317D1FE000C74 /* Sources */ = {
+		E07ADAA04EA48FAB1C4D65A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FD98079668B6A547051AF6 /* Pods-dummy.m in Sources */,
+				1670A223AE1BB49F2D564A4D /* BETResponse.m in Sources */,
+				910052ED183CD96A87392052 /* BETURLSessionAbstractSerializer.m in Sources */,
+				E42DE7A5B65AC83BBAA65DAA /* BETURLSessionRequestSerializerFormURLEncoding.m in Sources */,
+				AFAB4B76B830F7EDCDE39120 /* BETURLSessionRequestSerializerJSON.m in Sources */,
+				933327884CCDD694A6F19105 /* BETURLSessionResponseSerializerJSON.m in Sources */,
+				68F052094CD92A7773F80876 /* NSURLSession+BETURLSession.m in Sources */,
+				1B7E905425EA5BD4FC13043C /* NSURLSessionTask+BETURLSession.m in Sources */,
+				60DED0ACF5D0D49F4D44B80B /* Pods-BETURLSession-dummy.m in Sources */,
+				BAFA482F3BC23C405EBB1441 /* __BETInternalManager+Delegate.m in Sources */,
+				E9176E8222951F157060E5D6 /* __BETInternalManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E0A505DCE68ADBB717A7364E /* Sources */ = {
+		F22784E548933C89AFF3D5D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D16849298D43DBDAB0496852 /* BETOAuth2Client.m in Sources */,
-				D95214C472A3E0A490225B09 /* BETOAuth2Credential.m in Sources */,
-				FFD35BD8F26C95710AF9F77B /* Pods-BETOAuth2Client-dummy.m in Sources */,
+				6C81064CF1033AC2E63DEEA5 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		493791D4B1C93BC1E7732822 /* PBXTargetDependency */ = {
+		15A3D639D892C9DF9DF1A4EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-BETOAuth2Client";
-			target = EC0609C708A26D14B261E2A4 /* Pods-BETOAuth2Client */;
-			targetProxy = 443593494A09AABE49383F94 /* PBXContainerItemProxy */;
+			target = 5E9418B5F0C643AFD683B92D /* Pods-BETOAuth2Client */;
+			targetProxy = 56C251B625C8DDDF2998DD13 /* PBXContainerItemProxy */;
 		};
-		A9DCCE9549517693242CF400 /* PBXTargetDependency */ = {
+		7D9A0B78D9E8C6B3A15FD5A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-BETURLSession";
-			target = F5F81FA3853721318552570A /* Pods-BETURLSession */;
-			targetProxy = 59ABACEF0FB17BEAB0570729 /* PBXContainerItemProxy */;
+			target = 74E60825E41F25F60EEA8A2C /* Pods-BETURLSession */;
+			targetProxy = 3F80100FF4BFB563AC5B2AB6 /* PBXContainerItemProxy */;
 		};
-		FBC0A2EBAF3C53B0F99E12CB /* PBXTargetDependency */ = {
+		CE0B37B9667D821295D2E70B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-BETURLSession";
-			target = F5F81FA3853721318552570A /* Pods-BETURLSession */;
-			targetProxy = 247934CB4B06DE2671D4B474 /* PBXContainerItemProxy */;
+			target = 74E60825E41F25F60EEA8A2C /* Pods-BETURLSession */;
+			targetProxy = 0211EF941324F5CC515578F9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		37E374217E2060BE6E7BB16E /* Release */ = {
+		2902D09A3E70A060A82AEBBC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1781097FCF5642EF0BBC7F1 /* Pods-BETOAuth2Client-Private.xcconfig */;
+			baseConfigurationReference = 2A0C64DA334A1ACA6A5579C4 /* Pods-BETOAuth2Client-Private.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETOAuth2Client/Pods-BETOAuth2Client-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		304EFFA00ED1F736686B920C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A365F28C8892453E3D3F089 /* Pods-BETURLSession-Private.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETURLSession/Pods-BETURLSession-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5B7A791694ABC0ECCA48EA2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A365F28C8892453E3D3F089 /* Pods-BETURLSession-Private.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETURLSession/Pods-BETURLSession-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		718B5BCCB751EB9279DAAEDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A0C64DA334A1ACA6A5579C4 /* Pods-BETOAuth2Client-Private.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -488,7 +539,41 @@
 			};
 			name = Release;
 		};
-		538E86F5F317F7A3F7D042CD /* Debug */ = {
+		A36AEA9C59F18BD2BD306322 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94CE1F5D7F5CE8423DD49122 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B9D848AFF85ED37F408ADB72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3945D2C2BB4B6CB8D2344853 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BD5D12ADE59042477E961214 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -527,58 +612,7 @@
 			};
 			name = Debug;
 		};
-		6B3E989DFAF59807E2C338C4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A4F91D148C88F2F2F0A420F /* Pods.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		6BF1F3FED5F94876C7924590 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1781097FCF5642EF0BBC7F1 /* Pods-BETOAuth2Client-Private.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETOAuth2Client/Pods-BETOAuth2Client-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		C5305AC018DFF2FBDA22AC5C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 830EAFCF963F4C7610955E40 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		C7AA2320854377BE8F6F09E5 /* Release */ = {
+		EB618D29256F42C8D677452C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -612,80 +646,46 @@
 			};
 			name = Release;
 		};
-		C9F090F5F897A30439873863 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D894076EF8DA260745F72FA /* Pods-BETURLSession-Private.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETURLSession/Pods-BETURLSession-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		EB8133842EFD369FFE76E18E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D894076EF8DA260745F72FA /* Pods-BETURLSession-Private.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETURLSession/Pods-BETURLSession-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		66541580EDC96484F79A1C75 /* Build configuration list for PBXNativeTarget "Pods-BETOAuth2Client" */ = {
+		0E5FE40591F88E7676D3872E /* Build configuration list for PBXNativeTarget "Pods-BETURLSession" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6BF1F3FED5F94876C7924590 /* Debug */,
-				37E374217E2060BE6E7BB16E /* Release */,
+				5B7A791694ABC0ECCA48EA2C /* Debug */,
+				304EFFA00ED1F736686B920C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87DC49E743A64064D8DA4B85 /* Build configuration list for PBXNativeTarget "Pods-BETURLSession" */ = {
+		0F9595A7FB46335C324EFA60 /* Build configuration list for PBXNativeTarget "Pods-BETOAuth2Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EB8133842EFD369FFE76E18E /* Debug */,
-				C9F090F5F897A30439873863 /* Release */,
+				2902D09A3E70A060A82AEBBC /* Debug */,
+				718B5BCCB751EB9279DAAEDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B27F79A97E67D92CFF235AAC /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		90D021B0E3A2FAE8B2736330 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5305AC018DFF2FBDA22AC5C /* Debug */,
-				6B3E989DFAF59807E2C338C4 /* Release */,
+				BD5D12ADE59042477E961214 /* Debug */,
+				EB618D29256F42C8D677452C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E916D4A215E415358037B43F /* Build configuration list for PBXProject "Pods" */ = {
+		DF905CFCD6E56BA5D873C5F4 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				538E86F5F317F7A3F7D042CD /* Debug */,
-				C7AA2320854377BE8F6F09E5 /* Release */,
+				A36AEA9C59F18BD2BD306322 /* Debug */,
+				B9D848AFF85ED37F408ADB72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C946322101E90D0D5E3167FF /* Project object */;
+	rootObject = 742772ADFAB4C5AB7AA520D4 /* Project object */;
 }
