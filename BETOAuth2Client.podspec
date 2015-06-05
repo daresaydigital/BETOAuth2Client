@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   name           = "BETOAuth2Client"
   url            = "https://github.com/screeninteraction/#{name}"
   git_url        = "#{url}.git"
-  version        = "1.0.2-beta"
+  version        = "1.0.2-beta1"
   source_files   = "#{name}/**/*.{h,m}"
 
   s.name         = name
