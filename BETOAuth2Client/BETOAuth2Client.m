@@ -233,14 +233,15 @@
     self.authenticationCompletionBlock = theCompletion;
     if(withUI){
         NSURL * redirectURL = [NSURL URLWithString:[self.webAuthURL stringByAppendingPathComponent:theAuthorizationPath]];
-        NSString * queryparameter = nil;
-        queryparameter = [[BETURLSessionSerializer new] queryStringFromParameters:params];
-        redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString
-                                             stringByAppendingFormat:@"?%@", queryparameter]];
+        NSMutableString * queryparameter = [NSMutableString string];
+        
+        for (NSString *key in [params allKeys]) {
+            [queryparameter appendFormat:@"%@=%@&", key, params[key]];
+        }
+        redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString stringByAppendingFormat:@"?%@", queryparameter sub]];
 #if TARGET_OS_IPHONE
         [[UIApplication sharedApplication] openURL:redirectURL];
 #endif
-    }
     else{
         //TODO: should not show UI
         params[@"prompt"] = @"none";
