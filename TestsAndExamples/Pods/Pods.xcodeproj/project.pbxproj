@@ -390,7 +390,7 @@
 		742772ADFAB4C5AB7AA520D4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 90D021B0E3A2FAE8B2736330 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -475,7 +475,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A0C64DA334A1ACA6A5579C4 /* Pods-BETOAuth2Client-Private.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETOAuth2Client/Pods-BETOAuth2Client-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -492,7 +491,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A365F28C8892453E3D3F089 /* Pods-BETURLSession-Private.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETURLSession/Pods-BETURLSession-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -509,7 +507,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A365F28C8892453E3D3F089 /* Pods-BETURLSession-Private.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETURLSession/Pods-BETURLSession-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -526,7 +523,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A0C64DA334A1ACA6A5579C4 /* Pods-BETOAuth2Client-Private.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-BETOAuth2Client/Pods-BETOAuth2Client-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -543,7 +539,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94CE1F5D7F5CE8423DD49122 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -560,7 +555,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3945D2C2BB4B6CB8D2344853 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

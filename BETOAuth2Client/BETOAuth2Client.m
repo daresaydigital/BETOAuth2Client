@@ -135,7 +135,7 @@
                                                             sessionConfiguration:sessionConfiguration
                                                                requestSerializer:request
                                                               responseSerializer:
-                                                [BETURLSessionResponseSerializerJSON serializerWithJSONReadingOptions:NSJSONWritingPrettyPrinted withoutNull:YES] operationQueue:nil];    
+                                                [BETURLSessionResponseSerializerJSON serializerWithJSONReadingOptions:NSJSONReadingMutableContainers withoutNull:YES] operationQueue:nil];    
     
     [[BETOAuth2ClientManager sharedManager].clientMap setObject:client forKey:theIdentifier];
 
@@ -217,7 +217,6 @@
     self.nonceState = (NSString *)CFBridgingRelease(nonce);
     NSParameterAssert(self.nonceState);
     
-    __weak typeof(self) weakSelf = self;
     NSMutableDictionary * params = @{@"response_type" : @"code",
                                      @"client_id" : self.clientId,
                                      @"redirect_uri" : self.redirectURI,
@@ -238,10 +237,11 @@
         for (NSString *key in [params allKeys]) {
             [queryparameter appendFormat:@"%@=%@&", key, params[key]];
         }
-        redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString stringByAppendingFormat:@"?%@", queryparameter sub]];
+        redirectURL =  [NSURL URLWithString:[redirectURL.absoluteString stringByAppendingFormat:@"?%@", queryparameter]];
 #if TARGET_OS_IPHONE
         [[UIApplication sharedApplication] openURL:redirectURL];
 #endif
+    }
     else{
         //TODO: should not show UI
         params[@"prompt"] = @"none";
@@ -358,7 +358,7 @@
         
         __weak typeof(self) weakSelf = self;
         [self retrieveThirdPartyAccessCredentialWithTokenPath:self.tokenPath params:postData completion:^(id<NSFastEnumeration> responseObject, NSHTTPURLResponse *URLResponse, NSError *error) {
-            weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:responseObject];
+            weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)responseObject];
             weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
         }];
     }

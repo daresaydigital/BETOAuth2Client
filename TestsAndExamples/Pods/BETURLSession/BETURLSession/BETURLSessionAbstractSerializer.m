@@ -321,7 +321,7 @@ static NSString * const BETURLSessionSerializerAbstractEscapedInQueryStringChara
         NSString *localizedDescriptionString;
         NSString *errorMessage;
         if(theData) {
-            theResponseObject =[NSJSONSerialization JSONObjectWithData:theData options:NSJSONWritingPrettyPrinted|| NSJSONReadingMutableContainers error:nil];
+            theResponseObject =[NSJSONSerialization JSONObjectWithData:theData options:NSJSONReadingMutableContainers error:nil];
             if([theResponseObject isKindOfClass:[NSDictionary class]]) errorMessage = theResponseObject[@"error"];
         }
         localizedDescriptionString = errorMessage ?

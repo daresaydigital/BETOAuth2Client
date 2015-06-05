@@ -46,27 +46,15 @@ static NSString * const ETALIOKeyAppSecret = @"955b2c4071dde0014296d0b63d77ee47"
                                                                       scopes:nil
                                                                  requestType:BETOAuth2ClientRequestEncodingTypeFormURLEncoding];
   
-  
-  
-  [authClient authenticateWithAuthorizationPath:@"oauth2"
-                                      tokenPath:@"oauth2/token"
-                                     completion:^(BETOAuth2Credential *oldCredential, NSError *xerror) {
-                                       NSLog(@"%@ %@", oldCredential,xerror);
-                                       
-                                       [authClient refreshWithTokenPath:@"oauth2/token" completion:^(BETOAuth2Credential * newCredential, NSError *yerror) {
-                                         NSLog(@"%@ %@", newCredential,yerror);
-                                         
-                                         [authClient requestWithResourcePath:@"v1/profile/me" parameters:nil HTTPMethod:@"GET" completion:^(NSDictionary *responseObject, NSHTTPURLResponse *URLResponse, NSError *error) {
-                                         NSLog(@"%@ %@", responseObject, error);
-                                         }];
-                                       }];
-                                       
-                                       
-                                     }];
-  
+    [authClient authenticateWithAuthorizationPath:@"oauth2" tokenPath:@"oauth2/token" withUI:YES completion:^(BETOAuth2Credential *credential, NSError *error) {
+        [authClient refreshWithTokenPath:@"oauth2/token" completion:^(BETOAuth2Credential * newCredential, NSError *yerror) {
+            NSLog(@"%@ %@", newCredential,yerror);
+            
+            [authClient requestWithResourcePath:@"v1/profile/me" parameters:nil HTTPMethod:@"GET" completion:^(NSDictionary *responseObject, NSHTTPURLResponse *URLResponse, NSError *error) {
+                NSLog(@"%@ %@", responseObject, error);
+            }];
+        }];
+    }];
 }
 
 @end
-
-
-//[authClient authenticateWithResourceOwner:@"+46728880188" andPassword:@"diablo" andTokenPath:@"oauth2/token" onComplete:^
