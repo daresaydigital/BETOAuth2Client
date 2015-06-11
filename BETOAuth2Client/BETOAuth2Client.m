@@ -173,7 +173,7 @@
 
 -(void)authenticateWithResourceOwner:(NSString *)theUsername andPassword:(NSString *)thePassword
                            tokenPath:(NSString *)theTokenPath
-                          completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion {
+                          completion:(BETOAuth2ClientAuthenticationCompletionBlock)theCompletion; {
     NSParameterAssert(theCompletion);
     NSParameterAssert(theTokenPath);
     NSParameterAssert(theUsername);
@@ -187,14 +187,24 @@
                                          @"password" : thePassword
                                          }.mutableCopy;
     
-    if([theUsername isEqualToString:self.clientId]) params[@"grant_type"] = @"client_credentials";
+    if([theUsername isEqualToString:self.clientId]) {
+        params[@"grant_type"] = @"client_credentials";
+    }
     
     __weak typeof(self) weakSelf = self;
     self.authenticationCompletionBlock = theCompletion;
     NSURLSessionTask * task = [self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(BETResponse * response) {
+        NSError * error = nil;
+        if (!response.error) {
+            weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
+        }
+        else {
+            NSMutableDictionary *userInfo = response.error.userInfo.mutableCopy;
+            userInfo[@"blocked_for"] = response.content[@"blocked_for"];
+            error = [NSError errorWithDomain:response.error.domain code:response.error.code userInfo:userInfo];
+        }
         
-        weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
-        weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, response.error);
+        weakSelf.authenticationCompletionBlock(weakSelf.accessCredential, error);
         
     }];
     
