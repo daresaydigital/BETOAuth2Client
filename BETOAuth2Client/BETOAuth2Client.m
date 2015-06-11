@@ -200,7 +200,9 @@
         }
         else {
             NSMutableDictionary *userInfo = response.error.userInfo.mutableCopy;
-            userInfo[@"blocked_for"] = response.content[@"blocked_for"];
+            if (userInfo[@"blocked_for"]) {
+                userInfo[@"blocked_for"] = response.content[@"blocked_for"];
+            }            
             error = [NSError errorWithDomain:response.error.domain code:response.error.code userInfo:userInfo];
         }
         
