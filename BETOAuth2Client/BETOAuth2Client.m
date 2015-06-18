@@ -234,7 +234,8 @@
                                      @"redirect_uri" : self.redirectURI,
                                      @"state" : self.nonceState,
                                      @"nonce" : self.nonceState,
-                                     @"acr_values":self.theloaLevel
+                                     @"acr_values" : self.theloaLevel,
+                                     @"prompt" : self.thePrompt
                                      }.mutableCopy;
     
     if(self.scopes && self.scopes.count > 0) {
