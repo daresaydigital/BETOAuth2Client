@@ -201,7 +201,7 @@
         }
         else {
             NSMutableDictionary *userInfo = response.error.userInfo.mutableCopy;
-            if (userInfo[@"blocked_for"]) {
+            if (response.content[@"blocked_for"]) {
                 userInfo[@"blocked_for"] = response.content[@"blocked_for"];
             }
             error = [NSError errorWithDomain:response.error.domain code:response.error.code userInfo:userInfo];
@@ -445,7 +445,7 @@
     NSParameterAssert(theCompletion);
     [[self.session bet_taskGETResource:theResourcePath withParams:params completion:^(BETResponse *response) {
         if(theCompletion) theCompletion(response.content, response.HTTPURLResponse, response.error);
-    }] resume];    
+    }] resume];
 }
 
 -(void)authenticateUserBySendingSMSWithPhoneNumber:(NSString *)thePhoneNumber
