@@ -47,9 +47,6 @@
     double delayInSeconds = 2.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
-        NSLog(@"MAP %@",self.clientMap);
-        
         [self SH_memoryDebugger];
     });
 }
@@ -84,6 +81,7 @@
 @implementation BETOAuth2Client : NSObject
 
 #pragma mark - Fetcher
+
 +(instancetype)existingOAuth2ClientWithIdentifier:(NSString *)theIdentifier {
     NSParameterAssert(theIdentifier);
     BETOAuth2Client * client = [[BETOAuth2ClientManager sharedManager].clientMap objectForKey:theIdentifier];
@@ -135,10 +133,10 @@
                                                             sessionConfiguration:sessionConfiguration
                                                                requestSerializer:request
                                                               responseSerializer:
-                                                [BETURLSessionResponseSerializerJSON serializerWithJSONReadingOptions:NSJSONReadingMutableContainers withoutNull:YES] operationQueue:nil];    
+                                                [BETURLSessionResponseSerializerJSON serializerWithJSONReadingOptions:NSJSONReadingMutableContainers withoutNull:YES] operationQueue:nil];
     
     [[BETOAuth2ClientManager sharedManager].clientMap setObject:client forKey:theIdentifier];
-
+    
     return client;
 }
 
@@ -156,9 +154,12 @@
 
 -(void)setAccessCredential:(BETOAuth2Credential *)accessCredential {
     _accessCredential = accessCredential;
-    if(accessCredential) [self.session bet_setValue:[NSString stringWithFormat:@"Bearer %@", accessCredential.accessToken] forHTTPHeaderField:@"Authorization"];
-    else [self.session bet_setValue:nil forHTTPHeaderField:@"Authorization"];
-    
+    if(accessCredential) {
+        [self.session bet_setValue:[NSString stringWithFormat:@"Bearer %@", accessCredential.accessToken] forHTTPHeaderField:@"Authorization"];
+    }
+    else {
+        [self.session bet_setValue:nil forHTTPHeaderField:@"Authorization"];
+    }
 }
 
 - (void)setAuthorizationHeaderFieldithClientID:(NSString *)clientID AndKey:(NSString *)clientSecret {
@@ -202,7 +203,7 @@
             NSMutableDictionary *userInfo = response.error.userInfo.mutableCopy;
             if (userInfo[@"blocked_for"]) {
                 userInfo[@"blocked_for"] = response.content[@"blocked_for"];
-            }            
+            }
             error = [NSError errorWithDomain:response.error.domain code:response.error.code userInfo:userInfo];
         }
         
@@ -292,13 +293,12 @@
                     }
                 }] resume];
     }
-    
 }
 
 -(void)authorizeThirdPartyCodeWithAuthorizationPath:(NSString *)theAuthorizationPath
                                          parameters:(id<NSFastEnumeration>)theParameters
                                              withUI:(Boolean)withUI
-                                      completeBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion {    
+                                      completeBlock:(BETOAuth2ClientRequestCompletionBlock)theCompletion {
     NSParameterAssert(theParameters);
     NSParameterAssert(theAuthorizationPath);
     
@@ -312,10 +312,7 @@
                                                 params:(NSDictionary *)params
                                             completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion {
     __weak typeof(self) weakSelf = self;
-    NSLog(@"self.session %@",self.session.configuration.HTTPAdditionalHeaders);
-    
     [[self.session bet_taskPOSTResource:theTokenPath withParams:params completion:^(BETResponse * response) {
-        NSLog(@"weakself response %@",response);
         weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
         if(theCompletion) theCompletion(response.content, response.HTTPURLResponse,response.error);
     }] resume];
@@ -323,7 +320,7 @@
 
 -(BOOL)handleApplicationOpenURL:(NSURL *)theUrl
           onlyMatchingUrlPrefix:(NSString *)thePrefix
-    withSourceApplicationString:(__unused NSString *)theSourceApplicationString {    
+    withSourceApplicationString:(__unused NSString *)theSourceApplicationString {
     NSParameterAssert(theUrl);
     NSParameterAssert(thePrefix);
     NSParameterAssert(theSourceApplicationString);
@@ -392,7 +389,6 @@
                                 };
     
     __weak typeof(self) weakSelf = self;
-    
     [self setAuthorizationHeaderFieldithClientIDAndKey];
     [[self.session bet_taskPOSTResource:theTokenPath withParams:postData completion:^(BETResponse * response) {
         weakSelf.accessCredential = [BETOAuth2Credential accessCredentialWithDictionary:(NSDictionary *)response.content];
@@ -449,14 +445,12 @@
     NSParameterAssert(theCompletion);
     [[self.session bet_taskGETResource:theResourcePath withParams:params completion:^(BETResponse *response) {
         if(theCompletion) theCompletion(response.content, response.HTTPURLResponse, response.error);
-    }] resume];
-    
+    }] resume];    
 }
 
 -(void)authenticateUserBySendingSMSWithPhoneNumber:(NSString *)thePhoneNumber
                                         completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion {
 }
-
 
 -(void)authenticateUserUsingTwoFactorWithResourcePath:(NSString *)theResourcePath
                                                params:(NSDictionary *)params
@@ -469,7 +463,6 @@
     }] resume];
 }
 
-
 -(void)requestCurrentAuthenticationStatusOfTwoFactorWithResourcePath:(NSString *)theResourcePath
                                                           completion:(BETOAuth2ClientRequestCompletionBlock)theCompletion {
     NSParameterAssert(theCompletion);
@@ -480,4 +473,3 @@
 }
 
 @end
-
